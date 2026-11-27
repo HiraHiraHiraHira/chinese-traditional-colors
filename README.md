@@ -2,7 +2,7 @@
 
 > 以现代美术馆策展视角，收录 **562 种中国传统色彩**（完整覆盖 526 经典传统色谱 + 36 补录典籍正色），深度考据其背后的古法制色工艺、天然原料、媒染配比与典籍出处。
 
-[参与工艺考据 (Contributing)](./CONTRIBUTING.md) · [开源协议 (License)](./LICENSE)
+[在线预览 (GitHub Pages Demo)](https://hirahirahirahira.github.io/chinese-traditional-colors/) · [参与工艺考据 (Contributing)](./CONTRIBUTING.md) · [开源协议 (License)](./LICENSE)
 
 ## ✨ 核心特性
 
