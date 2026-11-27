@@ -84,7 +84,7 @@ function FamilyGroupSection({
         </span>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-5">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-5">
         {displayed.map((c) => {
           const light = isLightHex(c.hex);
           const fav = isFavorite(c.id);
@@ -98,7 +98,7 @@ function FamilyGroupSection({
               {/* 纯净色块区 */}
               <div
                 onClick={() => onInspectInGallery(c)}
-                className="h-36 sm:h-40 p-3.5 flex flex-col justify-between cursor-pointer relative"
+                className="h-28 sm:h-40 p-3 sm:p-3.5 flex flex-col justify-between cursor-pointer relative"
                 style={{
                   backgroundColor: c.hex,
                   color: light ? '#1A1918' : '#F8F7F4',
@@ -106,11 +106,11 @@ function FamilyGroupSection({
               >
                 <div className="flex items-center justify-between text-[10px] font-mono opacity-75">
                   <span>{String(c.index).padStart(3, '0')}</span>
-                  <span>{PROVENANCE_META[c.provenance].label}</span>
+                  <span className="truncate ml-1">{PROVENANCE_META[c.provenance].label}</span>
                 </div>
 
                 <div className="flex items-center justify-between gap-2">
-                  <span className="text-[11px] font-medium opacity-0 group-hover:opacity-95 transition-opacity">
+                  <span className="hidden sm:inline text-[11px] font-medium opacity-0 group-hover:opacity-95 transition-opacity">
                     鉴赏工艺 →
                   </span>
                   <button
@@ -119,8 +119,8 @@ function FamilyGroupSection({
                       e.stopPropagation();
                       toggleFavorite(c.id, c.name, c.hex);
                     }}
-                    className={`p-1.5 rounded-full backdrop-blur-sm transition cursor-pointer ${
-                      fav ? 'opacity-100' : 'opacity-0 group-hover:opacity-90'
+                    className={`ml-auto p-1.5 rounded-full backdrop-blur-sm transition cursor-pointer ${
+                      fav ? 'opacity-100' : 'opacity-80 sm:opacity-0 sm:group-hover:opacity-90'
                     }`}
                     style={{
                       backgroundColor: light ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.16)',
@@ -134,7 +134,7 @@ function FamilyGroupSection({
               </div>
 
               {/* 卡片信息区 */}
-              <div className="p-3.5 flex-1 flex flex-col justify-between gap-2.5">
+              <div className="p-3 sm:p-3.5 flex-1 flex flex-col justify-between gap-2">
                 <Link to={`/color/${c.id}`} className="block">
                   <div className="flex items-baseline justify-between gap-1">
                     <h3 className="font-serif text-sm font-semibold text-main group-hover:underline underline-offset-4 truncate">
@@ -272,9 +272,9 @@ export function MatrixPage() {
           </p>
         </div>
 
-        {/* 矩阵搜索、工艺与排序 */}
-        <div className="flex flex-wrap items-center gap-2.5">
-          <div className="relative w-full sm:w-52">
+        {/* 矩阵搜索、工艺与排序（移动端规整两列网格） */}
+        <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2 sm:gap-2.5 w-full lg:w-auto">
+          <div className="relative col-span-2 sm:w-52">
             <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-faint pointer-events-none" />
             <input
               type="text"
@@ -298,7 +298,7 @@ export function MatrixPage() {
           <select
             value={craft}
             onChange={(e) => setCraft(e.target.value as CraftFilter)}
-            className="px-3 py-2 rounded-xl text-xs sm:text-[13px] text-main surface-card focus:outline-none cursor-pointer"
+            className="w-full sm:w-auto px-3 py-2 rounded-xl text-xs sm:text-[13px] text-main surface-card focus:outline-none cursor-pointer"
             aria-label="按工艺筛选"
           >
             {CRAFT_FILTER_OPTIONS.map((opt) => (
@@ -313,7 +313,7 @@ export function MatrixPage() {
             <select
               value={sortMode}
               onChange={(e) => setSortMode(e.target.value as MatrixSortMode)}
-              className="bg-transparent focus:outline-none cursor-pointer"
+              className="bg-transparent focus:outline-none cursor-pointer w-full sm:w-auto"
               aria-label="排序方式"
             >
               <option value="index" style={{ backgroundColor: 'var(--bg-surface)' }}>
@@ -331,7 +331,7 @@ export function MatrixPage() {
           <button
             type="button"
             onClick={() => setDrawerOpen(true)}
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-medium text-main surface-card hover:border-current/25 transition cursor-pointer"
+            className="col-span-2 sm:col-span-1 inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-medium text-main surface-card hover:border-current/25 transition cursor-pointer"
           >
             <Download className="w-3.5 h-3.5" />
             <span>导出 Tokens</span>
@@ -370,7 +370,10 @@ export function MatrixPage() {
               );
             })}
 
-            <span className="h-4 w-px mx-1" style={{ backgroundColor: 'var(--border-strong)' }} />
+            <span
+              className="hidden md:inline-block h-4 w-px mx-1"
+              style={{ backgroundColor: 'var(--border-strong)' }}
+            />
 
             {PROVENANCE_FILTER_OPTIONS.map((opt) => {
               const active = provenance === opt.id;

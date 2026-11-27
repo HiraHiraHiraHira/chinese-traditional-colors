@@ -74,9 +74,9 @@ export function CollectionDrawer() {
         onClick={() => setDrawerOpen(false)}
       />
 
-      {/* 右侧美术馆策展抽屉 */}
+      {/* 右侧美术馆策展抽屉（适配移动端 100dvh 与全宽显示） */}
       <aside
-        className="relative z-10 w-full max-w-lg h-full flex flex-col shadow-2xl hairline-l"
+        className="relative z-10 w-full sm:max-w-lg h-[100dvh] flex flex-col shadow-2xl hairline-l"
         style={{ backgroundColor: 'var(--bg-canvas)' }}
         aria-label="收藏夹与设计资产导出"
       >

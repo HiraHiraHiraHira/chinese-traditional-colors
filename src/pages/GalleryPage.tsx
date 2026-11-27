@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, Bookmark, Search, X } from 'lucide-react';
+import { ArrowUpRight, Bookmark, ChevronDown, Search, SlidersHorizontal, X } from 'lucide-react';
 import {
   COLORS,
   CRAFT_FILTER_OPTIONS,
@@ -39,6 +39,7 @@ export function GalleryPage() {
   } = useGallery();
 
   const [visibleLimit, setVisibleLimit] = useState(SIDEBAR_PAGE_SIZE);
+  const [mobileIndexOpen, setMobileIndexOpen] = useState(false);
 
   const currentColor = useMemo(
     () => getColorById(selectedColorId) ?? COLORS[0],
@@ -90,15 +91,234 @@ export function GalleryPage() {
 
   const handleSelectColor = (id: string) => {
     setSelectedColorId(id);
+    setMobileIndexOpen(false);
     if (window.scrollY > 120) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
+  const quickStripColors = useMemo(() => filteredColors.slice(0, 24), [filteredColors]);
+
   return (
-    <main className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
-      {/* 左侧：视口锁定高度的色彩索引栏，内部独立滚动且阻止滚动穿透 */}
-      <aside className="lg:col-span-4 xl:col-span-3 lg:sticky lg:top-24 lg:h-[calc(100vh-7.5rem)] surface-card rounded-2xl p-4 flex flex-col gap-3 min-h-0">
+    <main className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-start">
+      {/* 移动端 / 平板端（< lg）：紧凑速览色带 + 可折叠完整检索面板，首屏即见主色展台 */}
+      <div className="lg:hidden surface-card rounded-2xl p-3.5 space-y-3">
+        <div className="flex items-center gap-2">
+          <div className="relative flex-1 min-w-0">
+            <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-faint pointer-events-none" />
+            <input
+              type="text"
+              value={search}
+              onFocus={() => setMobileIndexOpen(true)}
+              onChange={(e) => {
+                setSearch(e.target.value);
+                setMobileIndexOpen(true);
+              }}
+              placeholder="搜索 562 种传统色、拼音或原料..."
+              className="w-full pl-9 pr-8 py-2 rounded-xl text-xs text-main placeholder:text-faint surface-subtle focus:outline-none focus:ring-1 focus:ring-current/25 transition"
+            />
+            {search && (
+              <button
+                type="button"
+                onClick={() => setSearch('')}
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-faint hover:text-main cursor-pointer"
+                aria-label="清空搜索"
+              >
+                <X className="w-3.5 h-3.5" />
+              </button>
+            )}
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setMobileIndexOpen((prev) => !prev)}
+            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-medium text-main surface-subtle shrink-0 cursor-pointer"
+            aria-expanded={mobileIndexOpen}
+          >
+            <SlidersHorizontal className="w-3.5 h-3.5 text-muted" />
+            <span>索引</span>
+            <span className="font-mono text-[10px] text-faint tabular-nums">
+              {filteredColors.length}
+            </span>
+            <ChevronDown
+              className={`w-3.5 h-3.5 text-muted transition-transform ${
+                mobileIndexOpen ? 'rotate-180' : ''
+              }`}
+            />
+          </button>
+        </div>
+
+        {/* 移动端横向快选色带 */}
+        {!mobileIndexOpen && quickStripColors.length > 0 && (
+          <div className="flex items-center gap-2 overflow-x-auto thin-scroll pb-1 -mx-0.5 px-0.5">
+            {quickStripColors.map((c) => {
+              const active = c.id === currentColor.id;
+              return (
+                <button
+                  key={c.id}
+                  type="button"
+                  onClick={() => handleSelectColor(c.id)}
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-xs shrink-0 transition cursor-pointer"
+                  style={
+                    active
+                      ? {
+                          backgroundColor: 'var(--text-primary)',
+                          color: 'var(--bg-surface)',
+                        }
+                      : {
+                          backgroundColor: 'var(--bg-subtle)',
+                          border: '1px solid var(--border-hairline)',
+                          color: 'var(--text-primary)',
+                        }
+                  }
+                >
+                  <span
+                    className="w-3 h-3 rounded-full shrink-0"
+                    style={{
+                      backgroundColor: c.hex,
+                      border: '1px solid rgba(128,128,128,0.28)',
+                    }}
+                  />
+                  <span className="font-serif font-medium whitespace-nowrap">{c.name}</span>
+                </button>
+              );
+            })}
+          </div>
+        )}
+
+        {/* 移动端展开的完整筛选 + 索引列表 */}
+        {mobileIndexOpen && (
+          <div className="space-y-3 pt-1 hairline-t">
+            <div className="flex flex-wrap gap-1.5 pt-2">
+              {FAMILY_OPTIONS.map((opt) => {
+                const active = family === opt.id;
+                return (
+                  <button
+                    key={opt.id}
+                    type="button"
+                    onClick={() => setFamily(opt.id)}
+                    className={`px-2.5 py-1 rounded-full text-xs transition cursor-pointer ${
+                      active ? 'font-medium' : 'text-muted hover:text-main'
+                    }`}
+                    style={
+                      active
+                        ? {
+                            backgroundColor: 'var(--text-primary)',
+                            color: 'var(--bg-surface)',
+                          }
+                        : {
+                            backgroundColor: 'var(--bg-subtle)',
+                            border: '1px solid var(--border-hairline)',
+                          }
+                    }
+                  >
+                    {opt.shortLabel}
+                  </button>
+                );
+              })}
+            </div>
+
+            <div className="grid grid-cols-2 gap-2">
+              <select
+                value={provenance}
+                onChange={(e) => setProvenance(e.target.value as ProvenanceFilter)}
+                className="px-2.5 py-1.5 rounded-xl text-xs text-main surface-subtle focus:outline-none cursor-pointer"
+                aria-label="移动端按可信度筛选"
+              >
+                {PROVENANCE_FILTER_OPTIONS.map((opt) => (
+                  <option
+                    key={opt.id}
+                    value={opt.id}
+                    style={{ backgroundColor: 'var(--bg-surface)' }}
+                  >
+                    {opt.label}
+                  </option>
+                ))}
+              </select>
+              <select
+                value={craft}
+                onChange={(e) => setCraft(e.target.value as CraftFilter)}
+                className="px-2.5 py-1.5 rounded-xl text-xs text-main surface-subtle focus:outline-none cursor-pointer"
+                aria-label="移动端按工艺筛选"
+              >
+                {CRAFT_FILTER_OPTIONS.map((opt) => (
+                  <option
+                    key={opt.id}
+                    value={opt.id}
+                    style={{ backgroundColor: 'var(--bg-surface)' }}
+                  >
+                    {opt.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="space-y-1 max-h-[42vh] overflow-y-auto overscroll-contain thin-scroll pr-1">
+              {filteredColors.length === 0 ? (
+                <div className="py-8 text-center text-xs text-faint">未找到匹配的传统色彩</div>
+              ) : (
+                <>
+                  {displayedColors.map((c) => {
+                    const active = c.id === currentColor.id;
+                    return (
+                      <button
+                        key={c.id}
+                        type="button"
+                        onClick={() => handleSelectColor(c.id)}
+                        className="w-full flex items-center gap-3 px-2.5 py-2 rounded-xl text-left transition cursor-pointer"
+                        style={
+                          active
+                            ? {
+                                backgroundColor: 'var(--bg-subtle)',
+                                border: '1px solid var(--border-strong)',
+                              }
+                            : { border: '1px solid transparent' }
+                        }
+                      >
+                        <span
+                          className="w-7 h-7 rounded-lg shrink-0 shadow-inner"
+                          style={{
+                            backgroundColor: c.hex,
+                            border: '1px solid rgba(128,128,128,0.18)',
+                          }}
+                        />
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-baseline justify-between gap-2">
+                            <span className="font-serif text-sm font-semibold text-main truncate">
+                              {c.name}
+                            </span>
+                            <span className="text-[11px] font-mono tabular-nums text-faint">
+                              {c.hex}
+                            </span>
+                          </div>
+                          <div className="flex items-center justify-between text-[11px] text-faint mt-0.5">
+                            <span className="truncate">{c.pinyin}</span>
+                            <span className="shrink-0 ml-2">
+                              {PROVENANCE_META[c.provenance].label}
+                            </span>
+                          </div>
+                        </div>
+                      </button>
+                    );
+                  })}
+                  {visibleLimit < filteredColors.length && (
+                    <button
+                      type="button"
+                      onClick={() => setVisibleLimit((prev) => prev + SIDEBAR_PAGE_SIZE)}
+                      className="w-full py-2 mt-1 rounded-xl text-[11px] font-mono text-muted surface-subtle cursor-pointer"
+                    >
+                      展开更多色卡（已显示 {displayedColors.length} / {filteredColors.length}）
+                    </button>
+                  )}
+                </>
+              )}
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* 桌面端左侧（lg+）：视口锁定高度的色彩索引栏，内部独立滚动且阻止滚动穿透 */}
+      <aside className="hidden lg:flex lg:col-span-4 xl:col-span-3 lg:sticky lg:top-24 lg:h-[calc(100vh-7.5rem)] surface-card rounded-2xl p-4 flex-col gap-3 min-h-0">
         {/* 搜索框 */}
         <div className="relative">
           <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-faint pointer-events-none" />

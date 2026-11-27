@@ -485,7 +485,7 @@ export function ColorDetailPage() {
                 ref={posterRef}
                 className={`w-full rounded-xl overflow-hidden flex ${
                   posterLayout === 'horizontal'
-                    ? 'flex-row min-h-[210px]'
+                    ? 'flex-row min-h-[190px] sm:min-h-[210px]'
                     : 'max-w-[340px] flex-col'
                 }`}
                 style={{
@@ -497,23 +497,25 @@ export function ColorDetailPage() {
                 <div
                   className={
                     posterLayout === 'horizontal'
-                      ? 'w-[44%] p-5 flex flex-col justify-between shrink-0'
-                      : 'h-72 p-6 flex flex-col justify-between'
+                      ? 'w-[42%] p-3.5 sm:p-5 flex flex-col justify-between shrink-0'
+                      : 'h-64 sm:h-72 p-5 sm:p-6 flex flex-col justify-between'
                   }
                   style={{
                     backgroundColor: color.hex,
                     color: lightSwatch ? '#1A1918' : '#F8F7F4',
                   }}
                 >
-                  <div className="flex items-center justify-between text-[10px] font-mono tracking-[0.16em] uppercase opacity-75">
+                  <div className="flex items-center justify-between text-[10px] font-mono tracking-[0.14em] sm:tracking-[0.16em] uppercase opacity-75">
                     <span>{posterLayout === 'horizontal' ? 'CTC' : 'CHINESE CHROMATICS'}</span>
                     <span>NO. {String(color.index).padStart(3, '0')}</span>
                   </div>
 
                   <div className="flex items-end justify-between gap-2">
                     <div>
-                      <div className="text-[11px] tracking-widest opacity-80">{craftLabel}</div>
-                      <div className="font-mono text-sm font-medium tracking-wider mt-0.5 tabular-nums">
+                      <div className="text-[10px] sm:text-[11px] tracking-widest opacity-80">
+                        {craftLabel}
+                      </div>
+                      <div className="font-mono text-xs sm:text-sm font-medium tracking-wider mt-0.5 tabular-nums">
                         {color.hex}
                       </div>
                     </div>
@@ -529,22 +531,22 @@ export function ColorDetailPage() {
                 <div
                   className={
                     posterLayout === 'horizontal'
-                      ? 'flex-1 p-5 flex flex-col justify-between gap-3'
-                      : 'p-6 space-y-4'
+                      ? 'flex-1 p-3.5 sm:p-5 flex flex-col justify-between gap-2.5 min-w-0'
+                      : 'p-5 sm:p-6 space-y-4'
                   }
                 >
                   <div className="space-y-1.5">
                     <div className="flex items-baseline justify-between gap-2 flex-wrap">
                       <div
                         className={`font-serif font-semibold tracking-wide ${
-                          posterLayout === 'horizontal' ? 'text-2xl' : 'text-3xl'
+                          posterLayout === 'horizontal' ? 'text-xl sm:text-2xl' : 'text-3xl'
                         }`}
                         style={{ color: posterTextPrimary }}
                       >
                         {color.name}
                       </div>
                       <div
-                        className="font-serif text-xs tracking-widest"
+                        className="font-serif text-[11px] sm:text-xs tracking-widest truncate"
                         style={{ color: posterTextSecondary }}
                       >
                         {color.pinyin}

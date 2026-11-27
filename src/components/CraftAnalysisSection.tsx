@@ -89,8 +89,13 @@ export function CraftAnalysisSection({ color, craft }: CraftAnalysisSectionProps
                 aria-label={sliderHeading}
               />
               <div
-                className="grid gap-2"
-                style={{ gridTemplateColumns: `repeat(${shades.length}, minmax(0, 1fr))` }}
+                className={`grid gap-2.5 sm:gap-2 ${
+                  shades.length >= 6
+                    ? 'grid-cols-3 sm:grid-cols-6'
+                    : shades.length === 4
+                      ? 'grid-cols-2 sm:grid-cols-4'
+                      : 'grid-cols-2 sm:grid-cols-3'
+                }`}
               >
                 {shades.map((item, idx) => {
                   const isActive = idx === step;

@@ -79,8 +79,8 @@ export function DyeLabPage() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
-        {/* 左侧：三步配料控制台 */}
-        <div className="lg:col-span-7 space-y-5">
+        {/* 左侧：三步配料控制台（移动端置于成品色标之下，便于实时观测显色） */}
+        <div className="lg:col-span-7 order-2 lg:order-1 space-y-5">
           {/* 01 基础染材 */}
           <div className="surface-card rounded-2xl p-5 sm:p-6 space-y-4">
             <div className="flex items-baseline justify-between">
@@ -225,12 +225,12 @@ export function DyeLabPage() {
           </div>
         </div>
 
-        {/* 右侧：美术馆色标结果展台 */}
-        <div className="lg:col-span-5 lg:sticky lg:top-24 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto overscroll-contain thin-scroll rounded-2xl">
+        {/* 右侧：美术馆色标结果展台（移动端优先呈现于顶部） */}
+        <div className="lg:col-span-5 order-1 lg:order-2 lg:sticky lg:top-24 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto overscroll-contain thin-scroll rounded-2xl">
           <div className="surface-card rounded-2xl overflow-hidden">
             {/* 纯净美术馆色标展示区 */}
             <div
-              className="h-64 sm:h-72 p-6 sm:p-7 flex flex-col justify-between transition-colors duration-500"
+              className="h-52 sm:h-68 p-5 sm:p-7 flex flex-col justify-between transition-colors duration-500"
               style={{
                 backgroundColor: mix.hex,
                 color: light ? '#1A1918' : '#F8F7F4',
