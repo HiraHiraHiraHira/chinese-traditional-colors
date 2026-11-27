@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Noto Serif SC", "STSong", serif;
+  --font-sans: "Inter", "Noto Sans SC", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* =========================================================================
+   美术馆策展级设计令牌（明 / 暗双展馆模式）
+   ========================================================================= */
+:root,
+[data-theme="light"] {
+  --bg-canvas: #F6F5F0;
+  --bg-surface: #FFFFFF;
+  --bg-subtle: #EFECE6;
+  --bg-hover: #F2F0EB;
+  --border-hairline: rgba(24, 24, 22, 0.08);
+  --border-strong: rgba(24, 24, 22, 0.16);
+  --text-primary: #1A1918;
+  --text-secondary: #6B6863;
+  --text-tertiary: #96928B;
+  --header-bg: rgba(246, 245, 240, 0.86);
+  --shadow-card: 0 1px 2px rgba(24, 24, 22, 0.03), 0 8px 24px rgba(24, 24, 22, 0.035);
+  --shadow-hover: 0 12px 32px rgba(24, 24, 22, 0.07);
+  --accent-glow: rgba(192, 44, 56, 0.045);
+  --slider-thumb-bg: #1A1918;
+  --slider-thumb-border: #FFFFFF;
+}
+
+[data-theme="dark"] {
+  --bg-canvas: #131312;
+  --bg-surface: #1B1A18;
+  --bg-subtle: #242320;
+  --bg-hover: #21201D;
+  --border-hairline: rgba(245, 244, 240, 0.09);
+  --border-strong: rgba(245, 244, 240, 0.18);
+  --text-primary: #F2F0EB;
+  --text-secondary: #9D9A93;
+  --text-tertiary: #6C6963;
+  --header-bg: rgba(19, 19, 18, 0.86);
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.2), 0 10px 28px rgba(0, 0, 0, 0.25);
+  --shadow-hover: 0 14px 36px rgba(0, 0, 0, 0.4);
+  --accent-glow: rgba(192, 44, 56, 0.06);
+  --slider-thumb-bg: #F2F0EB;
+  --slider-thumb-border: #1B1A18;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  transition: background-color 0.35s ease, color 0.35s ease;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.gallery-grain {
+  background-image: radial-gradient(rgba(128, 124, 116, 0.055) 1px, transparent 0);
+  background-size: 28px 28px;
+}
+
+.ambient-aura {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 460px;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(ellipse 75% 60% at 62% -10%, var(--accent-glow) 0%, transparent 72%);
+  transition: background 0.7s ease;
+}
+
+.surface-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  box-shadow: var(--shadow-card);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.25s ease;
+}
+
+.surface-subtle {
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-hairline);
+}
+
+.hairline-b { border-bottom: 1px solid var(--border-hairline); }
+.hairline-t { border-top: 1px solid var(--border-hairline); }
+.hairline-l { border-left: 1px solid var(--border-hairline); }
+.hairline-all { border: 1px solid var(--border-hairline); }
+
+.text-main { color: var(--text-primary); }
+.text-muted { color: var(--text-secondary); }
+.text-faint { color: var(--text-tertiary); }
+
+input[type="range"].gallery-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 999px;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="range"].gallery-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--slider-thumb-bg);
+  border: 2.5px solid var(--slider-thumb-border);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.22);
+  transition: transform 0.15s ease;
+}
+
+input[type="range"].gallery-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.18);
+}
+
+.thin-scroll::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.thin-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.thin-scroll::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 9999px;
+}
+
+@keyframes subtleFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: subtleFadeIn 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}

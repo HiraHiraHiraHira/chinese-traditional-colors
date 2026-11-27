@@ -1,0 +1,3389 @@
+[
+  {
+    "id": "craft-zhusha",
+    "name": "朱砂 · 矿物颜料",
+    "category": "mineral_pigment",
+    "rawMaterials": [
+      "辰砂矿石（天然硫化汞 HgS）",
+      "精制牛皮胶 / 广胶"
+    ],
+    "mordantOrBinder": "水飞辰砂粉（约 85%）、淡牛皮胶液（约 10%）、洁净清水（约 5%）",
+    "origin": "湖南辰州 / 贵州万山 / 动物胶结介质",
+    "steps": [
+      {
+        "order": 1,
+        "title": "选矿去脉",
+        "description": "择取结晶致密的“镜面砂”或“箭簇砂”，剔除伴生石英与方解石杂石。"
+      },
+      {
+        "order": 2,
+        "title": "湿法细研",
+        "description": "置瓷乳钵中加水长时顺时针细研，避免干磨生热发黑，直至细腻如脂。"
+      },
+      {
+        "order": 3,
+        "title": "水飞分级",
+        "description": "兑清水搅匀静置，按颗粒沉降速度分出深红“朱砂头”与橘红“朱膘”。"
+      },
+      {
+        "order": 4,
+        "title": "入胶调色",
+        "description": "阴干收粉，临用时以温淡皮胶指腹研匀，即可勾染作画。"
+      }
+    ],
+    "chemistryNote": "水飞辰砂粉：提供沉稳浓郁的正红色相与高遮盖力；淡牛皮胶液：胶量过少易脱粉，过多则色面发暗；洁净清水：调节画色流畅度与罩染厚度",
+    "sliderType": "mineral",
+    "materials": [
+      {
+        "name": "辰砂矿石（天然硫化汞 HgS）",
+        "origin": "湖南辰州 / 贵州万山",
+        "description": "呈暗红金刚光泽的天然晶体，耐光耐碱，千年不褪色。"
+      },
+      {
+        "name": "精制牛皮胶 / 广胶",
+        "origin": "动物胶结介质",
+        "description": "温和粘附矿粉颗粒于宣纸、绢帛或壁画地仗之上。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "水飞辰砂粉",
+        "ratio": 85,
+        "note": "提供沉稳浓郁的正红色相与高遮盖力"
+      },
+      {
+        "name": "淡牛皮胶液",
+        "ratio": 10,
+        "note": "胶量过少易脱粉，过多则色面发暗"
+      },
+      {
+        "name": "洁净清水",
+        "ratio": 5,
+        "note": "调节画色流畅度与罩染厚度"
+      }
+    ]
+  },
+  {
+    "id": "craft-qiancaohong",
+    "name": "茜草红 · 植物草木染",
+    "category": "plant_dye",
+    "rawMaterials": [
+      "老茜草根茎（茹藘）",
+      "白明矾 / 椿木灰"
+    ],
+    "mordantOrBinder": "干茜草老根（约 75%）、白明矾（约 15%）、椿木灰清液（约 10%）",
+    "origin": "华北、西北多年生草本 / 铝盐媒染剂",
+    "steps": [
+      {
+        "order": 1,
+        "title": "掘根洗晒",
+        "description": "秋末采挖三年以上老茜草根，洗净泥土切段晒干备用。"
+      },
+      {
+        "order": 2,
+        "title": "预媒固底",
+        "description": "丝麻织物先以明矾温水煮媒，阴干以增强纤维吸色力。"
+      },
+      {
+        "order": 3,
+        "title": "低温慢煎",
+        "description": "茜根冷水浸泡一夜，文火控温 70°C 以下熬煮（忌沸防单宁发褐）。"
+      },
+      {
+        "order": 4,
+        "title": "复染氧化",
+        "description": "织物入缸反复翻染，每遍取出晾透氧化，由纁红渐深至正茜红。"
+      }
+    ],
+    "chemistryNote": "干茜草老根：蒽醌类天然色素，极其耐日晒水洗；白明矾：将浅橘红转为纯正温润的茜草红；椿木灰清液：古法天然植物铝源，增添厚重古意",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "老茜草根茎（茹藘）",
+        "origin": "华北、西北多年生草本",
+        "description": "三年生以上老根富含茜素与羟基茜素，红韵温润古朴。"
+      },
+      {
+        "name": "白明矾 / 椿木灰",
+        "origin": "铝盐媒染剂",
+        "description": "茜素借铝离子络合牢牢锚定于纤维，色泽温暖端正。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "干茜草老根",
+        "ratio": 75,
+        "note": "蒽醌类天然色素，极其耐日晒水洗"
+      },
+      {
+        "name": "白明矾",
+        "ratio": 15,
+        "note": "将浅橘红转为纯正温润的茜草红"
+      },
+      {
+        "name": "椿木灰清液",
+        "ratio": 10,
+        "note": "古法天然植物铝源，增添厚重古意"
+      }
+    ]
+  },
+  {
+    "id": "craft-yanzhi",
+    "name": "胭脂 · 动物与合色",
+    "category": "organic_animal",
+    "rawMaterials": [
+      "紫胶虫胶（紫铆）或红蓝花",
+      "陈年乌梅酸汁"
+    ],
+    "mordantOrBinder": "红花 / 紫铆红膏（约 72%）、乌梅酸汁（约 18%）、稻草灰碱水（约 10%）",
+    "origin": "云南 / 西域丝路贡品 / 天然有机酸显色剂",
+    "steps": [
+      {
+        "order": 1,
+        "title": "淘黄取红",
+        "description": "清晨采红蓝花瓣捣碎淘去水溶黄汁，或温水浸出紫铆原胶红汁。"
+      },
+      {
+        "order": 2,
+        "title": "碱水溶萃",
+        "description": "以草木灰碱水浸渍，使红色素充分溶出成深红清液。"
+      },
+      {
+        "order": 3,
+        "title": "乌梅点酸",
+        "description": "滴入陈年乌梅浓汁中和，纯净红色素遇酸迅速沉淀凝聚。"
+      },
+      {
+        "order": 4,
+        "title": "绵片吸膏",
+        "description": "以精制丝绵薄片吸饱红膏阴干成“绵胭脂”，用时清水泡发。"
+      }
+    ],
+    "chemistryNote": "红花 / 紫铆红膏：清透明丽的玫瑰红主体色素；乌梅酸汁：调酸发色，防止氧化暗沉；稻草灰碱水：前期萃取分离不溶红色素",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "紫胶虫胶（紫铆）或红蓝花",
+        "origin": "云南 / 西域丝路贡品",
+        "description": "传统绵胭脂以红花或紫铆精炼而成，透明度高，红中含淡淡玫瑰紫韵。"
+      },
+      {
+        "name": "陈年乌梅酸汁",
+        "origin": "天然有机酸显色剂",
+        "description": "精准中和碱液并令红色素沉淀析出，激发清透娇艳感。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "红花 / 紫铆红膏",
+        "ratio": 72,
+        "note": "清透明丽的玫瑰红主体色素"
+      },
+      {
+        "name": "乌梅酸汁",
+        "ratio": 18,
+        "note": "调酸发色，防止氧化暗沉"
+      },
+      {
+        "name": "稻草灰碱水",
+        "ratio": 10,
+        "note": "前期萃取分离不溶红色素"
+      }
+    ]
+  },
+  {
+    "id": "craft-yinzhu",
+    "name": "银朱 · 矿物颜料",
+    "category": "mineral_pigment",
+    "rawMaterials": [
+      "水银（汞）与石硫磺",
+      "清漆或动物胶液"
+    ],
+    "mordantOrBinder": "精纯水银（约 78%）、天然石硫磺（约 22%）",
+    "origin": "人工升华合成 HgS / 成膜介质",
+    "steps": [
+      {
+        "order": 1,
+        "title": "配汞合硫",
+        "description": "水银与硫磺按四比一于石钵研至全无银星，成黑色“青砂头”。"
+      },
+      {
+        "order": 2,
+        "title": "入罐封泥",
+        "description": "装入铁锅泥罐，倒扣瓷盏，以盐泥严密封口隔绝空气。"
+      },
+      {
+        "order": 3,
+        "title": "文武升华",
+        "description": "炭炉先文火后武火煅烧，硫化汞升华凝结于上盖内壁成针状红晶。"
+      },
+      {
+        "order": 4,
+        "title": "水飞收粉",
+        "description": "冷却刮取贴罐结晶，清水细研漂去浮沫，即成明丽银朱。"
+      }
+    ],
+    "chemistryNote": "精纯水银：与硫磺高温化合生成纯净朱红晶体；天然石硫磺：决定升华结晶的明艳度与纯度",
+    "sliderType": "mineral",
+    "materials": [
+      {
+        "name": "水银（汞）与石硫磺",
+        "origin": "人工升华合成 HgS",
+        "description": "由炼丹工艺演化，结晶颗粒均匀，较天然朱砂更为明快炽烈。"
+      },
+      {
+        "name": "清漆或动物胶液",
+        "origin": "成膜介质",
+        "description": "入漆成朱漆重器，入胶成国画艳朱。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "精纯水银",
+        "ratio": 78,
+        "note": "与硫磺高温化合生成纯净朱红晶体"
+      },
+      {
+        "name": "天然石硫磺",
+        "ratio": 22,
+        "note": "决定升华结晶的明艳度与纯度"
+      }
+    ]
+  },
+  {
+    "id": "craft-zheshi",
+    "name": "赭石 · 矿物颜料",
+    "category": "mineral_pigment",
+    "rawMaterials": [
+      "代赭石（赤铁矿 Fe₂O₃）",
+      "淡骨胶 / 桃胶"
+    ],
+    "mordantOrBinder": "水飞代赭粉（约 88%）、透明淡胶（约 12%）",
+    "origin": "山西代县 / 透明胶结剂",
+    "steps": [
+      {
+        "order": 1,
+        "title": "择取软矿",
+        "description": "精选断面暗红褐、指甲可划出红痕的优质软质代赭石。"
+      },
+      {
+        "order": 2,
+        "title": "捣碎筛粉",
+        "description": "铁臼捣细，过密绢筛剔除粗硬砂砾。"
+      },
+      {
+        "order": 3,
+        "title": "水飞去铁",
+        "description": "入水搅匀，弃去底部重黑砂，专取中上层细腻悬浮赤褐泥浆。"
+      },
+      {
+        "order": 4,
+        "title": "调胶成膏",
+        "description": "沉淀阴干后加淡胶研匀，蘸水晕开即成温润浅绛。"
+      }
+    ],
+    "chemistryNote": "水飞代赭粉：永不褪色的沉静红褐氧化铁微粒；透明淡胶：固定矿粉而不阻塞宣纸肌理",
+    "sliderType": "mineral",
+    "materials": [
+      {
+        "name": "代赭石（赤铁矿 Fe₂O₃）",
+        "origin": "山西代县",
+        "description": "天然土状氧化铁矿物，质地松软细腻，与水墨调和极为温润。"
+      },
+      {
+        "name": "淡骨胶 / 桃胶",
+        "origin": "透明胶结剂",
+        "description": "保持半透明水色质感，适宜山水画多次罩染。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "水飞代赭粉",
+        "ratio": 88,
+        "note": "永不褪色的沉静红褐氧化铁微粒"
+      },
+      {
+        "name": "透明淡胶",
+        "ratio": 12,
+        "note": "固定矿粉而不阻塞宣纸肌理"
+      }
+    ]
+  },
+  {
+    "id": "craft-feihong",
+    "name": "绯红 · 动物与合色",
+    "category": "compound_dye",
+    "rawMaterials": [
+      "茜草根与苏木心材",
+      "白明矾"
+    ],
+    "mordantOrBinder": "茜草红汁（约 50%）、苏木心材汁（约 35%）、白明矾（约 15%）",
+    "origin": "华北茜草 / 岭南苏木 / 提亮媒染剂",
+    "steps": [
+      {
+        "order": 1,
+        "title": "茜草打底",
+        "description": "织物先以明矾预媒，入茜草缸染两遍形成厚实暖红底。"
+      },
+      {
+        "order": 2,
+        "title": "苏木三煎",
+        "description": "苏木心材刨成薄片，清水浸泡后文火煎煮三次合并浓汁。"
+      },
+      {
+        "order": 3,
+        "title": "套染提艳",
+        "description": "茜红底绸入苏木浓液温染，色泽瞬间转明丽绯红。"
+      },
+      {
+        "order": 4,
+        "title": "复媒定色",
+        "description": "稀明矾水过洗定色，清水漂净阴干。"
+      }
+    ],
+    "chemistryNote": "茜草红汁：筑牢耐光暖红底蕴；苏木心材汁：大幅提升明度与绸面华彩；白明矾：铝盐固色并令色相偏正绯",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "茜草根与苏木心材",
+        "origin": "华北茜草 / 岭南苏木",
+        "description": "茜草打底赋予稳重耐晒，苏木套染提亮成庄严绯红。"
+      },
+      {
+        "name": "白明矾",
+        "origin": "提亮媒染剂",
+        "description": "促使茜素与巴西苏木素协同显出明亮橙红。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "茜草红汁",
+        "ratio": 50,
+        "note": "筑牢耐光暖红底蕴"
+      },
+      {
+        "name": "苏木心材汁",
+        "ratio": 35,
+        "note": "大幅提升明度与绸面华彩"
+      },
+      {
+        "name": "白明矾",
+        "ratio": 15,
+        "note": "铝盐固色并令色相偏正绯"
+      }
+    ]
+  },
+  {
+    "id": "craft-haitanghong",
+    "name": "海棠红 · 植物草木染",
+    "category": "plant_dye",
+    "rawMaterials": [
+      "红蓝花瓣",
+      "乌梅清汁"
+    ],
+    "mordantOrBinder": "精萃红花液（约 80%）、乌梅清汁（约 15%）、稻草灰碱液（约 5%）",
+    "origin": "川渝、河南产 / 微酸显色剂",
+    "steps": [
+      {
+        "order": 1,
+        "title": "淘除黄汁",
+        "description": "干红花冷水反复揉洗淘尽黄色素，留纯净红花瓣。"
+      },
+      {
+        "order": 2,
+        "title": "微碱萃红",
+        "description": "以澄清淡草木灰水浸出红花红色素并过滤。"
+      },
+      {
+        "order": 3,
+        "title": "乌梅调酸",
+        "description": "缓缓滴入乌梅清汁至染液转为清亮玫瑰粉红。"
+      },
+      {
+        "order": 4,
+        "title": "冷染轻提",
+        "description": "真丝素缎入冷缸轻柔浸染两遍，阴干呈娇嫩海棠红。"
+      }
+    ],
+    "chemistryNote": "精萃红花液：赋予清丽粉红底色；乌梅清汁：令色相通透不浑浊；稻草灰碱液：前期萃取用，须中和净尽",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "红蓝花瓣",
+        "origin": "川渝、河南产",
+        "description": "提取纯净碱溶红花素，明度高且娇嫩清透。"
+      },
+      {
+        "name": "乌梅清汁",
+        "origin": "微酸显色剂",
+        "description": "精细控制酸度，保留海棠花般的柔和玫瑰粉红。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "精萃红花液",
+        "ratio": 80,
+        "note": "赋予清丽粉红底色"
+      },
+      {
+        "name": "乌梅清汁",
+        "ratio": 15,
+        "note": "令色相通透不浑浊"
+      },
+      {
+        "name": "稻草灰碱液",
+        "ratio": 5,
+        "note": "前期萃取用，须中和净尽"
+      }
+    ]
+  },
+  {
+    "id": "craft-shiliuhong",
+    "name": "石榴红 · 动物与合色",
+    "category": "compound_dye",
+    "rawMaterials": [
+      "山栀子（黄底）",
+      "红蓝花（重染）"
+    ],
+    "mordantOrBinder": "红花浓萃液（约 65%）、栀子黄底液（约 25%）、乌梅酸液（约 10%）",
+    "origin": "江南丘陵 / 西域传入 / 川渝",
+    "steps": [
+      {
+        "order": 1,
+        "title": "栀子打底",
+        "description": "先以山栀子煎水将素丝染成鲜明纯正的亮黄色。"
+      },
+      {
+        "order": 2,
+        "title": "精萃红花",
+        "description": "大量红花淘去黄汁，碱萃酸析得高浓度红花染液。"
+      },
+      {
+        "order": 3,
+        "title": "重覆套染",
+        "description": "黄绸浸入红花缸反复套染三至四遍，红黄化为烈焰石榴红。"
+      },
+      {
+        "order": 4,
+        "title": "酸水护色",
+        "description": "稀乌梅水过洗定色，避强光阴干。"
+      }
+    ],
+    "chemistryNote": "红花浓萃液：主导饱满炽烈正红；栀子黄底液：衬出石榴花瓣般的暖烈焰光；乌梅酸液：定色提亮，祛除暗紫杂调",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "山栀子（黄底）",
+        "origin": "江南丘陵",
+        "description": "先染一层明快正黄，令后续红花呈现火焰般炽烈暖光。"
+      },
+      {
+        "name": "红蓝花（重染）",
+        "origin": "西域传入 / 川渝",
+        "description": "在黄底上重覆浸染红花素，达成耀眼夺目的真红。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "红花浓萃液",
+        "ratio": 65,
+        "note": "主导饱满炽烈正红"
+      },
+      {
+        "name": "栀子黄底液",
+        "ratio": 25,
+        "note": "衬出石榴花瓣般的暖烈焰光"
+      },
+      {
+        "name": "乌梅酸液",
+        "ratio": 10,
+        "note": "定色提亮，祛除暗紫杂调"
+      }
+    ]
+  },
+  {
+    "id": "craft-danhuo",
+    "name": "丹雘 · 矿物颜料",
+    "category": "mineral_pigment",
+    "rawMaterials": [
+      "高铁红土 / 赤铁矿粘土",
+      "动物皮胶"
+    ],
+    "mordantOrBinder": "精淘铁红泥（约 90%）、温皮胶液（约 10%）",
+    "origin": "甘肃河西 / 关中 / 壁画胶料",
+    "steps": [
+      {
+        "order": 1,
+        "title": "采掘红土",
+        "description": "采选色泽纯正、杂质稀少的天然高铁红粘土。"
+      },
+      {
+        "order": 2,
+        "title": "淘洗去砂",
+        "description": "大缸清水反复淘洗沉去粗砂，撇取上层细腻红浆。"
+      },
+      {
+        "order": 3,
+        "title": "微火焙烧",
+        "description": "部分工艺将红泥微焙脱水，转为更深沉稳重的暗丹红。"
+      },
+      {
+        "order": 4,
+        "title": "研细入胶",
+        "description": "石磨细研后调入稀皮胶液即可大片刷涂或勾绘。"
+      }
+    ],
+    "chemistryNote": "精淘铁红泥：古朴庄严的红褐基调；温皮胶液：防止壁画起粉剥落",
+    "sliderType": "mineral",
+    "materials": [
+      {
+        "name": "高铁红土 / 赤铁矿粘土",
+        "origin": "甘肃河西 / 关中",
+        "description": "富含氧化铁的天然矿土，色泽沧桑厚重，耐风化。"
+      },
+      {
+        "name": "动物皮胶",
+        "origin": "壁画胶料",
+        "description": "增强矿土在泥墙白粉层上的牢固附着。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "精淘铁红泥",
+        "ratio": 90,
+        "note": "古朴庄严的红褐基调"
+      },
+      {
+        "name": "温皮胶液",
+        "ratio": 10,
+        "note": "防止壁画起粉剥落"
+      }
+    ]
+  },
+  {
+    "id": "craft-tongse",
+    "name": "彤色 · 植物草木染",
+    "category": "plant_dye",
+    "rawMaterials": [
+      "苏木心材（苏枋木）",
+      "白明矾"
+    ],
+    "mordantOrBinder": "苏木心材（约 80%）、白明矾（约 20%）",
+    "origin": "南海及岭南 / 铝盐媒染",
+    "steps": [
+      {
+        "order": 1,
+        "title": "刨木浸渍",
+        "description": "苏木硬心刨成细丝木屑，冷水浸泡两日使其吐色。"
+      },
+      {
+        "order": 2,
+        "title": "三煎取浓",
+        "description": "文火煮沸半时辰滤出头汁，复加水再煎两次合并。"
+      },
+      {
+        "order": 3,
+        "title": "矾媒温染",
+        "description": "织物经明矾水预媒后，入苏木红汁中缓染。"
+      },
+      {
+        "order": 4,
+        "title": "阴干发色",
+        "description": "忌暴晒，通风阴凉处自然氧化定色。"
+      }
+    ],
+    "chemistryNote": "苏木心材：染力强劲，色泽润泽饱满；白明矾：核心显色媒剂，稳定正红相",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "苏木心材（苏枋木）",
+        "origin": "南海及岭南",
+        "description": "心材含巴西苏木素，遇明矾呈端庄彤红，遇碱变紫，遇铁变乌。"
+      },
+      {
+        "name": "白明矾",
+        "origin": "铝盐媒染",
+        "description": "锁定巴西苏木素，显出饱满端方的正红。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "苏木心材",
+        "ratio": 80,
+        "note": "染力强劲，色泽润泽饱满"
+      },
+      {
+        "name": "白明矾",
+        "ratio": 20,
+        "note": "核心显色媒剂，稳定正红相"
+      }
+    ]
+  },
+  {
+    "id": "craft-tenghuang",
+    "name": "藤黄 · 植物草木染",
+    "category": "plant_dye",
+    "rawMaterials": [
+      "海藤树天然树脂"
+    ],
+    "mordantOrBinder": "纯海藤树脂（约 95%）、清凉泉水（约 5%）",
+    "origin": "真腊（柬埔寨）贡品",
+    "steps": [
+      {
+        "order": 1,
+        "title": "割皮集脂",
+        "description": "热带雨季前斜切海藤树干，以竹筒承接缓缓渗出的鲜黄乳汁。"
+      },
+      {
+        "order": 2,
+        "title": "阴干成锭",
+        "description": "待筒内树脂自然风干凝固成坚硬圆柱，剖竹得“笔管藤黄”。"
+      },
+      {
+        "order": 3,
+        "title": "冷泡化色",
+        "description": "取小块置瓷碟中，注入凉清水静置浸泡，不可沸水冲泡。"
+      },
+      {
+        "order": 4,
+        "title": "撇清入画",
+        "description": "自然溶出清澈明亮的柠檬金黄水色，可单染或与花青合调汁绿。"
+      }
+    ],
+    "chemistryNote": "纯海藤树脂：极高透明度与温润金黄光泽；清凉泉水：冷水自然化开，忌热水结块",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "海藤树天然树脂",
+        "origin": "真腊（柬埔寨）贡品",
+        "description": "割皮滴落凝固于竹筒内的腊质树脂，自带树胶，遇冷水即化。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "纯海藤树脂",
+        "ratio": 95,
+        "note": "极高透明度与温润金黄光泽"
+      },
+      {
+        "name": "清凉泉水",
+        "ratio": 5,
+        "note": "冷水自然化开，忌热水结块"
+      }
+    ]
+  },
+  {
+    "id": "craft-zhizihuang",
+    "name": "栀子黄 · 植物草木染",
+    "category": "plant_dye",
+    "rawMaterials": [
+      "山栀子成熟果实",
+      "米醋或明矾"
+    ],
+    "mordantOrBinder": "干山栀子果（约 85%）、明矾 / 米醋（约 15%）",
+    "origin": "江南丘陵广植 / 护色固色剂",
+    "steps": [
+      {
+        "order": 1,
+        "title": "破果浸泡",
+        "description": "将干燥红褐色栀子果压破，露出橘黄果瓤，冷水浸泡半日。"
+      },
+      {
+        "order": 2,
+        "title": "文火熬汁",
+        "description": "文火煮沸半小时，细麻布滤去果壳与籽粒得浓金黄液。"
+      },
+      {
+        "order": 3,
+        "title": "入缸温染",
+        "description": "织物入温热染液轻柔翻动，色泽迅速均匀上染。"
+      },
+      {
+        "order": 4,
+        "title": "酸水固色",
+        "description": "以淡米醋或明矾水过洗，提升饱和度与水洗牢度。"
+      }
+    ],
+    "chemistryNote": "干山栀子果：释放高纯度水溶藏红花素；明矾 / 米醋：稳固色素分子，提纯暖金黄",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "山栀子成熟果实",
+        "origin": "江南丘陵广植",
+        "description": "果仁富含藏红花素（Crocin），直接染丝绸如鎏金般温暖。"
+      },
+      {
+        "name": "米醋或明矾",
+        "origin": "护色固色剂",
+        "description": "微酸环境使栀子黄更加纯正耀眼，减少水洗流失。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "干山栀子果",
+        "ratio": 85,
+        "note": "释放高纯度水溶藏红花素"
+      },
+      {
+        "name": "明矾 / 米醋",
+        "ratio": 15,
+        "note": "稳固色素分子，提纯暖金黄"
+      }
+    ]
+  },
+  {
+    "id": "craft-cihuang",
+    "name": "雌黄 · 矿物颜料",
+    "category": "mineral_pigment",
+    "rawMaterials": [
+      "雌黄矿石（三硫化二砷 As₂S₃）",
+      "纯净骨胶"
+    ],
+    "mordantOrBinder": "纯净雌黄粉（约 88%）、纯净骨胶（约 12%）",
+    "origin": "湖南石门 / 云南 / 胶结介质",
+    "steps": [
+      {
+        "order": 1,
+        "title": "选矿剥片",
+        "description": "挑选色如黄金、呈云母薄片的纯净雌黄，避开伴生雄黄。"
+      },
+      {
+        "order": 2,
+        "title": "湿法细研",
+        "description": "矿石柔韧难碎，加水置乳钵内长时细心湿研成浆。"
+      },
+      {
+        "order": 3,
+        "title": "水飞分级",
+        "description": "清水漂洗分级，滤出闪耀细腻丝光的金黄矿粉。"
+      },
+      {
+        "order": 4,
+        "title": "调胶避忌",
+        "description": "入轻胶使用，避免与铅白、铜绿接触以防硫化物反应变黑。"
+      }
+    ],
+    "chemistryNote": "纯净雌黄粉：带有微金珠光的稳定矿物黄；纯净骨胶：固着矿粉，忌与铅白铜绿混用",
+    "sliderType": "mineral",
+    "materials": [
+      {
+        "name": "雌黄矿石（三硫化二砷 As₂S₃）",
+        "origin": "湖南石门 / 云南",
+        "description": "呈鲜明柠檬金黄的云母层状矿物，遮盖力极强且泛丝绸光泽。"
+      },
+      {
+        "name": "纯净骨胶",
+        "origin": "胶结介质",
+        "description": "调和后用于壁画或涂改黄檗麻纸错字。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "纯净雌黄粉",
+        "ratio": 88,
+        "note": "带有微金珠光的稳定矿物黄"
+      },
+      {
+        "name": "纯净骨胶",
+        "ratio": 12,
+        "note": "固着矿粉，忌与铅白铜绿混用"
+      }
+    ]
+  },
+  {
+    "id": "craft-minghuang",
+    "name": "明黄 · 植物草木染",
+    "category": "plant_dye",
+    "rawMaterials": [
+      "国槐花蕾（槐米）",
+      "精制白明矾"
+    ],
+    "mordantOrBinder": "炒制槐米（约 75%）、精制白明矾（约 20%）、微量栀子（约 5%）",
+    "origin": "华北、中原产 / 核心媒染剂",
+    "steps": [
+      {
+        "order": 1,
+        "title": "文火炒米",
+        "description": "采未开国槐花蕾，铁锅文火轻炒至微焦黄，激发深层黄酮。"
+      },
+      {
+        "order": 2,
+        "title": "煎煮滤浓",
+        "description": "清水慢煎槐米过滤得金黄浓液，色泽沉厚不浮。"
+      },
+      {
+        "order": 3,
+        "title": "重矾复染",
+        "description": "桑蚕丝缎先重矾媒染，再入槐米缸复染三遍。"
+      },
+      {
+        "order": 4,
+        "title": "提暖定色",
+        "description": "微点极少量栀子水提暖，成庄严华贵之御用明黄。"
+      }
+    ],
+    "chemistryNote": "炒制槐米：耐晒牢度极高的宫廷首选黄染；精制白明矾：将暗黄点化为灿烂明黄的关键；微量栀子：调和一抹温暖贵气",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "国槐花蕾（槐米）",
+        "origin": "华北、中原产",
+        "description": "清宫内务府染明黄主材，富含芦丁黄酮，耐光性远胜栀子。"
+      },
+      {
+        "name": "精制白明矾",
+        "origin": "核心媒染剂",
+        "description": "与芦丁形成明亮稳固的铝络合物，绽放庄严皇室金黄。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "炒制槐米",
+        "ratio": 75,
+        "note": "耐晒牢度极高的宫廷首选黄染"
+      },
+      {
+        "name": "精制白明矾",
+        "ratio": 20,
+        "note": "将暗黄点化为灿烂明黄的关键"
+      },
+      {
+        "name": "微量栀子",
+        "ratio": 5,
+        "note": "调和一抹温暖贵气"
+      }
+    ]
+  },
+  {
+    "id": "craft-ehuang",
+    "name": "鹅黄 · 植物草木染",
+    "category": "plant_dye",
+    "rawMaterials": [
+      "黄檗内皮（黄柏）"
+    ],
+    "mordantOrBinder": "黄檗初煎液（约 90%）、清泉稀释（约 10%）",
+    "origin": "四川、东北产",
+    "steps": [
+      {
+        "order": 1,
+        "title": "剥皮切片",
+        "description": "干燥黄檗树内皮切成细薄片，冷水浸润一夜使色素松动。"
+      },
+      {
+        "order": 2,
+        "title": "轻煮取头",
+        "description": "微沸一刻钟即过滤，专取第一道最清澈明亮的浅黄液。"
+      },
+      {
+        "order": 3,
+        "title": "轻浸速提",
+        "description": "洁白丝绢入温染液轻染一遍即起，忌久浸变重。"
+      },
+      {
+        "order": 4,
+        "title": "避光阴干",
+        "description": "黄檗畏烈日，于通风阴凉处晾干即得娇嫩鹅黄。"
+      }
+    ],
+    "chemistryNote": "黄檗初煎液：直接碱性植物染料，清亮微带嫩绿意；清泉稀释：控制色阶轻盈通透",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "黄檗内皮（黄柏）",
+        "origin": "四川、东北产",
+        "description": "富含天然小檗碱，无需媒染即可直接染出清透嫩黄，兼具防蛀之效。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "黄檗初煎液",
+        "ratio": 90,
+        "note": "直接碱性植物染料，清亮微带嫩绿意"
+      },
+      {
+        "name": "清泉稀释",
+        "ratio": 10,
+        "note": "控制色阶轻盈通透"
+      }
+    ]
+  },
+  {
+    "id": "craft-qiuxiang",
+    "name": "秋香 · 动物与合色",
+    "category": "compound_dye",
+    "rawMaterials": [
+      "槐米 / 黄栌木",
+      "极淡蓝靛与稀绿矾"
+    ],
+    "mordantOrBinder": "槐米黄液（约 70%）、淡蓝靛液（约 18%）、稀绿矾铁水（约 12%）",
+    "origin": "华北、江南 / 套染与铁媒",
+    "steps": [
+      {
+        "order": 1,
+        "title": "槐米染底",
+        "description": "织物先用明矾媒染，入槐米染液染成饱和中黄色。"
+      },
+      {
+        "order": 2,
+        "title": "轻蘸靛缸",
+        "description": "迅速入极稀蓝靛缸一过即提，令黄中透出一缕雅青。"
+      },
+      {
+        "order": 3,
+        "title": "微铁沉色",
+        "description": "点入极稀绿矾（硫酸亚铁）水，色泽即刻沉稳化作秋香。"
+      },
+      {
+        "order": 4,
+        "title": "漂净阴干",
+        "description": "清水漂净残余铁液护丝，通风阴干。"
+      }
+    ],
+    "chemistryNote": "槐米黄液：构建温暖秋意底调；淡蓝靛液：注入含蓄青绿气质；稀绿矾铁水：降低艳度，成就文人雅致沉静感",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "槐米 / 黄栌木",
+        "origin": "华北、江南",
+        "description": "奠定沉稳的秋叶黄基底。"
+      },
+      {
+        "name": "极淡蓝靛与稀绿矾",
+        "origin": "套染与铁媒",
+        "description": "微量蓝靛与铁盐使明黄沉静化作儒雅秋香色。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "槐米黄液",
+        "ratio": 70,
+        "note": "构建温暖秋意底调"
+      },
+      {
+        "name": "淡蓝靛液",
+        "ratio": 18,
+        "note": "注入含蓄青绿气质"
+      },
+      {
+        "name": "稀绿矾铁水",
+        "ratio": 12,
+        "note": "降低艳度，成就文人雅致沉静感"
+      }
+    ]
+  },
+  {
+    "id": "craft-jianghuang",
+    "name": "姜黄 · 植物草木染",
+    "category": "plant_dye",
+    "rawMaterials": [
+      "姜黄干燥根茎",
+      "米醋酸水"
+    ],
+    "mordantOrBinder": "姜黄根茎（约 88%）、米醋清液（约 12%）",
+    "origin": "四川犍为、福建 / 护色介质",
+    "steps": [
+      {
+        "order": 1,
+        "title": "切片捣碎",
+        "description": "干燥姜黄根茎切薄片捣碎，温水浸渍释出姜黄素。"
+      },
+      {
+        "order": 2,
+        "title": "慢火煎汁",
+        "description": "文火煮沸二十分钟，滤去药渣得芬芳金橙染液。"
+      },
+      {
+        "order": 3,
+        "title": "直接温染",
+        "description": "棉麻或丝绸入锅温染，迅速均匀着温暖金黄。"
+      },
+      {
+        "order": 4,
+        "title": "淡醋过洗",
+        "description": "弱酸清水漂洗定色，日常忌用碱性皂水洗涤。"
+      }
+    ],
+    "chemistryNote": "姜黄根茎：高饱和温暖金黄，自带药香；米醋清液：维持弱酸性环境防偏红",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "姜黄干燥根茎",
+        "origin": "四川犍为、福建",
+        "description": "富含姜黄素，无需媒染即可直接染出金暖黄色，且具避蠹香气。"
+      },
+      {
+        "name": "米醋酸水",
+        "origin": "护色介质",
+        "description": "稳定酸性显色，防止遇碱瞬变砖红。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "姜黄根茎",
+        "ratio": 88,
+        "note": "高饱和温暖金黄，自带药香"
+      },
+      {
+        "name": "米醋清液",
+        "ratio": 12,
+        "note": "维持弱酸性环境防偏红"
+      }
+    ]
+  },
+  {
+    "id": "craft-xiangse",
+    "name": "缃色 · 植物草木染",
+    "category": "plant_dye",
+    "rawMaterials": [
+      "嫩桑叶或淡黄檗",
+      "淡白明矾"
+    ],
+    "mordantOrBinder": "淡黄檗 / 桑叶液（约 85%）、淡明矾（约 15%）",
+    "origin": "江南桑园 / 固色护书剂",
+    "steps": [
+      {
+        "order": 1,
+        "title": "采叶煎汤",
+        "description": "采初春嫩桑叶或取极淡黄檗、栀子水煎煮澄清。"
+      },
+      {
+        "order": 2,
+        "title": "轻媒入染",
+        "description": "素绢经淡明矾水浸润后，入浅黄液轻染一至两遍。"
+      },
+      {
+        "order": 3,
+        "title": "阴干收湿",
+        "description": "通风阴干保持丝面柔和清气。"
+      },
+      {
+        "order": 4,
+        "title": "鹅石砑光",
+        "description": "以光滑鹅卵石砑光丝面，泛柔和金玉微光，用以缝制书囊。"
+      }
+    ],
+    "chemistryNote": "淡黄檗 / 桑叶液：温润明洁的书卷浅黄；淡明矾：固色提净",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "嫩桑叶或淡黄檗",
+        "origin": "江南桑园",
+        "description": "《释名》云“缃，桑也，如桑叶初生之色”，书卷清雅之黄。"
+      },
+      {
+        "name": "淡白明矾",
+        "origin": "固色护书剂",
+        "description": "令浅黄清亮不发灰，助书帛防潮防蠹。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "淡黄檗 / 桑叶液",
+        "ratio": 85,
+        "note": "温润明洁的书卷浅黄"
+      },
+      {
+        "name": "淡明矾",
+        "ratio": 15,
+        "note": "固色提净"
+      }
+    ]
+  },
+  {
+    "id": "craft-hupo",
+    "name": "琥珀 · 动物与合色",
+    "category": "compound_dye",
+    "rawMaterials": [
+      "孩儿茶（儿茶）与山栀子",
+      "白明矾"
+    ],
+    "mordantOrBinder": "儿茶浓液（约 55%）、栀子黄液（约 35%）、白明矾（约 10%）",
+    "origin": "云南儿茶 / 山栀子 / 氧化发色媒剂",
+    "steps": [
+      {
+        "order": 1,
+        "title": "溶煮儿茶",
+        "description": "黑褐色块状儿茶捣碎，沸水完全溶解成浓棕红液。"
+      },
+      {
+        "order": 2,
+        "title": "栀子调金",
+        "description": "兑入四成栀子浓黄液，使色泽由暗棕转为透亮金褐。"
+      },
+      {
+        "order": 3,
+        "title": "温染氧化",
+        "description": "织物入缸慢煮浸染，取出于空气中充分氧化发色。"
+      },
+      {
+        "order": 4,
+        "title": "明矾固色",
+        "description": "明矾温水定色，丝面光泽温润宛如古琥珀。"
+      }
+    ],
+    "chemistryNote": "儿茶浓液：提供醇厚红棕底色与极高耐晒牢度；栀子黄液：赋予琥珀般的通透暖金芒；白明矾：提亮定色",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "孩儿茶（儿茶）与山栀子",
+        "origin": "云南儿茶 / 山栀子",
+        "description": "儿茶富含儿茶素单宁，与栀子黄套染呈现凝脂般的通透琥珀色。"
+      },
+      {
+        "name": "白明矾",
+        "origin": "氧化发色媒剂",
+        "description": "催化儿茶素氧化转为温暖金红棕光。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "儿茶浓液",
+        "ratio": 55,
+        "note": "提供醇厚红棕底色与极高耐晒牢度"
+      },
+      {
+        "name": "栀子黄液",
+        "ratio": 35,
+        "note": "赋予琥珀般的通透暖金芒"
+      },
+      {
+        "name": "白明矾",
+        "ratio": 10,
+        "note": "提亮定色"
+      }
+    ]
+  },
+  {
+    "id": "craft-shilv",
+    "name": "石绿 · 矿物颜料",
+    "category": "mineral_pigment",
+    "rawMaterials": [
+      "孔雀石（碱式碳酸铜 Cu₂CO₃(OH)₂）",
+      "牛皮胶 / 鱼鳔胶"
+    ],
+    "mordantOrBinder": "水飞孔雀石粉（约 86%）、透明淡皮胶（约 14%）",
+    "origin": "湖北大冶、广东阳春 / 胶结介质",
+    "steps": [
+      {
+        "order": 1,
+        "title": "选石去脉",
+        "description": "择取翠绿纯正的葡萄状孔雀石，细致剔除褐色铁锈杂石。"
+      },
+      {
+        "order": 2,
+        "title": "分级轻研",
+        "description": "乳钵加水轻研，随时淘出细浆，保留部分粗晶作沉厚头绿。"
+      },
+      {
+        "order": 3,
+        "title": "水飞四等",
+        "description": "经多道水飞沉降，分出头绿（深翠）、二绿、三绿、四绿（粉绿）。"
+      },
+      {
+        "order": 4,
+        "title": "点胶罩染",
+        "description": "调胶后常与赭石底色形成冷暖呼应，成就青绿山水。"
+      }
+    ],
+    "chemistryNote": "水飞孔雀石粉：物理晶体发色，覆盖力强且千年如新；透明淡皮胶：固色护晶，令画面温润不脱粉",
+    "sliderType": "mineral",
+    "materials": [
+      {
+        "name": "孔雀石（碱式碳酸铜 Cu₂CO₃(OH)₂）",
+        "origin": "湖北大冶、广东阳春",
+        "description": "天然带同心翠纹的铜矿石，颗粒粗细决定从深翠至粉绿的丰富层次。"
+      },
+      {
+        "name": "牛皮胶 / 鱼鳔胶",
+        "origin": "胶结介质",
+        "description": "粘合翠绿矿晶，展现瑰丽山川质感。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "水飞孔雀石粉",
+        "ratio": 86,
+        "note": "物理晶体发色，覆盖力强且千年如新"
+      },
+      {
+        "name": "透明淡皮胶",
+        "ratio": 14,
+        "note": "固色护晶，令画面温润不脱粉"
+      }
+    ]
+  },
+  {
+    "id": "craft-songhualv",
+    "name": "松花绿 · 动物与合色",
+    "category": "compound_dye",
+    "rawMaterials": [
+      "黄檗 / 槐花（嫩黄底）",
+      "极稀蓝靛（点青）"
+    ],
+    "mordantOrBinder": "黄檗嫩黄液（约 82%）、极稀蓝靛液（约 18%）",
+    "origin": "川黄柏 / 国槐 / 蓼蓝尾缸",
+    "steps": [
+      {
+        "order": 1,
+        "title": "黄檗染嫩",
+        "description": "素绢或宣纸先以黄檗初煎液染成明快嫩鹅黄。"
+      },
+      {
+        "order": 2,
+        "title": "调稀青水",
+        "description": "清水中兑入极少量已还原的淡蓝靛液，搅匀成浅碧水。"
+      },
+      {
+        "order": 3,
+        "title": "一蘸即起",
+        "description": "将黄绢轻浸青水数息即提起，均匀受氧。"
+      },
+      {
+        "order": 4,
+        "title": "阴干显韵",
+        "description": "通风阴干后泛出如春松花粉般的清雅松花绿。"
+      }
+    ],
+    "chemistryNote": "黄檗嫩黄液：赋予高明度、清透轻盈的暖嫩底色；极稀蓝靛液：注入灵动清新的春绿气息",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "黄檗 / 槐花（嫩黄底）",
+        "origin": "川黄柏 / 国槐",
+        "description": "提供高达八成的明快嫩黄基调。"
+      },
+      {
+        "name": "极稀蓝靛（点青）",
+        "origin": "蓼蓝尾缸",
+        "description": "仅轻蘸一丝青气，点化出春风松花般的娇嫩黄绿。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "黄檗嫩黄液",
+        "ratio": 82,
+        "note": "赋予高明度、清透轻盈的暖嫩底色"
+      },
+      {
+        "name": "极稀蓝靛液",
+        "ratio": 18,
+        "note": "注入灵动清新的春绿气息"
+      }
+    ]
+  },
+  {
+    "id": "craft-zhuqing",
+    "name": "竹青 · 动物与合色",
+    "category": "compound_dye",
+    "rawMaterials": [
+      "荩草（绿竹草）或槐米",
+      "淡蓝靛"
+    ],
+    "mordantOrBinder": "荩草黄汁（约 60%）、稀蓝靛液（约 28%）、淡白明矾（约 12%）",
+    "origin": "野生荩草 / 蓼蓝浅缸",
+    "steps": [
+      {
+        "order": 1,
+        "title": "荩草煎黄",
+        "description": "夏秋采野生荩草全株洗净切段，清水熬煮滤得明净黄汁。"
+      },
+      {
+        "order": 2,
+        "title": "矾媒染黄",
+        "description": "织物经淡明矾媒染后，入荩草液染成清雅浅黄。"
+      },
+      {
+        "order": 3,
+        "title": "浅靛轻套",
+        "description": "迅速入稀蓝靛缸轻蘸一遍，氧化化作温润竹青。"
+      },
+      {
+        "order": 4,
+        "title": "清水漂净",
+        "description": "漂去浮色，阴干成儒雅修竹青。"
+      }
+    ],
+    "chemistryNote": "荩草黄汁：黄中天然微带清凉草绿意；稀蓝靛液：点化出修竹青翠韵味；淡白明矾：提亮固色，保持雅洁",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "荩草（绿竹草）或槐米",
+        "origin": "野生荩草",
+        "description": "《诗经》“绿竹猗猗”之“绿”即荩草，染出雅致清凉的淡黄绿。"
+      },
+      {
+        "name": "淡蓝靛",
+        "origin": "蓼蓝浅缸",
+        "description": "极浅缥蓝套染，营造修竹清冷风骨。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "荩草黄汁",
+        "ratio": 60,
+        "note": "黄中天然微带清凉草绿意"
+      },
+      {
+        "name": "稀蓝靛液",
+        "ratio": 28,
+        "note": "点化出修竹青翠韵味"
+      },
+      {
+        "name": "淡白明矾",
+        "ratio": 12,
+        "note": "提亮固色，保持雅洁"
+      }
+    ]
+  },
+  {
+    "id": "craft-tianqing",
+    "name": "天青 · 传统瓷釉",
+    "category": "ceramic_glaze",
+    "rawMaterials": [
+      "宝丰瓷石与玛瑙微粉",
+      "微量氧化铁与磷酸钙"
+    ],
+    "mordantOrBinder": "长石石英釉基（约 75%）、玛瑙微粉（约 15%）、氧化铁与草木灰（约 10%）",
+    "origin": "河南宝丰清凉寺汝窑 / 化学呈色与分相元素",
+    "steps": [
+      {
+        "order": 1,
+        "title": "香灰制胎",
+        "description": "以宝丰特有含铁高岭土制成细腻致密的“香灰胎”。"
+      },
+      {
+        "order": 2,
+        "title": "玛瑙入釉",
+        "description": "玛瑙石煅烧粉碎水飞，与长石、草木灰按秘方配成乳浊青釉。"
+      },
+      {
+        "order": 3,
+        "title": "裹足支烧",
+        "description": "通体满施厚釉，底部以极细芝麻钉支烧，不留露胎。"
+      },
+      {
+        "order": 4,
+        "title": "还原缓冷",
+        "description": "1220°C 还原气氛烧成并缓慢降温，形成分相微粒散射出天青色。"
+      }
+    ],
+    "chemistryNote": "长石石英釉基：构成温润似玉的半失透乳浊釉体；玛瑙微粉：优化玻璃相，呈现温润“梨皮蟹爪”柔光；氧化铁与草木灰：还原焰下呈清冷淡雅的雨过天青",
+    "sliderType": "glaze",
+    "materials": [
+      {
+        "name": "宝丰瓷石与玛瑙微粉",
+        "origin": "河南宝丰清凉寺汝窑",
+        "description": "釉中掺入天然玛瑙细末，烧成后产生微妙乳浊散射与寥若晨星的气泡。"
+      },
+      {
+        "name": "微量氧化铁与磷酸钙",
+        "origin": "化学呈色与分相元素",
+        "description": "二价铁离子呈色叠加液液分相瑞利散射，诞生绝世天青。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "长石石英釉基",
+        "ratio": 75,
+        "note": "构成温润似玉的半失透乳浊釉体"
+      },
+      {
+        "name": "玛瑙微粉",
+        "ratio": 15,
+        "note": "优化玻璃相，呈现温润“梨皮蟹爪”柔光"
+      },
+      {
+        "name": "氧化铁与草木灰",
+        "ratio": 10,
+        "note": "还原焰下呈清冷淡雅的雨过天青"
+      }
+    ]
+  },
+  {
+    "id": "craft-yingqing",
+    "name": "影青 · 传统瓷釉",
+    "category": "ceramic_glaze",
+    "rawMaterials": [
+      "高白瓷石与石灰釉"
+    ],
+    "mordantOrBinder": "景德镇高白瓷石（约 82%）、釉灰（石灰石与狼箕草）（约 17%）、极微量氧化铁（约 1%）",
+    "origin": "江西景德镇湖田窑",
+    "steps": [
+      {
+        "order": 1,
+        "title": "薄胎刻花",
+        "description": "洁白瓷土拉制极薄器胎，半干时以竹刀刻划流畅水波花卉暗纹。"
+      },
+      {
+        "order": 2,
+        "title": "施青白釉",
+        "description": "浸施薄而均匀的高透明石灰釉，刻纹凹陷处自然积釉稍厚。"
+      },
+      {
+        "order": 3,
+        "title": "覆烧装窑",
+        "description": "装入支圈匣钵入龙窑，严格隔绝烟灰污染。"
+      },
+      {
+        "order": 4,
+        "title": "强还原烧成",
+        "description": "1280°C 高温强还原焰烧成，出窑光致茂美，素肌玉骨泛影青。"
+      }
+    ],
+    "chemistryNote": "景德镇高白瓷石：形成晶莹如冰的玻璃质透明釉；釉灰（石灰石与狼箕草）：高温助熔，呈现莹润玉光；极微量氧化铁：还原烧成后在暗花积釉处显现空灵水青",
+    "sliderType": "glaze",
+    "materials": [
+      {
+        "name": "高白瓷石与石灰釉",
+        "origin": "江西景德镇湖田窑",
+        "description": "极低含铁量（约 0.8%~1%）的高透明度青白釉，刻花积釉处泛水青。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "景德镇高白瓷石",
+        "ratio": 82,
+        "note": "形成晶莹如冰的玻璃质透明釉"
+      },
+      {
+        "name": "釉灰（石灰石与狼箕草）",
+        "ratio": 17,
+        "note": "高温助熔，呈现莹润玉光"
+      },
+      {
+        "name": "极微量氧化铁",
+        "ratio": 1,
+        "note": "还原烧成后在暗花积釉处显现空灵水青"
+      }
+    ]
+  },
+  {
+    "id": "craft-mise",
+    "name": "秘色 · 传统瓷釉",
+    "category": "ceramic_glaze",
+    "rawMaterials": [
+      "含铁瓷石与松木灰",
+      "釉封瓷质匣钵"
+    ],
+    "mordantOrBinder": "越窑瓷石粉（约 78%）、天然松木灰（约 20%）、微量氧化铁（约 2%）",
+    "origin": "浙江上林湖越窑 / 严密控气工艺",
+    "steps": [
+      {
+        "order": 1,
+        "title": "淘泥练胎",
+        "description": "上林湖细瓷土多次淘洗陈腐，修得薄而挺拔的细腻胎体。"
+      },
+      {
+        "order": 2,
+        "title": "配施灰釉",
+        "description": "瓷石粉配比松木灰调成细腻石灰釉浆，均匀挂釉。"
+      },
+      {
+        "order": 3,
+        "title": "瓷匣密封",
+        "description": "装入特制瓷质匣钵，接口以釉浆封死防落渣与漏气。"
+      },
+      {
+        "order": 4,
+        "title": "强还原烧成",
+        "description": "1250°C 强还原焰烧制，三价铁充分还原为二价铁，呈绝美秘色。"
+      }
+    ],
+    "chemistryNote": "越窑瓷石粉：形成清澈透亮的玻璃质青釉层；天然松木灰：助熔并赋予温润玉感；微量氧化铁：强还原下呈盈盈亚铁青翠",
+    "sliderType": "glaze",
+    "materials": [
+      {
+        "name": "含铁瓷石与松木灰",
+        "origin": "浙江上林湖越窑",
+        "description": "含铁约 1.8% 的天然石灰釉，烧出如冰似玉、无水似有水的青翠。"
+      },
+      {
+        "name": "釉封瓷质匣钵",
+        "origin": "严密控气工艺",
+        "description": "一器一钵釉封隔绝氧气，达成极致强还原气氛。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "越窑瓷石粉",
+        "ratio": 78,
+        "note": "形成清澈透亮的玻璃质青釉层"
+      },
+      {
+        "name": "天然松木灰",
+        "ratio": 20,
+        "note": "助熔并赋予温润玉感"
+      },
+      {
+        "name": "微量氧化铁",
+        "ratio": 2,
+        "note": "强还原下呈盈盈亚铁青翠"
+      }
+    ]
+  },
+  {
+    "id": "craft-tonglv",
+    "name": "铜绿 · 矿物颜料",
+    "category": "mineral_pigment",
+    "rawMaterials": [
+      "纯红铜薄片",
+      "陈年米醋与热酒糟"
+    ],
+    "mordantOrBinder": "红铜薄片（约 70%）、陈醋与酒糟（约 30%）",
+    "origin": "金属铜 / 发绿熏制介质",
+    "steps": [
+      {
+        "order": 1,
+        "title": "锤铜净面",
+        "description": "红铜锤打成薄片，彻底刮净表面油污氧化层。"
+      },
+      {
+        "order": 2,
+        "title": "醋缸悬熏",
+        "description": "大缸底置陈醋与热酒糟，铜片悬于液面上方，密封暖处静置。"
+      },
+      {
+        "order": 3,
+        "title": "刮取铜霜",
+        "description": "十余日后启封，轻刮铜片表面生成的青翠绒毛状结晶。"
+      },
+      {
+        "order": 4,
+        "title": "漂酸研粉",
+        "description": "清水漂去残酸，阴干细研即成清雅半透明铜绿颜料。"
+      }
+    ],
+    "chemistryNote": "红铜薄片：铜离子显色主体；陈醋与酒糟：温和酸熏生成半透明翠绿结晶",
+    "sliderType": "mineral",
+    "materials": [
+      {
+        "name": "纯红铜薄片",
+        "origin": "金属铜",
+        "description": "纯铜经温和醋酸蒸汽腐蚀生成翠绿碱式醋酸铜结晶。"
+      },
+      {
+        "name": "陈年米醋与热酒糟",
+        "origin": "发绿熏制介质",
+        "description": "持续释出酸性蒸汽，令铜面生长细腻青翠铜霜。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "红铜薄片",
+        "ratio": 70,
+        "note": "铜离子显色主体"
+      },
+      {
+        "name": "陈醋与酒糟",
+        "ratio": 30,
+        "note": "温和酸熏生成半透明翠绿结晶"
+      }
+    ]
+  },
+  {
+    "id": "craft-cuiwei",
+    "name": "翠微 · 动物与合色",
+    "category": "compound_dye",
+    "rawMaterials": [
+      "发酵蓝靛",
+      "国槐花蕾（槐米）"
+    ],
+    "mordantOrBinder": "蓝靛染液（约 52%）、槐米黄液（约 38%）、白明矾（约 10%）",
+    "origin": "蓝草底色 / 套染黄材",
+    "steps": [
+      {
+        "order": 1,
+        "title": "蓝缸打底",
+        "description": "丝绸先入蓝靛缸轻染两遍得清澈中蓝，充分透风氧化。"
+      },
+      {
+        "order": 2,
+        "title": "明矾预媒",
+        "description": "蓝布入明矾温水媒染，为套黄做好固色准备。"
+      },
+      {
+        "order": 3,
+        "title": "槐米套黄",
+        "description": "浸入槐米煎液中温染，蓝黄瞬间交融呈现苍翠山色。"
+      },
+      {
+        "order": 4,
+        "title": "漂净阴干",
+        "description": "清水漂洗至水色清澈，晾干后色如雨后翠微。"
+      }
+    ],
+    "chemistryNote": "蓝靛染液：赋予山岚般的幽静青调；槐米黄液：与蓝相合而生自然苍绿；白明矾：稳固黄酮，使绿意鲜明持久",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "发酵蓝靛",
+        "origin": "蓝草底色",
+        "description": "奠定远山苍翠的冷青基调。"
+      },
+      {
+        "name": "国槐花蕾（槐米）",
+        "origin": "套染黄材",
+        "description": "黄蓝套染相生，化作生机沉静的翠微绿。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "蓝靛染液",
+        "ratio": 52,
+        "note": "赋予山岚般的幽静青调"
+      },
+      {
+        "name": "槐米黄液",
+        "ratio": 38,
+        "note": "与蓝相合而生自然苍绿"
+      },
+      {
+        "name": "白明矾",
+        "ratio": 10,
+        "note": "稳固黄酮，使绿意鲜明持久"
+      }
+    ]
+  },
+  {
+    "id": "craft-douqing",
+    "name": "豆青 · 传统瓷釉",
+    "category": "ceramic_glaze",
+    "rawMaterials": [
+      "龙泉紫金土与瓷石"
+    ],
+    "mordantOrBinder": "高粘度石灰碱釉（约 86%）、天然铁矿釉土（约 14%）",
+    "origin": "浙江龙泉 / 景德镇",
+    "steps": [
+      {
+        "order": 1,
+        "title": "素坯修型",
+        "description": "含铁瓷泥拉坯阴干，先经素烧定型以增强坯体吸釉力。"
+      },
+      {
+        "order": 2,
+        "title": "多层施釉",
+        "description": "采用浸釉或吹釉法反复施挂三至五层厚釉。"
+      },
+      {
+        "order": 3,
+        "title": "入窑控温",
+        "description": "1260°C 高温烧成，精准维持弱还原向微氧化过渡气氛。"
+      },
+      {
+        "order": 4,
+        "title": "缓冷成玉",
+        "description": "缓慢降温出窑，釉面肥润青嫩，恰似初夏青豆。"
+      }
+    ],
+    "chemistryNote": "高粘度石灰碱釉：高温不易流釉，成就堆脂玉感；天然铁矿釉土：决定青绿与微黄的雅致平衡",
+    "sliderType": "glaze",
+    "materials": [
+      {
+        "name": "龙泉紫金土与瓷石",
+        "origin": "浙江龙泉 / 景德镇",
+        "description": "含铁量略高于天青，釉层肥厚如凝脂，青中微泛柔和暖黄。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "高粘度石灰碱釉",
+        "ratio": 86,
+        "note": "高温不易流釉，成就堆脂玉感"
+      },
+      {
+        "name": "天然铁矿釉土",
+        "ratio": 14,
+        "note": "决定青绿与微黄的雅致平衡"
+      }
+    ]
+  },
+  {
+    "id": "craft-piaose",
+    "name": "缥色 · 植物草木染",
+    "category": "plant_dye",
+    "rawMaterials": [
+      "蓝靛（一染轻缸）",
+      "微量淡黄檗"
+    ],
+    "mordantOrBinder": "极稀蓝靛液（约 90%）、淡黄檗微调（约 10%）",
+    "origin": "蓼蓝初染 / 调碧助材",
+    "steps": [
+      {
+        "order": 1,
+        "title": "调稀浅缸",
+        "description": "取成熟蓝靛缸上层清澈浅黄绿还原液，温清水稀释。"
+      },
+      {
+        "order": 2,
+        "title": "一染轻提",
+        "description": "洁白丝绸平展入缸轻浸一两分钟即提起，均匀受氧。"
+      },
+      {
+        "order": 3,
+        "title": "微点黄檗",
+        "description": "如求缥碧韵味，再轻过极淡黄檗清汤。"
+      },
+      {
+        "order": 4,
+        "title": "流水漂清",
+        "description": "清泉漂净残碱，晾干呈清莹欲滴之缥色。"
+      }
+    ],
+    "chemistryNote": "极稀蓝靛液：浅染显清透，留白感极强；淡黄檗微调：微添春水碧意",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "蓝靛（一染轻缸）",
+        "origin": "蓼蓝初染",
+        "description": "极稀薄的还原蓝靛液，赋予丝绸如浅潭碧水般的透亮青白。"
+      },
+      {
+        "name": "微量淡黄檗",
+        "origin": "调碧助材",
+        "description": "微添一缕极淡嫩黄，由浅蓝转出清冽缥碧。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "极稀蓝靛液",
+        "ratio": 90,
+        "note": "浅染显清透，留白感极强"
+      },
+      {
+        "name": "淡黄檗微调",
+        "ratio": 10,
+        "note": "微添春水碧意"
+      }
+    ]
+  },
+  {
+    "id": "craft-dianlan",
+    "name": "靛蓝 · 植物草木染",
+    "category": "plant_dye",
+    "rawMaterials": [
+      "四大蓝草（蓼蓝、菘蓝、木蓝、马蓝）",
+      "熟石灰、草木灰与米酒"
+    ],
+    "mordantOrBinder": "发酵蓝靛泥（约 75%）、草木灰碱水（约 15%）、米酒 / 麦麸（约 10%）",
+    "origin": "中国南北广植 / 打靛与发酵还原剂",
+    "steps": [
+      {
+        "order": 1,
+        "title": "采蓝浸沤",
+        "description": "夏秋采鲜蓝草投入大坑清水浸泡三日，令靛苷充分水解溶出。"
+      },
+      {
+        "order": 2,
+        "title": "打靛沉淀",
+        "description": "捞去草渣，入熟石灰剧烈击打充氧，静置沉得浓稠“蓝靛泥”。"
+      },
+      {
+        "order": 3,
+        "title": "建缸养菌",
+        "description": "靛泥入染缸，配草木灰碱水与米酒养菌，数日后液面起“靛花”。"
+      },
+      {
+        "order": 4,
+        "title": "浸染氧化",
+        "description": "织物浸缸呈黄绿，提起遇空气瞬时氧化转蓝，复染渐深至绀青。"
+      }
+    ],
+    "chemistryNote": "发酵蓝靛泥：耐光耐洗的天然靛蓝素主体；草木灰碱水：维持染缸强碱性以溶解还原靛白；米酒 / 麦麸：滋养厌氧还原菌群，保持染缸活性",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "四大蓝草（蓼蓝、菘蓝、木蓝、马蓝）",
+        "origin": "中国南北广植",
+        "description": "叶片富含靛苷，经水沤打靛沉淀得蓝靛泥，百洗不褪。"
+      },
+      {
+        "name": "熟石灰、草木灰与米酒",
+        "origin": "打靛与发酵还原剂",
+        "description": "石灰沉淀成泥；草木灰与米酒养菌发酵，令蓝靛还原溶于水。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "发酵蓝靛泥",
+        "ratio": 75,
+        "note": "耐光耐洗的天然靛蓝素主体"
+      },
+      {
+        "name": "草木灰碱水",
+        "ratio": 15,
+        "note": "维持染缸强碱性以溶解还原靛白"
+      },
+      {
+        "name": "米酒 / 麦麸",
+        "ratio": 10,
+        "note": "滋养厌氧还原菌群，保持染缸活性"
+      }
+    ]
+  },
+  {
+    "id": "craft-shiqing",
+    "name": "石青 · 矿物颜料",
+    "category": "mineral_pigment",
+    "rawMaterials": [
+      "蓝铜矿（碱式碳酸铜 Cu₃(CO₃)₂(OH)₂）",
+      "广胶 / 牛皮胶"
+    ],
+    "mordantOrBinder": "水飞蓝铜矿粉（约 86%）、淡广胶液（约 14%）",
+    "origin": "广东阳春、湖北大冶 / 胶结介质",
+    "steps": [
+      {
+        "order": 1,
+        "title": "剔绿选蓝",
+        "description": "蓝铜矿常与孔雀石共生，须以钢针精细剔除绿矿与母岩。"
+      },
+      {
+        "order": 2,
+        "title": "分段轻研",
+        "description": "瓷钵加水轻捣细研，忌一次磨极细而尽失沉厚头青。"
+      },
+      {
+        "order": 3,
+        "title": "水飞四级",
+        "description": "清水搅匀按沉降先后精确分出头青、二青、三青、四青。"
+      },
+      {
+        "order": 4,
+        "title": "调胶罩染",
+        "description": "温胶指腹研匀，趁温层层罩染于山峦阳面。"
+      }
+    ],
+    "chemistryNote": "水飞蓝铜矿粉：物理光学显色，颗粒粗细决定明度；淡广胶液：头青颗粒重需胶稍浓，四青粉细需极淡",
+    "sliderType": "mineral",
+    "materials": [
+      {
+        "name": "蓝铜矿（碱式碳酸铜 Cu₃(CO₃)₂(OH)₂）",
+        "origin": "广东阳春、湖北大冶",
+        "description": "天然深蓝色铜矿结晶，颗粒越粗色越深邃如夜空，越细则清亮如晴天。"
+      },
+      {
+        "name": "广胶 / 牛皮胶",
+        "origin": "胶结介质",
+        "description": "精准控制胶水浓淡，方能呈现矿石晶体微光。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "水飞蓝铜矿粉",
+        "ratio": 86,
+        "note": "物理光学显色，颗粒粗细决定明度"
+      },
+      {
+        "name": "淡广胶液",
+        "ratio": 14,
+        "note": "头青颗粒重需胶稍浓，四青粉细需极淡"
+      }
+    ]
+  },
+  {
+    "id": "craft-huaqing",
+    "name": "花青 · 植物草木染",
+    "category": "plant_dye",
+    "rawMaterials": [
+      "蓝靛浮沫（靛花 / 青黛）",
+      "牛皮胶"
+    ],
+    "mordantOrBinder": "精漂靛花粉（约 88%）、清淡皮胶（约 12%）",
+    "origin": "福建建宁、江西乐平 / 制膏胶结剂",
+    "steps": [
+      {
+        "order": 1,
+        "title": "撇取靛花",
+        "description": "蓝草打靛充氧瞬间，细竹箕专门撇取表面最纯净蓝沫。"
+      },
+      {
+        "order": 2,
+        "title": "清水漂灰",
+        "description": "投入清水缸反复漂洗，沉去白色石灰重渣，只留浮蓝。"
+      },
+      {
+        "order": 3,
+        "title": "乳钵研胶",
+        "description": "晒干成极轻“花青粉”，加温胶水在乳钵细研数百转成膏。"
+      },
+      {
+        "order": 4,
+        "title": "入画调色",
+        "description": "单用染远山晴空，合藤黄成汁绿，合赭石成古雅墨灰。"
+      }
+    ],
+    "chemistryNote": "精漂靛花粉：极细植物靛蓝微粒，透明度极高；清淡皮胶：助其均匀展色于宣纸纤维间",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "蓝靛浮沫（靛花 / 青黛）",
+        "origin": "福建建宁、江西乐平",
+        "description": "打靛充氧时漂浮于液面最轻最纯的一层紫蓝泡沫，古称“靛花”。"
+      },
+      {
+        "name": "牛皮胶",
+        "origin": "制膏胶结剂",
+        "description": "使极细靛花粉凝结成膏，溶于水清澈透亮绝不遮墨。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "精漂靛花粉",
+        "ratio": 88,
+        "note": "极细植物靛蓝微粒，透明度极高"
+      },
+      {
+        "name": "清淡皮胶",
+        "ratio": 12,
+        "note": "助其均匀展色于宣纸纤维间"
+      }
+    ]
+  },
+  {
+    "id": "craft-qunqing",
+    "name": "群青 · 矿物颜料",
+    "category": "mineral_pigment",
+    "rawMaterials": [
+      "青金石（Lapis Lazuli）",
+      "蜂蜡松香团与碱水"
+    ],
+    "mordantOrBinder": "提纯青金石粉（约 88%）、纯净胶液（约 12%）",
+    "origin": "阿富汗巴达赫尚（丝路输入） / 古法提纯介质",
+    "steps": [
+      {
+        "order": 1,
+        "title": "选石煅碎",
+        "description": "择深蓝少白脉的青金石，微烧骤冷使其脆裂，捣碎细研。"
+      },
+      {
+        "order": 2,
+        "title": "蜡团揉捏",
+        "description": "青金石粉与融化蜂蜡、松香、油揉合成团静置数日。"
+      },
+      {
+        "order": 3,
+        "title": "碱水淘蓝",
+        "description": "蜡团置温草木灰碱水中反复揉洗，纯蓝微粒释出水中，杂石留蜡内。"
+      },
+      {
+        "order": 4,
+        "title": "沉淀调胶",
+        "description": "头道淘出者最浓艳珍贵，滤干调轻胶即成千年敦煌群青。"
+      }
+    ],
+    "chemistryNote": "提纯青金石粉：无与伦比的深邃宝蓝，耐光耐碱；纯净胶液：固着宝石粉末，展现丝路瑰宝之辉",
+    "sliderType": "mineral",
+    "materials": [
+      {
+        "name": "青金石（Lapis Lazuli）",
+        "origin": "阿富汗巴达赫尚（丝路输入）",
+        "description": "含硫铝硅酸钠的珍贵宝石矿物，色泽深邃蔚蓝且隐现星点金辉。"
+      },
+      {
+        "name": "蜂蜡松香团与碱水",
+        "origin": "古法提纯介质",
+        "description": "利用亲油性差异从白色方解石中精炼出最纯正的青金蓝。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "提纯青金石粉",
+        "ratio": 88,
+        "note": "无与伦比的深邃宝蓝，耐光耐碱"
+      },
+      {
+        "name": "纯净胶液",
+        "ratio": 12,
+        "note": "固着宝石粉末，展现丝路瑰宝之辉"
+      }
+    ]
+  },
+  {
+    "id": "craft-dailan",
+    "name": "黛蓝 · 动物与合色",
+    "category": "compound_dye",
+    "rawMaterials": [
+      "重染蓝靛",
+      "五倍子与绿矾"
+    ],
+    "mordantOrBinder": "深蓝靛底（约 65%）、五倍子单宁（约 20%）、稀绿矾铁水（约 15%）",
+    "origin": "蓼蓝 / 菘蓝 / 单宁铁媒染",
+    "steps": [
+      {
+        "order": 1,
+        "title": "蓝缸深染",
+        "description": "织物入蓝靛缸反复浸染四遍，氧化成浓厚深蓝色。"
+      },
+      {
+        "order": 2,
+        "title": "五倍子浸汤",
+        "description": "五倍子捣碎煎煮滤汁，深蓝布入汤充分吸收单宁。"
+      },
+      {
+        "order": 3,
+        "title": "绿矾发黛",
+        "description": "极稀绿矾水过染，蓝底与铁黑交融，瞬时沉静为温润黛蓝。"
+      },
+      {
+        "order": 4,
+        "title": "漂洗阴干",
+        "description": "清泉漂净残铁，阴干得青灰眉黛之色。"
+      }
+    ],
+    "chemistryNote": "深蓝靛底：保留清冷的青蓝灵魂；五倍子单宁：增添厚重沉郁质感；稀绿矾铁水：促生青黑远山黛意",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "重染蓝靛",
+        "origin": "蓼蓝 / 菘蓝",
+        "description": "多次深染后再以单宁微铁沉色，呈儒雅青黑蓝。"
+      },
+      {
+        "name": "五倍子与绿矾",
+        "origin": "单宁铁媒染",
+        "description": "少许单宁与亚铁离子令正蓝沉淀出温润黛灰意。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "深蓝靛底",
+        "ratio": 65,
+        "note": "保留清冷的青蓝灵魂"
+      },
+      {
+        "name": "五倍子单宁",
+        "ratio": 20,
+        "note": "增添厚重沉郁质感"
+      },
+      {
+        "name": "稀绿矾铁水",
+        "ratio": 15,
+        "note": "促生青黑远山黛意"
+      }
+    ]
+  },
+  {
+    "id": "craft-ganqing",
+    "name": "绀青 · 动物与合色",
+    "category": "compound_dye",
+    "rawMaterials": [
+      "蓝靛（重染六至八遍）",
+      "茜草或苏木（微套）"
+    ],
+    "mordantOrBinder": "重染蓝靛（约 75%）、茜草 / 苏木汁（约 18%）、白明矾（约 7%）",
+    "origin": "蓝草深染 / 扬赤套染",
+    "steps": [
+      {
+        "order": 1,
+        "title": "重靛筑底",
+        "description": "素丝或写经麻纸入蓝靛缸反复染六至八遍，每遍透风氧化至极深蓝。"
+      },
+      {
+        "order": 2,
+        "title": "明矾媒底",
+        "description": "微温淡明矾水过洗，为套红作媒。"
+      },
+      {
+        "order": 3,
+        "title": "茜苏套赤",
+        "description": "入中等浓度茜草或苏木红液套染一遍，红蓝相生。"
+      },
+      {
+        "order": 4,
+        "title": "石砑显光",
+        "description": "阴干砑光，深青底色中透出含蓄赤紫光华，最宜泥金写经。"
+      }
+    ],
+    "chemistryNote": "重染蓝靛：深邃沉静的青蓝主体；茜草 / 苏木汁：赋予“扬赤”的微妙红紫光晕；白明矾：稳固红蓝层叠光泽",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "蓝靛（重染六至八遍）",
+        "origin": "蓝草深染",
+        "description": "极高浓度靛蓝打底，深邃近玄。"
+      },
+      {
+        "name": "茜草或苏木（微套）",
+        "origin": "扬赤套染",
+        "description": "《说文》云“绀，帛深青扬赤色”，深蓝之上套一层红，泛出高贵紫蓝幽光。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "重染蓝靛",
+        "ratio": 75,
+        "note": "深邃沉静的青蓝主体"
+      },
+      {
+        "name": "茜草 / 苏木汁",
+        "ratio": 18,
+        "note": "赋予“扬赤”的微妙红紫光晕"
+      },
+      {
+        "name": "白明矾",
+        "ratio": 7,
+        "note": "稳固红蓝层叠光泽"
+      }
+    ]
+  },
+  {
+    "id": "craft-jilan",
+    "name": "霁蓝 · 传统瓷釉",
+    "category": "ceramic_glaze",
+    "rawMaterials": [
+      "高纯度钴土矿（珠明料 / 回青）"
+    ],
+    "mordantOrBinder": "高温石灰碱釉（约 92%）、精炼钴土料（约 8%）",
+    "origin": "云南珠明料 / 西域回青",
+    "steps": [
+      {
+        "order": 1,
+        "title": "精拣钴料",
+        "description": "天然钴土矿煅烧敲碎，手选乌亮者水飞细研至极细。"
+      },
+      {
+        "order": 2,
+        "title": "配制蓝釉",
+        "description": "钴料按精确比例拌入景德镇透明釉浆，过百目细筛。"
+      },
+      {
+        "order": 3,
+        "title": "竹筒吹釉",
+        "description": "竹筒蒙细纱蘸釉反复吹于生坯十余次，达均匀厚层。"
+      },
+      {
+        "order": 4,
+        "title": "高温烧成",
+        "description": "1300°C 高温一次烧成，出窑深沉静穆，微泛橘皮宝光。"
+      }
+    ],
+    "chemistryNote": "高温石灰碱釉：致密玻璃釉层，凝重不流釉；精炼钴土料：高温发色极稳，成祭天霁蓝",
+    "sliderType": "glaze",
+    "materials": [
+      {
+        "name": "高纯度钴土矿（珠明料 / 回青）",
+        "origin": "云南珠明料 / 西域回青",
+        "description": "含约 2% 氧化钴，在 1300°C 高温石灰碱釉中熔融呈宝石般深沉静穆蓝。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "高温石灰碱釉",
+        "ratio": 92,
+        "note": "致密玻璃釉层，凝重不流釉"
+      },
+      {
+        "name": "精炼钴土料",
+        "ratio": 8,
+        "note": "高温发色极稳，成祭天霁蓝"
+      }
+    ]
+  },
+  {
+    "id": "craft-qinglian",
+    "name": "青莲 · 动物与合色",
+    "category": "compound_dye",
+    "rawMaterials": [
+      "蓝靛（中染底）",
+      "紫草或苏木"
+    ],
+    "mordantOrBinder": "中度蓝靛底（约 50%）、紫草 / 苏木液（约 38%）、白明矾 / 椿灰（约 12%）",
+    "origin": "蓼蓝 / 新疆紫草 / 苏木",
+    "steps": [
+      {
+        "order": 1,
+        "title": "蓝缸定清",
+        "description": "素丝入蓝靛缸染两遍，氧化呈清朗中蓝色。"
+      },
+      {
+        "order": 2,
+        "title": "明矾预媒",
+        "description": "以淡明矾温水轻媒固底。"
+      },
+      {
+        "order": 3,
+        "title": "套染紫红",
+        "description": "浸入紫草或苏木染液中缓染，蓝红交融瞬间绽放青莲色。"
+      },
+      {
+        "order": 4,
+        "title": "阴干养色",
+        "description": "清水漂洗阴干，色如佛前青莲清冷脱俗。"
+      }
+    ],
+    "chemistryNote": "中度蓝靛底：奠定清冷出尘的蓝紫基调；紫草 / 苏木液：注入高贵优雅的紫韵；白明矾 / 椿灰：提净固色，防偏灰暗",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "蓝靛（中染底）",
+        "origin": "蓼蓝",
+        "description": "清澈冷蓝底调，压去俗艳感。"
+      },
+      {
+        "name": "紫草或苏木",
+        "origin": "新疆紫草 / 苏木",
+        "description": "冷蓝之上套染红紫，幻化出空灵孤高的青莲紫。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "中度蓝靛底",
+        "ratio": 50,
+        "note": "奠定清冷出尘的蓝紫基调"
+      },
+      {
+        "name": "紫草 / 苏木液",
+        "ratio": 38,
+        "note": "注入高贵优雅的紫韵"
+      },
+      {
+        "name": "白明矾 / 椿灰",
+        "ratio": 12,
+        "note": "提净固色，防偏灰暗"
+      }
+    ]
+  },
+  {
+    "id": "craft-zitan",
+    "name": "紫檀 · 植物草木染",
+    "category": "plant_dye",
+    "rawMaterials": [
+      "紫檀木屑或苏木重染",
+      "草木灰与微量铁浆"
+    ],
+    "mordantOrBinder": "紫檀 / 苏木浓汁（约 70%）、儿茶单宁（约 18%）、稀铁浆与灰水（约 12%）",
+    "origin": "印度及岭南紫檀木 / 沉色媒染剂",
+    "steps": [
+      {
+        "order": 1,
+        "title": "木屑浸萃",
+        "description": "紫檀或苏木刨花加少量米酒润湿，清水浸泡两日后慢火煎浓。"
+      },
+      {
+        "order": 2,
+        "title": "儿茶增厚",
+        "description": "兑入少量儿茶煎液，使单薄红紫转向温厚沉稳。"
+      },
+      {
+        "order": 3,
+        "title": "反复温染",
+        "description": "织物入缸反复温染三遍，吸饱深厚木色。"
+      },
+      {
+        "order": 4,
+        "title": "微铁收光",
+        "description": "极稀铁水轻过一遍，瞬时呈现沉郁典雅的紫檀色。"
+      }
+    ],
+    "chemistryNote": "紫檀 / 苏木浓汁：醇厚红紫木质色韵；儿茶单宁：增添温润木褐深度；稀铁浆与灰水：沉色定调，如包浆老紫檀",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "紫檀木屑或苏木重染",
+        "origin": "印度及岭南紫檀木",
+        "description": "紫檀心材含紫檀红素，配铁浆与碱水染出凝重华贵的暗紫棕红。"
+      },
+      {
+        "name": "草木灰与微量铁浆",
+        "origin": "沉色媒染剂",
+        "description": "催化红棕色向沉静深紫檀木色转化。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "紫檀 / 苏木浓汁",
+        "ratio": 70,
+        "note": "醇厚红紫木质色韵"
+      },
+      {
+        "name": "儿茶单宁",
+        "ratio": 18,
+        "note": "增添温润木褐深度"
+      },
+      {
+        "name": "稀铁浆与灰水",
+        "ratio": 12,
+        "note": "沉色定调，如包浆老紫檀"
+      }
+    ]
+  },
+  {
+    "id": "craft-jiangzi",
+    "name": "绛紫 · 动物与合色",
+    "category": "compound_dye",
+    "rawMaterials": [
+      "苏木或茜草（重底）",
+      "椿木灰与微铁"
+    ],
+    "mordantOrBinder": "苏木 / 茜草浓液（约 62%）、紫草 / 淡靛液（约 23%）、微铁 / 椿木灰（约 15%）",
+    "origin": "岭南苏木 / 华北茜草 / 铝铁复合媒染",
+    "steps": [
+      {
+        "order": 1,
+        "title": "明矾重红",
+        "description": "织物先以明矾媒染，用苏木或茜草重染出饱满深红。"
+      },
+      {
+        "order": 2,
+        "title": "淡靛套紫",
+        "description": "轻入淡蓝靛缸或紫草液套染一遍，红中生紫。"
+      },
+      {
+        "order": 3,
+        "title": "微铁沉色",
+        "description": "以极稀绿矾水或草木灰水媒染，迅速转为深邃绛紫。"
+      },
+      {
+        "order": 4,
+        "title": "漂洗阴干",
+        "description": "清水洗净残液，阴干显出丝绒般沉静光泽。"
+      }
+    ],
+    "chemistryNote": "苏木 / 茜草浓液：深厚绛红主体；紫草 / 淡靛液：注入高贵紫韵；微铁 / 椿木灰：压低浮艳，成就深沉绛紫",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "苏木或茜草（重底）",
+        "origin": "岭南苏木 / 华北茜草",
+        "description": "提供浓烈浑厚的绛红根基。"
+      },
+      {
+        "name": "椿木灰与微铁",
+        "origin": "铝铁复合媒染",
+        "description": "将饱满深红稳稳推向庄严的深绛紫。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "苏木 / 茜草浓液",
+        "ratio": 62,
+        "note": "深厚绛红主体"
+      },
+      {
+        "name": "紫草 / 淡靛液",
+        "ratio": 23,
+        "note": "注入高贵紫韵"
+      },
+      {
+        "name": "微铁 / 椿木灰",
+        "ratio": 15,
+        "note": "压低浮艳，成就深沉绛紫"
+      }
+    ]
+  },
+  {
+    "id": "craft-zitang",
+    "name": "紫棠 · 植物草木染",
+    "category": "plant_dye",
+    "rawMaterials": [
+      "新疆紫草根（硬紫草）",
+      "椿木灰 / 柃木灰"
+    ],
+    "mordantOrBinder": "老紫草根皮（约 75%）、椿木灰碱铝液（约 20%）、米酒助溶（约 5%）",
+    "origin": "西域、辽东野生 / 天然植物铝灰",
+    "steps": [
+      {
+        "order": 1,
+        "title": "灰水预媒",
+        "description": "丝绸先反复浸渍于富含铝离子的椿木灰清液，阴干待染。"
+      },
+      {
+        "order": 2,
+        "title": "温水揉萃",
+        "description": "紫草根捣碎加少许米酒润湿，温水（忌沸）揉搓出深紫浓汁。"
+      },
+      {
+        "order": 3,
+        "title": "多次复染",
+        "description": "灰媒丝绸入紫草缸反复浸染五至七次，每染必晾干发色。"
+      },
+      {
+        "order": 4,
+        "title": "深醇定色",
+        "description": "色泽由淡紫渐转为浓稠华贵的紫棠，幽暗中泛紫玉光彩。"
+      }
+    ],
+    "chemistryNote": "老紫草根皮：珍贵天然紫素，染力沉厚高雅；椿木灰碱铝液：核心植物媒染剂，令紫草显正紫；米酒助溶：助脂溶性紫草素充分释放",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "新疆紫草根（硬紫草）",
+        "origin": "西域、辽东野生",
+        "description": "根皮富含脂溶性紫草素，为古代最正统名贵的天然紫染。"
+      },
+      {
+        "name": "椿木灰 / 柃木灰",
+        "origin": "天然植物铝灰",
+        "description": "紫草素遇植物铝灰方能绽放深邃浓郁的紫棠色。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "老紫草根皮",
+        "ratio": 75,
+        "note": "珍贵天然紫素，染力沉厚高雅"
+      },
+      {
+        "name": "椿木灰碱铝液",
+        "ratio": 20,
+        "note": "核心植物媒染剂，令紫草显正紫"
+      },
+      {
+        "name": "米酒助溶",
+        "ratio": 5,
+        "note": "助脂溶性紫草素充分释放"
+      }
+    ]
+  },
+  {
+    "id": "craft-xueqing",
+    "name": "雪青 · 动物与合色",
+    "category": "compound_dye",
+    "rawMaterials": [
+      "极稀蓝靛（底色）",
+      "淡苏木或红花"
+    ],
+    "mordantOrBinder": "极稀蓝靛液（约 58%）、极淡苏木红液（约 32%）、淡白明矾（约 10%）",
+    "origin": "蓼蓝极浅缸 / 微红套染",
+    "steps": [
+      {
+        "order": 1,
+        "title": "浅靛打底",
+        "description": "洁白软缎入极稀蓝靛缸轻染一遍，得淡雅月白偏青底色。"
+      },
+      {
+        "order": 2,
+        "title": "淡矾固底",
+        "description": "微温淡明矾水轻柔过洗。"
+      },
+      {
+        "order": 3,
+        "title": "轻套淡红",
+        "description": "浸入极稀苏木水或红花淡液一过即起，青红化为雪青。"
+      },
+      {
+        "order": 4,
+        "title": "阴干收色",
+        "description": "避强光阴干，呈清冷高雅雪青色。"
+      }
+    ],
+    "chemistryNote": "极稀蓝靛液：主导冷峻清雅的蓝调底光；极淡苏木红液：点化出紫藤雪雾般的浅紫；淡白明矾：保持高明度不显灰暗",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "极稀蓝靛（底色）",
+        "origin": "蓼蓝极浅缸",
+        "description": "赋予冷冽清透的淡雪青底光。"
+      },
+      {
+        "name": "淡苏木或红花",
+        "origin": "微红套染",
+        "description": "浅蓝之上轻罩一抹淡红，幻化出空灵雪青紫。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "极稀蓝靛液",
+        "ratio": 58,
+        "note": "主导冷峻清雅的蓝调底光"
+      },
+      {
+        "name": "极淡苏木红液",
+        "ratio": 32,
+        "note": "点化出紫藤雪雾般的浅紫"
+      },
+      {
+        "name": "淡白明矾",
+        "ratio": 10,
+        "note": "保持高明度不显灰暗"
+      }
+    ]
+  },
+  {
+    "id": "craft-dingxiang",
+    "name": "丁香 · 植物草木染",
+    "category": "plant_dye",
+    "rawMaterials": [
+      "苏木尾液或紫草浅染",
+      "澄清草木灰水"
+    ],
+    "mordantOrBinder": "淡苏木 / 紫草液（约 85%）、澄清草木灰水（约 15%）",
+    "origin": "苏木 / 紫草 / 微碱调紫剂",
+    "steps": [
+      {
+        "order": 1,
+        "title": "制淡染液",
+        "description": "取苏木三煎后的清淡尾液或紫草浅浸液，滤净杂质。"
+      },
+      {
+        "order": 2,
+        "title": "轻浸上色",
+        "description": "素丝入微温染液染出极浅淡的柔粉色。"
+      },
+      {
+        "order": 3,
+        "title": "微碱转紫",
+        "description": "点入数滴澄清稻草灰水，淡粉瞬时化作清雅丁香紫。"
+      },
+      {
+        "order": 4,
+        "title": "漂清阴干",
+        "description": "清水漂净，通风阴干。"
+      }
+    ],
+    "chemistryNote": "淡苏木 / 紫草液：高明度柔和粉紫基调；澄清草木灰水：精准调碱，使红调温柔转紫",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "苏木尾液或紫草浅染",
+        "origin": "苏木 / 紫草",
+        "description": "取淡苏木遇微碱显温柔粉紫，清雅柔美。"
+      },
+      {
+        "name": "澄清草木灰水",
+        "origin": "微碱调紫剂",
+        "description": "微弱碱性令苏木淡红柔和转向丁香紫。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "淡苏木 / 紫草液",
+        "ratio": 85,
+        "note": "高明度柔和粉紫基调"
+      },
+      {
+        "name": "澄清草木灰水",
+        "ratio": 15,
+        "note": "精准调碱，使红调温柔转紫"
+      }
+    ]
+  },
+  {
+    "id": "craft-ouhe",
+    "name": "藕荷 · 植物草木染",
+    "category": "plant_dye",
+    "rawMaterials": [
+      "红花 / 苏木极淡液",
+      "微缕淡灰碱与明矾"
+    ],
+    "mordantOrBinder": "淡苏木 / 红花液（约 80%）、微碱 / 稀青液（约 12%）、淡白明矾（约 8%）",
+    "origin": "淡红主材 / 冷暖平衡",
+    "steps": [
+      {
+        "order": 1,
+        "title": "淡红初染",
+        "description": "极稀苏木水或红花尾水将丝绸染出淡如晨霞的浅粉。"
+      },
+      {
+        "order": 2,
+        "title": "微入灰青",
+        "description": "极淡明矾配微量草木灰水轻过一遍，压去甜腻。"
+      },
+      {
+        "order": 3,
+        "title": "流水漂净",
+        "description": "清泉轻漂去浮碱。"
+      },
+      {
+        "order": 4,
+        "title": "阴干显韵",
+        "description": "干后粉中透灰紫，恰似夏日江南嫩藕切面。"
+      }
+    ],
+    "chemistryNote": "淡苏木 / 红花液：提供柔和粉红主调；微碱 / 稀青液：注入空灵浅紫灰韵味；淡白明矾：固色提净",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "红花 / 苏木极淡液",
+        "origin": "淡红主材",
+        "description": "奠定娇嫩温润的藕粉底调。"
+      },
+      {
+        "name": "微缕淡灰碱与明矾",
+        "origin": "冷暖平衡",
+        "description": "极微弱的冷灰紫意，使粉色含蓄脱俗不甜腻。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "淡苏木 / 红花液",
+        "ratio": 80,
+        "note": "提供柔和粉红主调"
+      },
+      {
+        "name": "微碱 / 稀青液",
+        "ratio": 12,
+        "note": "注入空灵浅紫灰韵味"
+      },
+      {
+        "name": "淡白明矾",
+        "ratio": 8,
+        "note": "固色提净"
+      }
+    ]
+  },
+  {
+    "id": "craft-xuanqing",
+    "name": "玄青 · 动物与合色",
+    "category": "compound_dye",
+    "rawMaterials": [
+      "重染蓝靛与茜草",
+      "橡碗子与绿矾"
+    ],
+    "mordantOrBinder": "橡碗单宁与蓝靛（约 70%）、茜草红汁（约 15%）、绿矾铁水（约 15%）",
+    "origin": "古法“七入为缁” / 单宁铁黑媒染",
+    "steps": [
+      {
+        "order": 1,
+        "title": "重蓝打底",
+        "description": "丝绸入蓝靛缸深染五遍，打下深邃冷黑蓝根基。"
+      },
+      {
+        "order": 2,
+        "title": "茜草套赤",
+        "description": "套染两遍茜草浓红，赋予帝王礼服“黑而有赤”的玄韵。"
+      },
+      {
+        "order": 3,
+        "title": "橡碗煮单宁",
+        "description": "橡碗壳或五倍子熬浓棕黑液，浸染使织物饱吸单宁。"
+      },
+      {
+        "order": 4,
+        "title": "绿矾媒黑",
+        "description": "入绿矾铁水瞬时发黑，洗净阴干，光下泛沉静丝绒玄光。"
+      }
+    ],
+    "chemistryNote": "橡碗单宁与蓝靛：构建厚重极黑而不发死的深邃层次；茜草红汁：成就“黑而有赤”的微妙光彩；绿矾铁水：与单宁络合显出浓郁玄青黑",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "重染蓝靛与茜草",
+        "origin": "古法“七入为缁”",
+        "description": "先重染靛蓝至极深，再套茜草红与橡碗铁浆，黑中隐现深邃青赤幽光。"
+      },
+      {
+        "name": "橡碗子与绿矾",
+        "origin": "单宁铁黑媒染",
+        "description": "橡碗单宁遇亚铁离子化作坚牢极黑络合物。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "橡碗单宁与蓝靛",
+        "ratio": 70,
+        "note": "构建厚重极黑而不发死的深邃层次"
+      },
+      {
+        "name": "茜草红汁",
+        "ratio": 15,
+        "note": "成就“黑而有赤”的微妙光彩"
+      },
+      {
+        "name": "绿矾铁水",
+        "ratio": 15,
+        "note": "与单宁络合显出浓郁玄青黑"
+      }
+    ]
+  },
+  {
+    "id": "craft-songyan",
+    "name": "松烟 · 植物草木染",
+    "category": "plant_dye",
+    "rawMaterials": [
+      "黄山老松炭烟",
+      "鹿角胶与冰片麝香"
+    ],
+    "mordantOrBinder": "老松顶烟碳黑（约 72%）、精制动物胶（约 25%）、冰片麝香（约 3%）",
+    "origin": "徽州（安徽歙县） / 粘结与防腐香料",
+    "steps": [
+      {
+        "order": 1,
+        "title": "伐松去皮",
+        "description": "择百年老松去尽外皮（防生杂灰），劈成细松明木片。"
+      },
+      {
+        "order": 2,
+        "title": "长窑烧烟",
+        "description": "置竹棚纸窑内缓烧，窑尾所扫最轻最细者为“顶烟”。"
+      },
+      {
+        "order": 3,
+        "title": "和胶杵捣",
+        "description": "细筛顶烟拌温鹿角胶及香料，铁臼重杵数万次至光润如漆。"
+      },
+      {
+        "order": 4,
+        "title": "入模阴干",
+        "description": "压入雕花墨模，埋草木灰中缓缓脱潮阴干成传世松烟墨。"
+      }
+    ],
+    "chemistryNote": "老松顶烟碳黑：色泽乌黑醇厚、极适山水苍茫渲染；精制动物胶：赋予墨锭坚硬质地与墨分五色层次；冰片麝香：防腐避虫，令书画历经千年",
+    "sliderType": "mineral",
+    "materials": [
+      {
+        "name": "黄山老松炭烟",
+        "origin": "徽州（安徽歙县）",
+        "description": "老松不完全燃烧生成的极细碳黑，黑而无刺眼浮光，沉静温润。"
+      },
+      {
+        "name": "鹿角胶与冰片麝香",
+        "origin": "粘结与防腐香料",
+        "description": "十万杵捣炼，令烟胶合一、历久弥香。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "老松顶烟碳黑",
+        "ratio": 72,
+        "note": "色泽乌黑醇厚、极适山水苍茫渲染"
+      },
+      {
+        "name": "精制动物胶",
+        "ratio": 25,
+        "note": "赋予墨锭坚硬质地与墨分五色层次"
+      },
+      {
+        "name": "冰片麝香",
+        "ratio": 3,
+        "note": "防腐避虫，令书画历经千年"
+      }
+    ]
+  },
+  {
+    "id": "craft-yanmo",
+    "name": "烟墨 · 植物草木染",
+    "category": "plant_dye",
+    "rawMaterials": [
+      "桐油烟墨"
+    ],
+    "mordantOrBinder": "桐油烟微粒（约 68%）、精胶与清泉（约 32%）",
+    "origin": "徽州油烟墨",
+    "steps": [
+      {
+        "order": 1,
+        "title": "桐油燃灯",
+        "description": "瓷碗盛纯桐油点灯，上覆瓷碗收集细密乌亮油烟。"
+      },
+      {
+        "order": 2,
+        "title": "和胶制锭",
+        "description": "优质阿胶加香料和匀，千杵成油烟墨锭。"
+      },
+      {
+        "order": 3,
+        "title": "端砚慢研",
+        "description": "端砚蓄清泉，轻按缓研出浓淡相宜的墨汁。"
+      },
+      {
+        "order": 4,
+        "title": "兑水晕灰",
+        "description": "清水冲淡落宣纸，即化作氤氲苍茫的江南烟墨灰。"
+      }
+    ],
+    "chemistryNote": "桐油烟微粒：颗粒比松烟更细，淡化后清透润泽；精胶与清泉：决定宣纸上的墨晕边界与清雅灰调",
+    "sliderType": "mineral",
+    "materials": [
+      {
+        "name": "桐油烟墨",
+        "origin": "徽州油烟墨",
+        "description": "桐油点灯收集的极细油烟，微带清亮紫光，兑水晕开呈绝美烟墨灰。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "桐油烟微粒",
+        "ratio": 68,
+        "note": "颗粒比松烟更细，淡化后清透润泽"
+      },
+      {
+        "name": "精胶与清泉",
+        "ratio": 32,
+        "note": "决定宣纸上的墨晕边界与清雅灰调"
+      }
+    ]
+  },
+  {
+    "id": "craft-yuebai",
+    "name": "月白 · 植物草木染",
+    "category": "plant_dye",
+    "rawMaterials": [
+      "极稀蓝靛尾缸清液"
+    ],
+    "mordantOrBinder": "练白素丝（约 95%）、微量蓝靛（约 5%）",
+    "origin": "蓼蓝尾缸",
+    "steps": [
+      {
+        "order": 1,
+        "title": "练白去黄",
+        "description": "生丝先以草木灰与猪胰皂煮练，漂至洁净无杂黄。"
+      },
+      {
+        "order": 2,
+        "title": "取尾缸液",
+        "description": "选用染过多次、色素极淡的蓝靛尾缸清液。"
+      },
+      {
+        "order": 3,
+        "title": "瞬息轻蘸",
+        "description": "白绸展开入缸轻拂数秒即起，均匀受氧。"
+      },
+      {
+        "order": 4,
+        "title": "清风阴干",
+        "description": "风干后呈清朗微青、似白非白之月白色。"
+      }
+    ],
+    "chemistryNote": "练白素丝：洁净柔和的反光基底；微量蓝靛：恰到好处的微蓝，化素白为秋夜月华",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "极稀蓝靛尾缸清液",
+        "origin": "蓼蓝尾缸",
+        "description": "素白丝绸入极淡蓝缸瞬息一蘸，去黄增清，映出皓月清辉。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "练白素丝",
+        "ratio": 95,
+        "note": "洁净柔和的反光基底"
+      },
+      {
+        "name": "微量蓝靛",
+        "ratio": 5,
+        "note": "恰到好处的微蓝，化素白为秋夜月华"
+      }
+    ]
+  },
+  {
+    "id": "craft-gaobai",
+    "name": "缟白 · 植物草木染",
+    "category": "plant_dye",
+    "rawMaterials": [
+      "上等桑蚕素丝",
+      "楝木灰与蜃灰（蛤壳灰）"
+    ],
+    "mordantOrBinder": "精练桑蚕丝（约 90%）、楝灰与蜃灰（约 10%）",
+    "origin": "太湖流域 / 蜀地 / 古法精练漂白剂",
+    "steps": [
+      {
+        "order": 1,
+        "title": "灰水煮练",
+        "description": "生丝浸入楝木灰水慢煮，软化并脱去表面淡黄丝胶。"
+      },
+      {
+        "order": 2,
+        "title": "涂蜃水洗",
+        "description": "涂抹细腻蛤壳灰（蜃灰）清浆，反复于流水中揉漂净尽。"
+      },
+      {
+        "order": 3,
+        "title": "昼暴夜宿",
+        "description": "依《考工记》法“昼暴诸日，夜宿诸井，七日七夜”，借日露自然漂白。"
+      },
+      {
+        "order": 4,
+        "title": "阴干成缟",
+        "description": "晾干后丝质柔滑光洁，泛出温润典雅的缟白色。"
+      }
+    ],
+    "chemistryNote": "精练桑蚕丝：天然纤维本色，温和护眼不刺白；楝灰与蜃灰：温和脱胶增白，兼有日晒夜露之功",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "上等桑蚕素丝",
+        "origin": "太湖流域 / 蜀地",
+        "description": "《考工记》详载“慌氏冻丝”，经灰水煮练露漂而成温润暖白。"
+      },
+      {
+        "name": "楝木灰与蜃灰（蛤壳灰）",
+        "origin": "古法精练漂白剂",
+        "description": "温和脱去丝胶杂黄，保留桑蚕丝天然珍珠暖光。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "精练桑蚕丝",
+        "ratio": 90,
+        "note": "天然纤维本色，温和护眼不刺白"
+      },
+      {
+        "name": "楝灰与蜃灰",
+        "ratio": 10,
+        "note": "温和脱胶增白，兼有日晒夜露之功"
+      }
+    ]
+  },
+  {
+    "id": "craft-gefen",
+    "name": "蛤粉 · 动物与合色",
+    "category": "organic_animal",
+    "rawMaterials": [
+      "陈年海蛤壳（碳酸钙 CaCO₃）",
+      "淡鱼鳔胶 / 牛皮胶"
+    ],
+    "mordantOrBinder": "水飞蛤壳粉（约 90%）、淡透明胶（约 10%）",
+    "origin": "沿海老海蛤壳 / 胶结介质",
+    "steps": [
+      {
+        "order": 1,
+        "title": "选壳风化",
+        "description": "择厚实洁白海蛤壳，去外层黑皮，露天经年日晒雨淋使其酥松。"
+      },
+      {
+        "order": 2,
+        "title": "石磨细研",
+        "description": "置石磨加水反复细磨成细腻雪白乳浆。"
+      },
+      {
+        "order": 3,
+        "title": "多道水飞",
+        "description": "清水漂洗水飞，滤取最轻细如脂的悬浮纯白粉层。"
+      },
+      {
+        "order": 4,
+        "title": "阴干调胶",
+        "description": "晾干成粉块，临画加淡胶细研，温润典雅、千年不变色。"
+      }
+    ],
+    "chemistryNote": "水飞蛤壳粉：温暖柔和的象牙白，历千年如雪；淡透明胶：附着绢纸，保持白粉润泽通透",
+    "sliderType": "mineral",
+    "materials": [
+      {
+        "name": "陈年海蛤壳（碳酸钙 CaCO₃）",
+        "origin": "沿海老海蛤壳",
+        "description": "天然生物碳酸钙，化学性质极稳，绝不像铅白日久氧化返黑。"
+      },
+      {
+        "name": "淡鱼鳔胶 / 牛皮胶",
+        "origin": "胶结介质",
+        "description": "勾绘仕女肌肤、白梅与白鹭羽毛，温润如脂。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "水飞蛤壳粉",
+        "ratio": 90,
+        "note": "温暖柔和的象牙白，历千年如雪"
+      },
+      {
+        "name": "淡透明胶",
+        "ratio": 10,
+        "note": "附着绢纸，保持白粉润泽通透"
+      }
+    ]
+  },
+  {
+    "id": "craft-tpl-mineral-red",
+    "name": "矿物红赭水飞古法（同系推演）",
+    "category": "mineral_pigment",
+    "rawMaterials": [
+      "赤铁矿 / 辰砂系天然矿石",
+      "精制动物皮胶"
+    ],
+    "mordantOrBinder": "水飞矿粉（约 88%）、淡皮胶液（约 12%）",
+    "origin": "湖南辰州 / 山西代县 / 敦煌矿区",
+    "steps": [
+      {
+        "order": 1,
+        "title": "选矿剔杂",
+        "description": "精选结晶致密或土质细腻的天然铁红、丹砂矿石，去除伴生杂石。"
+      },
+      {
+        "order": 2,
+        "title": "湿法细研",
+        "description": "置瓷乳钵中加水长时细研，防止干磨发热导致色相发暗。"
+      },
+      {
+        "order": 3,
+        "title": "水飞分级",
+        "description": "兑清水搅匀静置，依颗粒沉降速率分出深浅各阶色粉。"
+      },
+      {
+        "order": 4,
+        "title": "入胶设色",
+        "description": "阴干收粉后以温淡牛皮胶调匀，即可罩染纸绢或器物。"
+      }
+    ],
+    "chemistryNote": "以天然硫化汞（HgS）或氧化铁（Fe₂O₃）为呈色核心，耐光耐风化。",
+    "sliderType": "mineral",
+    "materials": [
+      {
+        "name": "天然赤铁矿 / 辰砂矿粉",
+        "origin": "华北、西南传统矿区",
+        "description": "同系矿物颜料核心发色体，色泽沉稳庄重。"
+      },
+      {
+        "name": "精制动物皮胶",
+        "origin": "传统胶结介质",
+        "description": "温和固着矿物颗粒于纸绢或地仗之上。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "水飞矿物细粉",
+        "ratio": 88,
+        "note": "提供高遮盖力与历久弥新的暖红色相"
+      },
+      {
+        "name": "温淡动物胶液",
+        "ratio": 12,
+        "note": "平衡附着力与色面清润感"
+      }
+    ]
+  },
+  {
+    "id": "craft-tpl-mineral-blue-green",
+    "name": "矿物青绿水飞古法（同系推演）",
+    "category": "mineral_pigment",
+    "rawMaterials": [
+      "孔雀石 / 蓝铜矿 / 青金石矿粉",
+      "精制动物皮胶"
+    ],
+    "mordantOrBinder": "水飞矿粉（约 86%）、淡骨胶（约 14%）",
+    "origin": "广东阳春 / 安徽铜陵 / 西域丝路",
+    "steps": [
+      {
+        "order": 1,
+        "title": "拣选纯矿",
+        "description": "剔除褐铁伴生杂脉，择取翠绿孔雀石或湛蓝蓝铜矿纯晶。"
+      },
+      {
+        "order": 2,
+        "title": "研碎漂洗",
+        "description": "石臼捣细后于乳钵湿研，清水淘洗浮沫与轻杂质。"
+      },
+      {
+        "order": 3,
+        "title": "水飞四色",
+        "description": "按悬浮沉降时间依次析出头青/头绿至四青/四绿，颗粒愈细愈淡雅。"
+      },
+      {
+        "order": 4,
+        "title": "调胶罩染",
+        "description": "临用加淡骨胶指腹研匀，逐层平涂呈宝石般颗粒质感。"
+      }
+    ],
+    "chemistryNote": "碱式碳酸铜或含硫铝硅酸钠矿物结晶呈色，颗粒粗细直接决定明度与色深。",
+    "sliderType": "mineral",
+    "materials": [
+      {
+        "name": "孔雀石 / 蓝铜矿 / 青金石",
+        "origin": "传统铜矿伴生带 / 西域",
+        "description": "青绿山水与壁画经典矿色，显色华丽持久。"
+      },
+      {
+        "name": "透明淡骨胶",
+        "origin": "传统胶结介质",
+        "description": "锁住矿物晶体折光感而不显晦暗。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "水飞青绿矿粉",
+        "ratio": 86,
+        "note": "决定色相浓度与晶体颗粒质感"
+      },
+      {
+        "name": "纯净骨胶液",
+        "ratio": 14,
+        "note": "防止粗颗粒矿粉脱落"
+      }
+    ]
+  },
+  {
+    "id": "craft-tpl-plant-red",
+    "name": "植物草木染 · 红赤系（同系推演）",
+    "category": "plant_dye",
+    "rawMaterials": [
+      "茜草根 / 苏木心材 / 红蓝花",
+      "白明矾或乌梅酸汁"
+    ],
+    "mordantOrBinder": "天然植物色素（约 75%）、铝盐/有机酸媒染（约 25%）",
+    "origin": "华北、川渝及岭南传统染坊",
+    "steps": [
+      {
+        "order": 1,
+        "title": "浸渍煎汁",
+        "description": "将干燥染材冷水浸泡后文火慢煎，过滤取清亮红汁（忌大火沸煮防发褐）。"
+      },
+      {
+        "order": 2,
+        "title": "预媒固底",
+        "description": "织物先经白明矾水或草木灰碱液处理，增强纤维与色素亲和力。"
+      },
+      {
+        "order": 3,
+        "title": "温缸复染",
+        "description": "丝麻织物入缸轻柔翻染多遍，依目标深浅控制浸染次数。"
+      },
+      {
+        "order": 4,
+        "title": "调酸定色",
+        "description": "以稀乌梅汁或清水漂洗定色，避强光阴干发色。"
+      }
+    ],
+    "chemistryNote": "蒽醌类（茜素）、巴西苏木素或红花素借铝离子螯合或酸碱调控呈现不同深浅红调。",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "茜草 / 苏木 / 红蓝花",
+        "origin": "华夏传统红染植物",
+        "description": "天然植物红素来源，色韵温润且富有层次。"
+      },
+      {
+        "name": "白明矾 / 乌梅清汁",
+        "origin": "天然媒染与显色剂",
+        "description": "稳固色素分子并微调暖红与玫瑰红倾向。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "植物红染汁",
+        "ratio": 75,
+        "note": "提供主体暖红或娇红发色基调"
+      },
+      {
+        "name": "白明矾 / 乌梅汁",
+        "ratio": 25,
+        "note": "媒染固色并调节色相明度"
+      }
+    ]
+  },
+  {
+    "id": "craft-tpl-plant-yellow",
+    "name": "植物草木染 · 黄缃系（同系推演）",
+    "category": "plant_dye",
+    "rawMaterials": [
+      "山栀子 / 国槐米 / 黄檗树皮 / 姜黄",
+      "白明矾媒染剂"
+    ],
+    "mordantOrBinder": "植物黄染汁（约 82%）、白明矾（约 18%）",
+    "origin": "江南丘陵与中原广植",
+    "steps": [
+      {
+        "order": 1,
+        "title": "选材浸泡",
+        "description": "取干山栀子、槐米或黄檗皮洗净冷水浸泡，令黄酮或小檗碱充分溶出。"
+      },
+      {
+        "order": 2,
+        "title": "文火熬液",
+        "description": "文火熬煮半小时后以细纱滤净残渣，得澄澈金黄染液。"
+      },
+      {
+        "order": 3,
+        "title": "入缸匀染",
+        "description": "织物入温缸反复浸渍翻动，依深浅需求调整染次。"
+      },
+      {
+        "order": 4,
+        "title": "明矾固色",
+        "description": "白明矾媒染提升水洗牢度与明净光泽，阴干成色。"
+      }
+    ],
+    "chemistryNote": "藏红花素、芦丁黄酮或姜黄素在弱酸与铝盐环境下呈现纯正温雅的传统黄调。",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "山栀子 / 国槐米 / 黄檗",
+        "origin": "华夏传统黄染植物",
+        "description": "药染同源的经典天然黄色素来源。"
+      },
+      {
+        "name": "白明矾 / 淡米醋",
+        "origin": "固色媒染剂",
+        "description": "稳定发色并减少日晒褪色。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "植物黄染浓液",
+        "ratio": 82,
+        "note": "释放温和通透的天然黄色素"
+      },
+      {
+        "name": "白明矾媒染",
+        "ratio": 18,
+        "note": "与黄酮形成稳定螯合物，固色提亮"
+      }
+    ]
+  },
+  {
+    "id": "craft-tpl-plant-indigo-green",
+    "name": "植物草木染 · 蓝靛套染系（同系推演）",
+    "category": "compound_dye",
+    "rawMaterials": [
+      "发酵蓝靛泥（蓼蓝/菘蓝/马蓝）",
+      "槐米 / 荩草 / 栀子黄套染"
+    ],
+    "mordantOrBinder": "蓝靛还原缸（约 60%）、草木黄套染与明矾（约 40%）",
+    "origin": "江南及西南传统蓝染作坊",
+    "steps": [
+      {
+        "order": 1,
+        "title": "建缸还原",
+        "description": "以蓝靛泥配石灰、米酒与麦麸发酵建缸，使靛蓝还原为黄绿色隐色体。"
+      },
+      {
+        "order": 2,
+        "title": "浸染氧化",
+        "description": "织物入缸慢浸后提起迎风氧化，依蓝调深浅重复浸染多遍。"
+      },
+      {
+        "order": 3,
+        "title": "草木套染",
+        "description": "若呈青绿色相，再以槐米、荩草或栀子黄液套染成间色。"
+      },
+      {
+        "order": 4,
+        "title": "媒染漂洗",
+        "description": "淡明矾或清水漂净浮色，通风晾干定色。"
+      }
+    ],
+    "chemistryNote": "靛蓝素氧化附着于纤维表层，叠加植物黄酮后通过减色混合呈现丰富青蓝与草木绿。",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "天然发酵蓝靛泥",
+        "origin": "江南 / 贵州传统产区",
+        "description": "提供清冷沉静的蓝基，耐洗耐磨。"
+      },
+      {
+        "name": "槐米 / 荩草（套染用）",
+        "origin": "传统草木黄材",
+        "description": "与蓝靛相合，化生松花、竹青、碧绿等间色。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "蓝靛还原液",
+        "ratio": 60,
+        "note": "构建沉静青蓝或蓝绿基底"
+      },
+      {
+        "name": "植物黄套染与灰碱",
+        "ratio": 40,
+        "note": "调节青绿偏暖程度与色相深浅"
+      }
+    ]
+  },
+  {
+    "id": "craft-tpl-plant-brown-ink",
+    "name": "植物单宁与铁媒 / 松烟墨法（同系推演）",
+    "category": "plant_dye",
+    "rawMaterials": [
+      "五倍子 / 核桃青皮 / 薯莨 / 橡碗或松烟炭黑",
+      "绿矾（硫酸亚铁）媒染"
+    ],
+    "mordantOrBinder": "单宁染材或烟炱（约 80%）、铁盐媒染或皮胶（约 20%）",
+    "origin": "徽州制墨 / 岭南及中原传统染坊",
+    "steps": [
+      {
+        "order": 1,
+        "title": "煎煮单宁",
+        "description": "将橡碗、核桃皮、薯莨或五倍子捣碎煎煮，萃出富含鞣质的深褐汁液。"
+      },
+      {
+        "order": 2,
+        "title": "反复浸染",
+        "description": "织物多次浸染并晾晒氧化，逐步加深棕褐与沉茶底色。"
+      },
+      {
+        "order": 3,
+        "title": "铁浆发乌",
+        "description": "入稀绿矾水或铁浆媒染，亚铁离子与单宁络合迅速转沉灰、褐黑或乌玄。"
+      },
+      {
+        "order": 4,
+        "title": "清水洗净",
+        "description": "彻底漂洗残余铁盐防止纤维发脆，阴干定色。"
+      }
+    ],
+    "chemistryNote": "植物多酚单宁与 Fe²⁺/Fe³⁺ 发生经典铁鞣络合显色，是古代灰、褐、玄黑染的核心机理。",
+    "sliderType": "dye",
+    "materials": [
+      {
+        "name": "五倍子 / 橡碗 / 薯莨 / 核桃皮",
+        "origin": "全国传统单宁染材",
+        "description": "高单宁植物原料，耐晒且沉稳古朴。"
+      },
+      {
+        "name": "绿矾（皂矾）",
+        "origin": "传统铁盐媒染剂",
+        "description": "令褐调沉降转为雅灰、铁褐或乌黑。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "高单宁植物浓汁",
+        "ratio": 80,
+        "note": "提供温厚褐茶与深沉底色"
+      },
+      {
+        "name": "稀绿矾铁媒液",
+        "ratio": 20,
+        "note": "精确控制灰黑与暗褐发色深度"
+      }
+    ]
+  },
+  {
+    "id": "craft-tpl-ceramic-glaze",
+    "name": "传统瓷器窑变釉色古法（同系推演）",
+    "category": "ceramic_glaze",
+    "rawMaterials": [
+      "长石瓷釉矿料与草木灰",
+      "微量氧化铁 / 氧化铜 / 钴料呈色剂"
+    ],
+    "mordantOrBinder": "长石石英基础釉（约 85%）、天然草木灰与金属呈色剂（约 15%）",
+    "origin": "景德镇 / 龙泉 / 禹州 / 宝丰历代名窑",
+    "steps": [
+      {
+        "order": 1,
+        "title": "淘洗配釉",
+        "description": "釉果与草木灰水淘细研，按目标釉色精准配入微量铁、铜或钴矿呈色剂。"
+      },
+      {
+        "order": 2,
+        "title": "施釉阴干",
+        "description": "采用浸釉、荡釉或多次吹釉法施于素坯，控制釉层厚薄均匀。"
+      },
+      {
+        "order": 3,
+        "title": "入窑高温",
+        "description": "约 1260°C–1320°C 高温烧成，依器类严格控制还原焰或氧化焰气氛。"
+      },
+      {
+        "order": 4,
+        "title": "缓冷开窑",
+        "description": "自然冷却促成玻璃相与微晶乳浊分相，呈现温润如玉的窑变釉色。"
+      }
+    ],
+    "chemistryNote": "高温下铁、铜、钴离子在不同氧化还原气氛与乳浊结构中呈现青、白、红、蓝等万千釉韵。",
+    "sliderType": "glaze",
+    "materials": [
+      {
+        "name": "天然长石釉矿与草木灰",
+        "origin": "传统名窑产区",
+        "description": "高温熔融成温润玻璃相釉层。"
+      },
+      {
+        "name": "微量天然铁 / 铜 / 钴呈色矿",
+        "origin": "天然矿脉呈色剂",
+        "description": "随窑火气氛化出青翠、霁蓝、窑红或玉白。"
+      }
+    ],
+    "mordants": [
+      {
+        "name": "长石釉石基础料",
+        "ratio": 85,
+        "note": "形成温润玉质釉面与通透感"
+      },
+      {
+        "name": "草木灰与微量金属呈色剂",
+        "ratio": 15,
+        "note": "助熔并在高温气氛下发色"
+      }
+    ]
+  }
+]

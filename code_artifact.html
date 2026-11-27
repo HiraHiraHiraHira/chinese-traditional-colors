@@ -1,0 +1,2518 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>中国传统色谱 · 制色工艺志</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Noto Serif SC"', 'STSong', 'serif'],
+            sans: ['"Inter"', '"Noto Sans SC"', 'system-ui', 'sans-serif'],
+            mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace']
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* =========================================================================
+       美术馆策展级设计令牌（明 / 暗双展馆模式）
+       ========================================================================= */
+    :root,
+    [data-theme="light"] {
+      --bg-canvas: #F6F5F0;
+      --bg-surface: #FFFFFF;
+      --bg-subtle: #EFECE6;
+      --bg-hover: #F2F0EB;
+      --border-hairline: rgba(24, 24, 22, 0.08);
+      --border-strong: rgba(24, 24, 22, 0.16);
+      --text-primary: #1A1918;
+      --text-secondary: #6B6863;
+      --text-tertiary: #96928B;
+      --header-bg: rgba(246, 245, 240, 0.86);
+      --shadow-card: 0 1px 2px rgba(24, 24, 22, 0.03), 0 8px 24px rgba(24, 24, 22, 0.035);
+      --shadow-hover: 0 12px 32px rgba(24, 24, 22, 0.07);
+      --accent-glow: rgba(192, 44, 56, 0.045);
+      --slider-thumb-bg: #1A1918;
+      --slider-thumb-border: #FFFFFF;
+    }
+
+    [data-theme="dark"] {
+      --bg-canvas: #131312;
+      --bg-surface: #1B1A18;
+      --bg-subtle: #242320;
+      --bg-hover: #21201D;
+      --border-hairline: rgba(245, 244, 240, 0.09);
+      --border-strong: rgba(245, 244, 240, 0.18);
+      --text-primary: #F2F0EB;
+      --text-secondary: #9D9A93;
+      --text-tertiary: #6C6963;
+      --header-bg: rgba(19, 19, 18, 0.86);
+      --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.2), 0 10px 28px rgba(0, 0, 0, 0.25);
+      --shadow-hover: 0 14px 36px rgba(0, 0, 0, 0.4);
+      --accent-glow: rgba(192, 44, 56, 0.06);
+      --slider-thumb-bg: #F2F0EB;
+      --slider-thumb-border: #1B1A18;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-primary);
+      font-family: "Inter", "Noto Sans SC", system-ui, sans-serif;
+      transition: background-color 0.35s ease, color 0.35s ease;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* 极细腻的微弱纸纹肌理，几乎不可察觉但增加触感温度 */
+    .gallery-grain {
+      background-image: radial-gradient(rgba(128, 124, 116, 0.055) 1px, transparent 0);
+      background-size: 28px 28px;
+    }
+
+    /* 顶部极克制（3%~6%）氛围光晕层 */
+    #ambient-aura {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 460px;
+      pointer-events: none;
+      z-index: 0;
+      background: radial-gradient(ellipse 75% 60% at 62% -10%, var(--accent-glow) 0%, transparent 72%);
+      transition: background 0.7s ease;
+    }
+
+    .surface-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      box-shadow: var(--shadow-card);
+      transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.25s ease;
+    }
+
+    .surface-subtle {
+      background-color: var(--bg-subtle);
+      border: 1px solid var(--border-hairline);
+    }
+
+    .hairline-b { border-bottom: 1px solid var(--border-hairline); }
+    .hairline-t { border-top: 1px solid var(--border-hairline); }
+    .hairline-l { border-left: 1px solid var(--border-hairline); }
+    .hairline-all { border: 1px solid var(--border-hairline); }
+
+    .text-main { color: var(--text-primary); }
+    .text-muted { color: var(--text-secondary); }
+    .text-faint { color: var(--text-tertiary); }
+
+    .tabular-nums { font-variant-numeric: tabular-nums; }
+
+    /* 极简现代滑块 */
+    input[type="range"].gallery-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 4px;
+      border-radius: 999px;
+      outline: none;
+      cursor: pointer;
+    }
+    input[type="range"].gallery-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--slider-thumb-bg);
+      border: 2.5px solid var(--slider-thumb-border);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.22);
+      transition: transform 0.15s ease;
+    }
+    input[type="range"].gallery-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.18);
+    }
+
+    /* 精致极细滚动条 */
+    .thin-scroll::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+    .thin-scroll::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .thin-scroll::-webkit-scrollbar-thumb {
+      background: var(--border-strong);
+      border-radius: 9999px;
+    }
+
+    @keyframes subtleFadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in {
+      animation: subtleFadeIn 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+  </style>
+</head>
+<body class="min-h-screen gallery-grain relative">
+  <!-- 极柔和氛围光晕（仅 3%–6% 透明度，绝不刺眼） -->
+  <div id="ambient-aura"></div>
+
+  <!-- =========================================================================
+       极简美术馆顶栏导航
+       ========================================================================= -->
+  <header class="sticky top-0 z-40 hairline-b backdrop-blur-md" style="background-color: var(--header-bg);">
+    <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10">
+      <div class="h-16 flex items-center justify-between gap-4">
+        <!-- 品牌标识：克制现代，去掉繁复花纹 -->
+        <button onclick="switchView('gallery')" class="flex items-center gap-3 text-left group shrink-0">
+          <span id="brand-swatch" class="w-3.5 h-3.5 rounded-full transition-colors duration-500 ring-4 ring-black/[0.04]" style="background-color: #C02C38;"></span>
+          <div class="flex items-baseline gap-2.5">
+            <span class="font-serif text-base sm:text-lg font-semibold tracking-wide text-main">中国传统色谱</span>
+            <span class="hidden md:inline text-[11px] font-mono tracking-[0.14em] uppercase text-faint">Craft &amp; Chromatics</span>
+          </div>
+        </button>
+
+        <!-- 中央三大视图导航 -->
+        <nav class="flex items-center gap-1 p-1 rounded-full hairline-all" style="background-color: var(--bg-subtle);">
+          <button id="nav-gallery" onclick="switchView('gallery')" class="px-3.5 sm:px-4 py-1.5 rounded-full text-xs sm:text-[13px] font-medium transition-all whitespace-nowrap">
+            色志 · 鉴赏
+          </button>
+          <button id="nav-matrix" onclick="switchView('matrix')" class="px-3.5 sm:px-4 py-1.5 rounded-full text-xs sm:text-[13px] font-medium transition-all whitespace-nowrap">
+            色谱 · 矩阵
+          </button>
+          <button id="nav-lab" onclick="switchView('lab')" class="px-3.5 sm:px-4 py-1.5 rounded-full text-xs sm:text-[13px] font-medium transition-all whitespace-nowrap">
+            合色 · 实验室
+          </button>
+        </nav>
+
+        <!-- 右侧极简工具：随机拾色 + 明/暗展馆切换 -->
+        <div class="flex items-center gap-2 shrink-0">
+          <button onclick="pickRandomColor()" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs text-muted hover:text-main hairline-all transition hover:bg-black/[0.03]" title="随机鉴赏一种传统色">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+            <span>拾色</span>
+          </button>
+
+          <button id="theme-toggle-btn" onclick="toggleTheme()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-muted hover:text-main hairline-all transition" title="切换明 / 暗展馆模式">
+            <span id="theme-icon"></span>
+            <span id="theme-label" class="hidden sm:inline">暗馆</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       主容器（相对定位确保位于氛围光晕之上）
+       ========================================================================= -->
+  <div class="relative z-10 max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 py-6 sm:py-8">
+
+    <!-- ==================== 视图 1：色志 · 鉴赏（默认主视图） ==================== -->
+    <main id="view-gallery" class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+      <!-- 左侧：精致色彩索引栏 -->
+      <aside class="lg:col-span-4 xl:col-span-3 lg:sticky lg:top-24 surface-card rounded-2xl p-4 flex flex-col gap-3.5">
+        <!-- 搜索框 -->
+        <div class="relative">
+          <svg class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-faint pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <input
+            id="gallery-search"
+            type="text"
+            placeholder="搜索色名、拼音或原料..."
+            oninput="syncFilters('gallery')"
+            class="w-full pl-9 pr-8 py-2 rounded-xl text-xs sm:text-[13px] text-main placeholder:text-faint surface-subtle focus:outline-none focus:ring-1 focus:ring-current/25 transition"
+          />
+          <button id="gallery-search-clear" onclick="clearAllSearch()" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-faint hover:text-main">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+
+        <!-- 色系筛选 -->
+        <div id="gallery-family-pills" class="flex flex-wrap gap-1.5"></div>
+
+        <!-- 工艺筛选与计数 -->
+        <div class="flex items-center justify-between gap-2 pt-1 hairline-t">
+          <select id="gallery-craft-select" onchange="syncFilters('gallery')" class="text-xs text-muted bg-transparent py-1 pr-2 focus:outline-none cursor-pointer">
+            <option value="全部">全部制色工艺</option>
+            <option value="植物草木染">植物草木染</option>
+            <option value="矿物颜料">矿物颜料</option>
+            <option value="传统瓷釉">传统瓷釉</option>
+            <option value="动物与合色">动物与合色</option>
+          </select>
+          <span id="gallery-count" class="text-[11px] font-mono tabular-nums text-faint">49 / 49</span>
+        </div>
+
+        <!-- 色彩索引列表 -->
+        <div id="gallery-index-list" class="space-y-1 max-h-[30vh] lg:max-h-[calc(100vh-300px)] overflow-y-auto thin-scroll pr-1">
+          <!-- 动态渲染 -->
+        </div>
+      </aside>
+
+      <!-- 右侧：宽敞大气的策展级详情页 -->
+      <section id="gallery-detail-canvas" class="lg:col-span-8 xl:col-span-9 space-y-6">
+        <!-- 动态渲染 -->
+      </section>
+    </main>
+
+    <!-- ==================== 视图 2：色谱 · 矩阵 ==================== -->
+    <main id="view-matrix" class="hidden space-y-8">
+      <!-- 矩阵页头与筛选条 -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-5 pb-6 hairline-b">
+        <div class="space-y-2 max-w-2xl">
+          <div class="text-[11px] font-mono tracking-[0.16em] uppercase text-faint">CHINESE CHROMATIC ARCHIVE · 49 SPECIMENS</div>
+          <h1 class="font-serif text-2xl sm:text-3xl font-semibold tracking-wide text-main">中国传统色谱矩阵</h1>
+          <p class="text-sm text-muted leading-relaxed">
+            收录 49 种具有明确古籍与实物考据的中国传统色彩。点击色值可一键复制，点击色块步入该色彩的完整制色工艺档案。
+          </p>
+        </div>
+
+        <!-- 矩阵搜索与工艺筛选 -->
+        <div class="flex flex-wrap items-center gap-2.5">
+          <div class="relative w-full sm:w-56">
+            <svg class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-faint pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            <input
+              id="matrix-search"
+              type="text"
+              placeholder="搜索色名、原料..."
+              oninput="syncFilters('matrix')"
+              class="w-full pl-9 pr-3 py-2 rounded-xl text-xs sm:text-[13px] text-main placeholder:text-faint surface-card focus:outline-none"
+            />
+          </div>
+          <select id="matrix-craft-select" onchange="syncFilters('matrix')" class="px-3 py-2 rounded-xl text-xs sm:text-[13px] text-main surface-card focus:outline-none cursor-pointer">
+            <option value="全部">全部工艺</option>
+            <option value="植物草木染">植物草木染</option>
+            <option value="矿物颜料">矿物颜料</option>
+            <option value="传统瓷釉">传统瓷釉</option>
+            <option value="动物与合色">动物与合色</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- 色系药丸筛选 -->
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <div id="matrix-family-pills" class="flex flex-wrap gap-1.5"></div>
+        <span id="matrix-count" class="text-xs font-mono tabular-nums text-faint">共展示 49 种传统色</span>
+      </div>
+
+      <!-- 宽敞现代色卡网格 -->
+      <div id="matrix-grid-container" class="space-y-12">
+        <!-- 动态渲染 -->
+      </div>
+    </main>
+
+    <!-- ==================== 视图 3：合色 · 实验室 ==================== -->
+    <main id="view-lab" class="hidden space-y-8">
+      <!-- 实验室页头 -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-5 pb-6 hairline-b">
+        <div class="space-y-2 max-w-2xl">
+          <div class="text-[11px] font-mono tracking-[0.16em] uppercase text-faint">ANCIENT COMPOUND DYEING LABORATORY</div>
+          <h1 class="font-serif text-2xl sm:text-3xl font-semibold tracking-wide text-main">古法套染与媒染实验室</h1>
+          <p class="text-sm text-muted leading-relaxed">
+            中国传统草木染讲究“套染成间色，媒染定正色”。自由组合基础染材、叠加套染材与古法媒染剂，实时观测显色变化与最接近的传统色谱。
+          </p>
+        </div>
+
+        <!-- 经典古法配方预设 -->
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="text-xs text-faint mr-1">典籍预设：</span>
+          <button onclick="applyLabPreset('indigo', 'gardenia', 'alum')" class="px-3 py-1.5 rounded-full text-xs text-muted hover:text-main surface-card transition">松花 / 竹青</button>
+          <button onclick="applyLabPreset('safflower', 'gardenia', 'plum')" class="px-3 py-1.5 rounded-full text-xs text-muted hover:text-main surface-card transition">唐代石榴红</button>
+          <button onclick="applyLabPreset('sappanwood', 'none', 'iron')" class="px-3 py-1.5 rounded-full text-xs text-muted hover:text-main surface-card transition">唐宋绛紫</button>
+          <button onclick="applyLabPreset('indigo', 'madder', 'ash')" class="px-3 py-1.5 rounded-full text-xs text-muted hover:text-main surface-card transition">古籍绀青</button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+        <!-- 左侧：三步配料控制台 -->
+        <div class="lg:col-span-7 space-y-5">
+          <!-- 01 基础染材 -->
+          <div class="surface-card rounded-2xl p-5 sm:p-6 space-y-4">
+            <div class="flex items-baseline justify-between">
+              <div class="flex items-baseline gap-2.5">
+                <span class="text-xs font-mono text-faint">01</span>
+                <h2 class="font-serif text-base font-semibold text-main">基础染材（底色）</h2>
+              </div>
+              <span class="text-xs text-faint">主色素基底</span>
+            </div>
+            <div id="lab-base-grid" class="grid grid-cols-2 sm:grid-cols-4 gap-2.5"></div>
+          </div>
+
+          <!-- 02 叠加套染材 -->
+          <div class="surface-card rounded-2xl p-5 sm:p-6 space-y-4">
+            <div class="flex items-baseline justify-between">
+              <div class="flex items-baseline gap-2.5">
+                <span class="text-xs font-mono text-faint">02</span>
+                <h2 class="font-serif text-base font-semibold text-main">叠加套染材（可选）</h2>
+              </div>
+              <span class="text-xs text-faint">减色叠染生成间色</span>
+            </div>
+            <div id="lab-over-grid" class="grid grid-cols-2 sm:grid-cols-4 gap-2.5"></div>
+          </div>
+
+          <!-- 03 媒染剂 -->
+          <div class="surface-card rounded-2xl p-5 sm:p-6 space-y-4">
+            <div class="flex items-baseline justify-between">
+              <div class="flex items-baseline gap-2.5">
+                <span class="text-xs font-mono text-faint">03</span>
+                <h2 class="font-serif text-base font-semibold text-main">古法媒染剂（发色与固色）</h2>
+              </div>
+              <span class="text-xs text-faint">酸碱调控与金属络合</span>
+            </div>
+            <div id="lab-mordant-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5"></div>
+          </div>
+        </div>
+
+        <!-- 右侧：美术馆色标结果展台 -->
+        <div class="lg:col-span-5 lg:sticky lg:top-24">
+          <div id="lab-result-panel" class="surface-card rounded-2xl overflow-hidden">
+            <!-- 动态渲染 -->
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- 极简底部版权与说明 -->
+  <footer class="relative z-10 mt-16 hairline-t py-8">
+    <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-faint">
+      <div class="font-serif tracking-wide">中国传统色谱 · 制色工艺志</div>
+      <div class="font-mono text-[11px]">考据来源：《天工开物》《齐民要术》《考工记》《本草纲目》《芥子园画传》</div>
+    </div>
+  </footer>
+
+  <!-- 柔和极简 Toast 提示 -->
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 translate-y-3 transition-all duration-300">
+    <div class="px-4 py-2.5 rounded-full text-xs sm:text-[13px] font-medium shadow-lg flex items-center gap-2 backdrop-blur-md" style="background-color: var(--text-primary); color: var(--bg-surface);">
+      <span id="toast-dot" class="w-2 h-2 rounded-full bg-emerald-400"></span>
+      <span id="toast-text">已复制</span>
+    </div>
+  </div>
+
+  <script>
+    /* =========================================================================
+       一、49 种中国传统色彩与真实古法制色工艺数据库
+       工艺分类统一为：植物草木染 | 矿物颜料 | 传统瓷釉 | 动物与合色
+       ========================================================================= */
+    const COLORS_DB = [
+      // -------------------- 1. 红赤系 (10) --------------------
+      {
+        id: 'zhusha', code: '01', name: '朱砂', pinyin: 'zhū shā', en: 'Cinnabar Red', hex: '#C02C38',
+        family: '红赤', craft: '矿物颜料',
+        era: '商周至明清 · 宫廷漆器、敦煌壁画、书画印泥与重彩设色',
+        materials: [
+          { name: '辰砂矿石（天然硫化汞 HgS）', origin: '湖南辰州 / 贵州万山', desc: '呈暗红金刚光泽的天然晶体，耐光耐碱，千年不褪色。' },
+          { name: '精制牛皮胶 / 广胶', origin: '动物胶结介质', desc: '温和粘附矿粉颗粒于宣纸、绢帛或壁画地仗之上。' }
+        ],
+        mordants: [
+          { name: '水飞辰砂粉', ratio: 85, note: '提供沉稳浓郁的正红色相与高遮盖力' },
+          { name: '淡牛皮胶液', ratio: 10, note: '胶量过少易脱粉，过多则色面发暗' },
+          { name: '洁净清水', ratio: 5, note: '调节画色流畅度与罩染厚度' }
+        ],
+        steps: [
+          { title: '选矿去脉', desc: '择取结晶致密的“镜面砂”或“箭簇砂”，剔除伴生石英与方解石杂石。' },
+          { title: '湿法细研', desc: '置瓷乳钵中加水长时顺时针细研，避免干磨生热发黑，直至细腻如脂。' },
+          { title: '水飞分级', desc: '兑清水搅匀静置，按颗粒沉降速度分出深红“朱砂头”与橘红“朱膘”。' },
+          { title: '入胶调色', desc: '阴干收粉，临用时以温淡皮胶指腹研匀，即可勾染作画。' }
+        ],
+        sliderType: 'mineral',
+        sliderLabels: ['头色（粗晶 · 沉厚深朱）', '二色（中晶 · 正朱砂）', '三色（细晶 · 明丽赤红）', '朱膘（浮层 · 暖橘朱）'],
+        quote: '凡朱砂，生于深山石穴之中，研之愈细，其色愈红，水飞取膘，入画最妙。',
+        source: '《天工开物 · 丹青》'
+      },
+      {
+        id: 'qiancaohong', code: '02', name: '茜草红', pinyin: 'qiàn cǎo hóng', en: 'Madder Red', hex: '#B13B3C',
+        family: '红赤', craft: '植物草木染',
+        era: '先秦至宋明 · 华夏最早的植物正红染，用于礼服与锦帛',
+        materials: [
+          { name: '老茜草根茎（茹藘）', origin: '华北、西北多年生草本', desc: '三年生以上老根富含茜素与羟基茜素，红韵温润古朴。' },
+          { name: '白明矾 / 椿木灰', origin: '铝盐媒染剂', desc: '茜素借铝离子络合牢牢锚定于纤维，色泽温暖端正。' }
+        ],
+        mordants: [
+          { name: '干茜草老根', ratio: 75, note: '蒽醌类天然色素，极其耐日晒水洗' },
+          { name: '白明矾', ratio: 15, note: '将浅橘红转为纯正温润的茜草红' },
+          { name: '椿木灰清液', ratio: 10, note: '古法天然植物铝源，增添厚重古意' }
+        ],
+        steps: [
+          { title: '掘根洗晒', desc: '秋末采挖三年以上老茜草根，洗净泥土切段晒干备用。' },
+          { title: '预媒固底', desc: '丝麻织物先以明矾温水煮媒，阴干以增强纤维吸色力。' },
+          { title: '低温慢煎', desc: '茜根冷水浸泡一夜，文火控温 70°C 以下熬煮（忌沸防单宁发褐）。' },
+          { title: '复染氧化', desc: '织物入缸反复翻染，每遍取出晾透氧化，由纁红渐深至正茜红。' }
+        ],
+        sliderType: 'dye',
+        sliderLabels: ['一染（淡杏纁）', '二染（暖橘红）', '三染（正茜草红）', '四染（浓茜红）', '五染（深砖赤）', '六染（沉绛红）'],
+        quote: '一入谓之纁，再入谓之赪，三入谓之纁。茜草染绛，必以椿灰媒之。',
+        source: '《尔雅 · 释器》与《本草纲目》'
+      },
+      {
+        id: 'yanzhi', code: '03', name: '胭脂', pinyin: 'yān zhī', en: 'Rouge Carmine', hex: '#9D2933',
+        family: '红赤', craft: '动物与合色',
+        era: '汉唐至明清 · 仕女妆容、工笔花卉渲染与丝绸染红',
+        materials: [
+          { name: '紫胶虫胶（紫铆）或红蓝花', origin: '云南 / 西域丝路贡品', desc: '传统绵胭脂以红花或紫铆精炼而成，透明度高，红中含淡淡玫瑰紫韵。' },
+          { name: '陈年乌梅酸汁', origin: '天然有机酸显色剂', desc: '精准中和碱液并令红色素沉淀析出，激发清透娇艳感。' }
+        ],
+        mordants: [
+          { name: '红花 / 紫铆红膏', ratio: 72, note: '清透明丽的玫瑰红主体色素' },
+          { name: '乌梅酸汁', ratio: 18, note: '调酸发色，防止氧化暗沉' },
+          { name: '稻草灰碱水', ratio: 10, note: '前期萃取分离不溶红色素' }
+        ],
+        steps: [
+          { title: '淘黄取红', desc: '清晨采红蓝花瓣捣碎淘去水溶黄汁，或温水浸出紫铆原胶红汁。' },
+          { title: '碱水溶萃', desc: '以草木灰碱水浸渍，使红色素充分溶出成深红清液。' },
+          { title: '乌梅点酸', desc: '滴入陈年乌梅浓汁中和，纯净红色素遇酸迅速沉淀凝聚。' },
+          { title: '绵片吸膏', desc: '以精制丝绵薄片吸饱红膏阴干成“绵胭脂”，用时清水泡发。' }
+        ],
+        sliderType: 'dye',
+        sliderLabels: ['一染（淡粉胭脂）', '二染（娇桃红）', '三染（正胭脂）', '四染（浓绛胭脂）', '五染（深紫红）', '六染（沉乌红）'],
+        quote: '杀花法：摘取红花，即碓捣使熟，以水淘，布袋绞去黄汁，更捣，以粟饭浆清而醋者淘之。',
+        source: '《齐民要术 · 种红蓝花栀子》'
+      },
+      {
+        id: 'yinzhu', code: '04', name: '银朱', pinyin: 'yín zhū', en: 'Vermilion', hex: '#C83728',
+        family: '红赤', craft: '矿物颜料',
+        era: '汉代炼丹术始创 · 宫廷雕漆、朱批与年画彩绘',
+        materials: [
+          { name: '水银（汞）与石硫磺', origin: '人工升华合成 HgS', desc: '由炼丹工艺演化，结晶颗粒均匀，较天然朱砂更为明快炽烈。' },
+          { name: '清漆或动物胶液', origin: '成膜介质', desc: '入漆成朱漆重器，入胶成国画艳朱。' }
+        ],
+        mordants: [
+          { name: '精纯水银', ratio: 78, note: '与硫磺高温化合生成纯净朱红晶体' },
+          { name: '天然石硫磺', ratio: 22, note: '决定升华结晶的明艳度与纯度' }
+        ],
+        steps: [
+          { title: '配汞合硫', desc: '水银与硫磺按四比一于石钵研至全无银星，成黑色“青砂头”。' },
+          { title: '入罐封泥', desc: '装入铁锅泥罐，倒扣瓷盏，以盐泥严密封口隔绝空气。' },
+          { title: '文武升华', desc: '炭炉先文火后武火煅烧，硫化汞升华凝结于上盖内壁成针状红晶。' },
+          { title: '水飞收粉', desc: '冷却刮取贴罐结晶，清水细研漂去浮沫，即成明丽银朱。' }
+        ],
+        sliderType: 'mineral',
+        sliderLabels: ['头色（深艳银朱）', '二色（正银朱）', '三色（明艳猩红）', '四色（暖浅橘朱）'],
+        quote: '凡升水银朱，用石亭脂二斤，同水银一斤，炒作青砂头，装罐升炼，贴罐者为银朱。',
+        source: '《天工开物 · 丹青》'
+      },
+      {
+        id: 'zheshi', code: '05', name: '赭石', pinyin: 'zhě shí', en: 'Ochre Brown', hex: '#8A5B36',
+        family: '红赤', craft: '矿物颜料',
+        era: '新石器彩陶至历代浅绛山水 · 文人画暖色调灵魂',
+        materials: [
+          { name: '代赭石（赤铁矿 Fe₂O₃）', origin: '山西代县', desc: '天然土状氧化铁矿物，质地松软细腻，与水墨调和极为温润。' },
+          { name: '淡骨胶 / 桃胶', origin: '透明胶结剂', desc: '保持半透明水色质感，适宜山水画多次罩染。' }
+        ],
+        mordants: [
+          { name: '水飞代赭粉', ratio: 88, note: '永不褪色的沉静红褐氧化铁微粒' },
+          { name: '透明淡胶', ratio: 12, note: '固定矿粉而不阻塞宣纸肌理' }
+        ],
+        steps: [
+          { title: '择取软矿', desc: '精选断面暗红褐、指甲可划出红痕的优质软质代赭石。' },
+          { title: '捣碎筛粉', desc: '铁臼捣细，过密绢筛剔除粗硬砂砾。' },
+          { title: '水飞去铁', desc: '入水搅匀，弃去底部重黑砂，专取中上层细腻悬浮赤褐泥浆。' },
+          { title: '调胶成膏', desc: '沉淀阴干后加淡胶研匀，蘸水晕开即成温润浅绛。' }
+        ],
+        sliderType: 'mineral',
+        sliderLabels: ['头色（浓厚铁赭）', '二色（经典赭石）', '三色（温润浅绛）', '四色（清透淡赭）'],
+        quote: '代赭石出代郡者佳，研细水飞，色如赤土而润，画家用以染山石人物。',
+        source: '《本草纲目 · 石部》'
+      },
+      {
+        id: 'feihong', code: '06', name: '绯红', pinyin: 'fēi hóng', en: 'Official Scarlet', hex: '#C43C29',
+        family: '红赤', craft: '动物与合色',
+        era: '唐宋官服定制 · 四品、五品官员朝服绯袍正色',
+        materials: [
+          { name: '茜草根与苏木心材', origin: '华北茜草 / 岭南苏木', desc: '茜草打底赋予稳重耐晒，苏木套染提亮成庄严绯红。' },
+          { name: '白明矾', origin: '提亮媒染剂', desc: '促使茜素与巴西苏木素协同显出明亮橙红。' }
+        ],
+        mordants: [
+          { name: '茜草红汁', ratio: 50, note: '筑牢耐光暖红底蕴' },
+          { name: '苏木心材汁', ratio: 35, note: '大幅提升明度与绸面华彩' },
+          { name: '白明矾', ratio: 15, note: '铝盐固色并令色相偏正绯' }
+        ],
+        steps: [
+          { title: '茜草打底', desc: '织物先以明矾预媒，入茜草缸染两遍形成厚实暖红底。' },
+          { title: '苏木三煎', desc: '苏木心材刨成薄片，清水浸泡后文火煎煮三次合并浓汁。' },
+          { title: '套染提艳', desc: '茜红底绸入苏木浓液温染，色泽瞬间转明丽绯红。' },
+          { title: '复媒定色', desc: '稀明矾水过洗定色，清水漂净阴干。' }
+        ],
+        sliderType: 'dye',
+        sliderLabels: ['一染（浅绯）', '二染（亮绯）', '三染（正绯红）', '四染（浓绯）', '五染（深赤绯）', '六染（厚绛绯）'],
+        quote: '唐制，四品、五品服绯，以茜草、紫草或苏木染成，色鲜而明。',
+        source: '《新唐书 · 车服志》'
+      },
+      {
+        id: 'haitanghong', code: '07', name: '海棠红', pinyin: 'hǎi táng hóng', en: 'Begonia Rose', hex: '#D45B6C',
+        family: '红赤', craft: '植物草木染',
+        era: '宋明织锦与清代粉彩瓷 · 娇美明媚的春日闺阁红',
+        materials: [
+          { name: '红蓝花瓣', origin: '川渝、河南产', desc: '提取纯净碱溶红花素，明度高且娇嫩清透。' },
+          { name: '乌梅清汁', origin: '微酸显色剂', desc: '精细控制酸度，保留海棠花般的柔和玫瑰粉红。' }
+        ],
+        mordants: [
+          { name: '精萃红花液', ratio: 80, note: '赋予清丽粉红底色' },
+          { name: '乌梅清汁', ratio: 15, note: '令色相通透不浑浊' },
+          { name: '稻草灰碱液', ratio: 5, note: '前期萃取用，须中和净尽' }
+        ],
+        steps: [
+          { title: '淘除黄汁', desc: '干红花冷水反复揉洗淘尽黄色素，留纯净红花瓣。' },
+          { title: '微碱萃红', desc: '以澄清淡草木灰水浸出红花红色素并过滤。' },
+          { title: '乌梅调酸', desc: '缓缓滴入乌梅清汁至染液转为清亮玫瑰粉红。' },
+          { title: '冷染轻提', desc: '真丝素缎入冷缸轻柔浸染两遍，阴干呈娇嫩海棠红。' }
+        ],
+        sliderType: 'dye',
+        sliderLabels: ['一染（淡粉海棠）', '二染（嫩海棠）', '三染（正海棠红）', '四染（浓海棠）', '五染（艳玫瑰）', '六染（深海棠）'],
+        quote: '红花染真红、桃红、海棠红，皆视乌梅酸度与浸染遍数而定深浅。',
+        source: '《天工开物 · 彰施》'
+      },
+      {
+        id: 'shiliuhong', code: '08', name: '石榴红', pinyin: 'shí liú hóng', en: 'Pomegranate Red', hex: '#D92B24',
+        family: '红赤', craft: '动物与合色',
+        era: '盛唐“石榴裙”风尚 · 炽烈如夏花的经典黄红套染',
+        materials: [
+          { name: '山栀子（黄底）', origin: '江南丘陵', desc: '先染一层明快正黄，令后续红花呈现火焰般炽烈暖光。' },
+          { name: '红蓝花（重染）', origin: '西域传入 / 川渝', desc: '在黄底上重覆浸染红花素，达成耀眼夺目的真红。' }
+        ],
+        mordants: [
+          { name: '红花浓萃液', ratio: 65, note: '主导饱满炽烈正红' },
+          { name: '栀子黄底液', ratio: 25, note: '衬出石榴花瓣般的暖烈焰光' },
+          { name: '乌梅酸液', ratio: 10, note: '定色提亮，祛除暗紫杂调' }
+        ],
+        steps: [
+          { title: '栀子打底', desc: '先以山栀子煎水将素丝染成鲜明纯正的亮黄色。' },
+          { title: '精萃红花', desc: '大量红花淘去黄汁，碱萃酸析得高浓度红花染液。' },
+          { title: '重覆套染', desc: '黄绸浸入红花缸反复套染三至四遍，红黄化为烈焰石榴红。' },
+          { title: '酸水护色', desc: '稀乌梅水过洗定色，避强光阴干。' }
+        ],
+        sliderType: 'dye',
+        sliderLabels: ['一染（杏橘）', '二染（朱橘）', '三染（亮石榴）', '四染（正石榴红）', '五染（浓大红）', '六染（深赤红）'],
+        quote: '大红官绿色，先用黄柏或栀子染底，次用红花重染，乌梅水定之，鲜艳夺目。',
+        source: '《多能鄙事 · 染法》'
+      },
+      {
+        id: 'danhuo', code: '09', name: '丹雘', pinyin: 'dān huò', en: 'Mineral Terracotta', hex: '#A34332',
+        family: '红赤', craft: '矿物颜料',
+        era: '先秦宫室彩画与敦煌莫高窟 · 最古老的建筑与壁画土红',
+        materials: [
+          { name: '高铁红土 / 赤铁矿粘土', origin: '甘肃河西 / 关中', desc: '富含氧化铁的天然矿土，色泽沧桑厚重，耐风化。' },
+          { name: '动物皮胶', origin: '壁画胶料', desc: '增强矿土在泥墙白粉层上的牢固附着。' }
+        ],
+        mordants: [
+          { name: '精淘铁红泥', ratio: 90, note: '古朴庄严的红褐基调' },
+          { name: '温皮胶液', ratio: 10, note: '防止壁画起粉剥落' }
+        ],
+        steps: [
+          { title: '采掘红土', desc: '采选色泽纯正、杂质稀少的天然高铁红粘土。' },
+          { title: '淘洗去砂', desc: '大缸清水反复淘洗沉去粗砂，撇取上层细腻红浆。' },
+          { title: '微火焙烧', desc: '部分工艺将红泥微焙脱水，转为更深沉稳重的暗丹红。' },
+          { title: '研细入胶', desc: '石磨细研后调入稀皮胶液即可大片刷涂或勾绘。' }
+        ],
+        sliderType: 'mineral',
+        sliderLabels: ['头色（浓铁丹）', '二色（正丹雘）', '三色（柔土红）', '四色（浅砖红）'],
+        quote: '惟其涂丹雘。丹，赤石也；雘，善丹也，古人以涂宫室器物。',
+        source: '《尚书 · 梓材》'
+      },
+      {
+        id: 'tongse', code: '10', name: '彤色', pinyin: 'tóng sè', en: 'Sappanwood Red', hex: '#B42E30',
+        family: '红赤', craft: '植物草木染',
+        era: '汉代漆器与宋明织物 · “彤管有炜”的端庄正红',
+        materials: [
+          { name: '苏木心材（苏枋木）', origin: '南海及岭南', desc: '心材含巴西苏木素，遇明矾呈端庄彤红，遇碱变紫，遇铁变乌。' },
+          { name: '白明矾', origin: '铝盐媒染', desc: '锁定巴西苏木素，显出饱满端方的正红。' }
+        ],
+        mordants: [
+          { name: '苏木心材', ratio: 80, note: '染力强劲，色泽润泽饱满' },
+          { name: '白明矾', ratio: 20, note: '核心显色媒剂，稳定正红相' }
+        ],
+        steps: [
+          { title: '刨木浸渍', desc: '苏木硬心刨成细丝木屑，冷水浸泡两日使其吐色。' },
+          { title: '三煎取浓', desc: '文火煮沸半时辰滤出头汁，复加水再煎两次合并。' },
+          { title: '矾媒温染', desc: '织物经明矾水预媒后，入苏木红汁中缓染。' },
+          { title: '阴干发色', desc: '忌暴晒，通风阴凉处自然氧化定色。' }
+        ],
+        sliderType: 'dye',
+        sliderLabels: ['一染（浅苏芳）', '二染（亮彤红）', '三染（正彤色）', '四染（浓彤红）', '五染（深绛彤）', '六染（暗红）'],
+        quote: '苏枋木，出南海昆仑，煎汁以矾媒之，染绯红极佳，加铁浆则成紫黑。',
+        source: '《本草纲目 · 木部》'
+      },
+
+      // -------------------- 2. 黄缃系 (9) --------------------
+      {
+        id: 'tenghuang', code: '11', name: '藤黄', pinyin: 'téng huáng', en: 'Gamboge Yellow', hex: '#E5A823',
+        family: '黄缃', craft: '植物草木染',
+        era: '唐宋至明清 · 国画透明植物正黄之冠，亦可与花青调绿',
+        materials: [
+          { name: '海藤树天然树脂', origin: '真腊（柬埔寨）贡品', desc: '割皮滴落凝固于竹筒内的腊质树脂，自带树胶，遇冷水即化。' }
+        ],
+        mordants: [
+          { name: '纯海藤树脂', ratio: 95, note: '极高透明度与温润金黄光泽' },
+          { name: '清凉泉水', ratio: 5, note: '冷水自然化开，忌热水结块' }
+        ],
+        steps: [
+          { title: '割皮集脂', desc: '热带雨季前斜切海藤树干，以竹筒承接缓缓渗出的鲜黄乳汁。' },
+          { title: '阴干成锭', desc: '待筒内树脂自然风干凝固成坚硬圆柱，剖竹得“笔管藤黄”。' },
+          { title: '冷泡化色', desc: '取小块置瓷碟中，注入凉清水静置浸泡，不可沸水冲泡。' },
+          { title: '撇清入画', desc: '自然溶出清澈明亮的柠檬金黄水色，可单染或与花青合调汁绿。' }
+        ],
+        sliderType: 'dye',
+        sliderLabels: ['淡蘸（嫩鹅黄）', '轻染（清藤黄）', '正色（明丽藤黄）', '重染（浓金黄）', '叠染（暖橘黄）', '厚涂（琥珀黄）'],
+        quote: '藤黄出真腊国，乃树汁凝聚，入画最明净，与花青合之则成草绿。',
+        source: '《芥子园画传 · 设色各法》'
+      },
+      {
+        id: 'zhizihuang', code: '12', name: '栀子黄', pinyin: 'zhī zǐ huáng', en: 'Gardenia Yellow', hex: '#E0B227',
+        family: '黄缃', craft: '植物草木染',
+        era: '秦汉至清 · 药染同源的最经典天然正黄染材',
+        materials: [
+          { name: '山栀子成熟果实', origin: '江南丘陵广植', desc: '果仁富含藏红花素（Crocin），直接染丝绸如鎏金般温暖。' },
+          { name: '米醋或明矾', origin: '护色固色剂', desc: '微酸环境使栀子黄更加纯正耀眼，减少水洗流失。' }
+        ],
+        mordants: [
+          { name: '干山栀子果', ratio: 85, note: '释放高纯度水溶藏红花素' },
+          { name: '明矾 / 米醋', ratio: 15, note: '稳固色素分子，提纯暖金黄' }
+        ],
+        steps: [
+          { title: '破果浸泡', desc: '将干燥红褐色栀子果压破，露出橘黄果瓤，冷水浸泡半日。' },
+          { title: '文火熬汁', desc: '文火煮沸半小时，细麻布滤去果壳与籽粒得浓金黄液。' },
+          { title: '入缸温染', desc: '织物入温热染液轻柔翻动，色泽迅速均匀上染。' },
+          { title: '酸水固色', desc: '以淡米醋或明矾水过洗，提升饱和度与水洗牢度。' }
+        ],
+        sliderType: 'dye',
+        sliderLabels: ['一染（浅栀黄）', '二染（明栀黄）', '三染（正栀子黄）', '四染（浓金黄）', '五染（暖橘黄）', '六染（深赭黄）'],
+        quote: '卮子（栀子）可染黄，汉代已广种之，《史记》称千亩卮茜，其人与千户侯等。',
+        source: '《史记 · 货殖列传》'
+      },
+      {
+        id: 'cihuang', code: '13', name: '雌黄', pinyin: 'cí huáng', en: 'Orpiment Yellow', hex: '#E5B749',
+        family: '黄缃', craft: '矿物颜料',
+        era: '魏晋至唐宋 · 古籍校勘涂改（信口雌黄）与壁画装金',
+        materials: [
+          { name: '雌黄矿石（三硫化二砷 As₂S₃）', origin: '湖南石门 / 云南', desc: '呈鲜明柠檬金黄的云母层状矿物，遮盖力极强且泛丝绸光泽。' },
+          { name: '纯净骨胶', origin: '胶结介质', desc: '调和后用于壁画或涂改黄檗麻纸错字。' }
+        ],
+        mordants: [
+          { name: '纯净雌黄粉', ratio: 88, note: '带有微金珠光的稳定矿物黄' },
+          { name: '纯净骨胶', ratio: 12, note: '固着矿粉，忌与铅白铜绿混用' }
+        ],
+        steps: [
+          { title: '选矿剥片', desc: '挑选色如黄金、呈云母薄片的纯净雌黄，避开伴生雄黄。' },
+          { title: '湿法细研', desc: '矿石柔韧难碎，加水置乳钵内长时细心湿研成浆。' },
+          { title: '水飞分级', desc: '清水漂洗分级，滤出闪耀细腻丝光的金黄矿粉。' },
+          { title: '调胶避忌', desc: '入轻胶使用，避免与铅白、铜绿接触以防硫化物反应变黑。' }
+        ],
+        sliderType: 'mineral',
+        sliderLabels: ['头色（浓金雌黄）', '二色（正雌黄）', '三色（明浅黄）', '四色（淡米黄）'],
+        quote: '古人写书皆用黄纸，以蘗染之，有误则以雌黄灭之，故曰信口雌黄。',
+        source: '《梦溪笔谈 · 故事》'
+      },
+      {
+        id: 'minghuang', code: '14', name: '明黄', pinyin: 'míng huáng', en: 'Imperial Yellow', hex: '#E8BC34',
+        family: '黄缃', craft: '植物草木染',
+        era: '唐宋至明清皇室 · 御用龙袍与皇家织造专属尊贵正色',
+        materials: [
+          { name: '国槐花蕾（槐米）', origin: '华北、中原产', desc: '清宫内务府染明黄主材，富含芦丁黄酮，耐光性远胜栀子。' },
+          { name: '精制白明矾', origin: '核心媒染剂', desc: '与芦丁形成明亮稳固的铝络合物，绽放庄严皇室金黄。' }
+        ],
+        mordants: [
+          { name: '炒制槐米', ratio: 75, note: '耐晒牢度极高的宫廷首选黄染' },
+          { name: '精制白明矾', ratio: 20, note: '将暗黄点化为灿烂明黄的关键' },
+          { name: '微量栀子', ratio: 5, note: '调和一抹温暖贵气' }
+        ],
+        steps: [
+          { title: '文火炒米', desc: '采未开国槐花蕾，铁锅文火轻炒至微焦黄，激发深层黄酮。' },
+          { title: '煎煮滤浓', desc: '清水慢煎槐米过滤得金黄浓液，色泽沉厚不浮。' },
+          { title: '重矾复染', desc: '桑蚕丝缎先重矾媒染，再入槐米缸复染三遍。' },
+          { title: '提暖定色', desc: '微点极少量栀子水提暖，成庄严华贵之御用明黄。' }
+        ],
+        sliderType: 'dye',
+        sliderLabels: ['一染（淡明黄）', '二染（亮明黄）', '三染（正明黄）', '四染（浓御黄）', '五染（赤金黄）', '六染（深柘黄）'],
+        quote: '明黄，皇上御用之色，以槐花炒煎，重矾染就，灿然若日，臣民不得僭用。',
+        source: '《大清会典 · 织造》'
+      },
+      {
+        id: 'ehuang', code: '15', name: '鹅黄', pinyin: 'é huáng', en: 'Gosling Yellow', hex: '#EEDF59',
+        family: '黄缃', craft: '植物草木染',
+        era: '唐宋诗词与春日罗衫 · 嫩如雏鹅绒毛的娇嫩浅黄',
+        materials: [
+          { name: '黄檗内皮（黄柏）', origin: '四川、东北产', desc: '富含天然小檗碱，无需媒染即可直接染出清透嫩黄，兼具防蛀之效。' }
+        ],
+        mordants: [
+          { name: '黄檗初煎液', ratio: 90, note: '直接碱性植物染料，清亮微带嫩绿意' },
+          { name: '清泉稀释', ratio: 10, note: '控制色阶轻盈通透' }
+        ],
+        steps: [
+          { title: '剥皮切片', desc: '干燥黄檗树内皮切成细薄片，冷水浸润一夜使色素松动。' },
+          { title: '轻煮取头', desc: '微沸一刻钟即过滤，专取第一道最清澈明亮的浅黄液。' },
+          { title: '轻浸速提', desc: '洁白丝绢入温染液轻染一遍即起，忌久浸变重。' },
+          { title: '避光阴干', desc: '黄檗畏烈日，于通风阴凉处晾干即得娇嫩鹅黄。' }
+        ],
+        sliderType: 'dye',
+        sliderLabels: ['一染（嫩鹅黄）', '二染（明鹅黄）', '三染（正黄檗黄）', '四染（浓杏黄）', '五染（深姜黄）', '六染（暗金黄）'],
+        quote: '鹅黄，用黄檗浅染，或以槐花初染一过，色如雏鹅之羽，最宜春衫。',
+        source: '《天工开物 · 彰施》'
+      },
+      {
+        id: 'qiuxiang', code: '16', name: '秋香', pinyin: 'qiū xiāng', en: 'Autumn Olive', hex: '#988847',
+        family: '黄缃', craft: '动物与合色',
+        era: '明清文人服饰与江南丝绸 · 温雅内敛的黄绿间色',
+        materials: [
+          { name: '槐米 / 黄栌木', origin: '华北、江南', desc: '奠定沉稳的秋叶黄基底。' },
+          { name: '极淡蓝靛与稀绿矾', origin: '套染与铁媒', desc: '微量蓝靛与铁盐使明黄沉静化作儒雅秋香色。' }
+        ],
+        mordants: [
+          { name: '槐米黄液', ratio: 70, note: '构建温暖秋意底调' },
+          { name: '淡蓝靛液', ratio: 18, note: '注入含蓄青绿气质' },
+          { name: '稀绿矾铁水', ratio: 12, note: '降低艳度，成就文人雅致沉静感' }
+        ],
+        steps: [
+          { title: '槐米染底', desc: '织物先用明矾媒染，入槐米染液染成饱和中黄色。' },
+          { title: '轻蘸靛缸', desc: '迅速入极稀蓝靛缸一过即提，令黄中透出一缕雅青。' },
+          { title: '微铁沉色', desc: '点入极稀绿矾（硫酸亚铁）水，色泽即刻沉稳化作秋香。' },
+          { title: '漂净阴干', desc: '清水漂净残余铁液护丝，通风阴干。' }
+        ],
+        sliderType: 'dye',
+        sliderLabels: ['一染（嫩秋香）', '二染（清秋香）', '三染（正秋香）', '四染（浓秋香）', '五染（沉橄榄）', '六染（枯茶绿）'],
+        quote: '秋香色，以槐花染黄，微入靛缸一蘸，或加皂矾少许沉之，清雅不俗。',
+        source: '《雪宦绣谱 · 辨色》'
+      },
+      {
+        id: 'jianghuang', code: '17', name: '姜黄', pinyin: 'jiāng huáng', en: 'Turmeric Gold', hex: '#D89641',
+        family: '黄缃', craft: '植物草木染',
+        era: '汉唐佛教僧衣与民俗染布 · 温暖辛香且防虫的天然染料',
+        materials: [
+          { name: '姜黄干燥根茎', origin: '四川犍为、福建', desc: '富含姜黄素，无需媒染即可直接染出金暖黄色，且具避蠹香气。' },
+          { name: '米醋酸水', origin: '护色介质', desc: '稳定酸性显色，防止遇碱瞬变砖红。' }
+        ],
+        mordants: [
+          { name: '姜黄根茎', ratio: 88, note: '高饱和温暖金黄，自带药香' },
+          { name: '米醋清液', ratio: 12, note: '维持弱酸性环境防偏红' }
+        ],
+        steps: [
+          { title: '切片捣碎', desc: '干燥姜黄根茎切薄片捣碎，温水浸渍释出姜黄素。' },
+          { title: '慢火煎汁', desc: '文火煮沸二十分钟，滤去药渣得芬芳金橙染液。' },
+          { title: '直接温染', desc: '棉麻或丝绸入锅温染，迅速均匀着温暖金黄。' },
+          { title: '淡醋过洗', desc: '弱酸清水漂洗定色，日常忌用碱性皂水洗涤。' }
+        ],
+        sliderType: 'dye',
+        sliderLabels: ['一染（浅姜黄）', '二染（明姜黄）', '三染（正姜黄）', '四染（浓金姜）', '五染（暖橘姜）', '六染（深郁金）'],
+        quote: '郁金、姜黄皆可染黄，僧家多以染袈裟，色鲜而辟蠹虫。',
+        source: '《本草纲目 · 芳草部》'
+      },
+      {
+        id: 'xiangse', code: '18', name: '缃色', pinyin: 'xiāng sè', en: 'Pale Silk Yellow', hex: '#E4BC4B',
+        family: '黄缃', craft: '植物草木染',
+        era: '汉魏书囊与古籍装帧 · “缥缃”即代指古代典籍',
+        materials: [
+          { name: '嫩桑叶或淡黄檗', origin: '江南桑园', desc: '《释名》云“缃，桑也，如桑叶初生之色”，书卷清雅之黄。' },
+          { name: '淡白明矾', origin: '固色护书剂', desc: '令浅黄清亮不发灰，助书帛防潮防蠹。' }
+        ],
+        mordants: [
+          { name: '淡黄檗 / 桑叶液', ratio: 85, note: '温润明洁的书卷浅黄' },
+          { name: '淡明矾', ratio: 15, note: '固色提净' }
+        ],
+        steps: [
+          { title: '采叶煎汤', desc: '采初春嫩桑叶或取极淡黄檗、栀子水煎煮澄清。' },
+          { title: '轻媒入染', desc: '素绢经淡明矾水浸润后，入浅黄液轻染一至两遍。' },
+          { title: '阴干收湿', desc: '通风阴干保持丝面柔和清气。' },
+          { title: '鹅石砑光', desc: '以光滑鹅卵石砑光丝面，泛柔和金玉微光，用以缝制书囊。' }
+        ],
+        sliderType: 'dye',
+        sliderLabels: ['一染（淡缃）', '二染（正缃色）', '三染（明缃）', '四染（暖缃）', '五染（深缃）', '六染（金缃）'],
+        quote: '缃，桑也，如桑叶初生之色也。古人以缥青、缃黄作书囊，故称缥缃。',
+        source: '《释名 · 释采帛》'
+      },
+      {
+        id: 'hupo', code: '19', name: '琥珀', pinyin: 'hǔ pò', en: 'Amber Brown', hex: '#BE682B',
+        family: '黄缃', craft: '动物与合色',
+        era: '唐代三彩釉与明清织锦 · 温润通透的焦糖红黄',
+        materials: [
+          { name: '孩儿茶（儿茶）与山栀子', origin: '云南儿茶 / 山栀子', desc: '儿茶富含儿茶素单宁，与栀子黄套染呈现凝脂般的通透琥珀色。' },
+          { name: '白明矾', origin: '氧化发色媒剂', desc: '催化儿茶素氧化转为温暖金红棕光。' }
+        ],
+        mordants: [
+          { name: '儿茶浓液', ratio: 55, note: '提供醇厚红棕底色与极高耐晒牢度' },
+          { name: '栀子黄液', ratio: 35, note: '赋予琥珀般的通透暖金芒' },
+          { name: '白明矾', ratio: 10, note: '提亮定色' }
+        ],
+        steps: [
+          { title: '溶煮儿茶', desc: '黑褐色块状儿茶捣碎，沸水完全溶解成浓棕红液。' },
+          { title: '栀子调金', desc: '兑入四成栀子浓黄液，使色泽由暗棕转为透亮金褐。' },
+          { title: '温染氧化', desc: '织物入缸慢煮浸染，取出于空气中充分氧化发色。' },
+          { title: '明矾固色', desc: '明矾温水定色，丝面光泽温润宛如古琥珀。' }
+        ],
+        sliderType: 'dye',
+        sliderLabels: ['一染（浅蜜蜡）', '二染（亮金珀）', '三染（正琥珀）', '四染（浓血珀）', '五染（深棕珀）', '六染（古沉珀）'],
+        quote: '孩儿茶出南番，煎汁染布帛，加栀子则如琥珀，色极坚牢，风雨不褪。',
+        source: '《物理小识 · 染法》'
+      },
+
+      // -------------------- 3. 青绿系 (10) --------------------
+      {
+        id: 'shilv', code: '20', name: '石绿', pinyin: 'shí lǜ', en: 'Malachite Green', hex: '#288B53',
+        family: '青绿', craft: '矿物颜料',
+        era: '唐代大小李将军与北宋《千里江山图》 · 青绿山水灵魂翠色',
+        materials: [
+          { name: '孔雀石（碱式碳酸铜 Cu₂CO₃(OH)₂）', origin: '湖北大冶、广东阳春', desc: '天然带同心翠纹的铜矿石，颗粒粗细决定从深翠至粉绿的丰富层次。' },
+          { name: '牛皮胶 / 鱼鳔胶', origin: '胶结介质', desc: '粘合翠绿矿晶，展现瑰丽山川质感。' }
+        ],
+        mordants: [
+          { name: '水飞孔雀石粉', ratio: 86, note: '物理晶体发色，覆盖力强且千年如新' },
+          { name: '透明淡皮胶', ratio: 14, note: '固色护晶，令画面温润不脱粉' }
+        ],
+        steps: [
+          { title: '选石去脉', desc: '择取翠绿纯正的葡萄状孔雀石，细致剔除褐色铁锈杂石。' },
+          { title: '分级轻研', desc: '乳钵加水轻研，随时淘出细浆，保留部分粗晶作沉厚头绿。' },
+          { title: '水飞四等', desc: '经多道水飞沉降，分出头绿（深翠）、二绿、三绿、四绿（粉绿）。' },
+          { title: '点胶罩染', desc: '调胶后常与赭石底色形成冷暖呼应，成就青绿山水。' }
+        ],
+        sliderType: 'mineral',
+        sliderLabels: ['头绿（粗晶 · 深翠石绿）', '二绿（中晶 · 正石绿）', '三绿（细晶 · 清浅绿）', '四绿（极细 · 雅粉绿）'],
+        quote: '石绿即孔雀石，出铜矿中，制法与石青同，水飞分头、二、三、四，三绿四绿最宜点苔染叶。',
+        source: '《芥子园画传 · 设色各法》'
+      },
+      {
+        id: 'songhualv', code: '21', name: '松花绿', pinyin: 'sōng huā lǜ', en: 'Pine Pollen Green', hex: '#A4C86A',
+        family: '青绿', craft: '动物与合色',
+        era: '唐代薛涛笺与宋明清雅绸缎 · 如春日松梢花粉般嫩雅',
+        materials: [
+          { name: '黄檗 / 槐花（嫩黄底）', origin: '川黄柏 / 国槐', desc: '提供高达八成的明快嫩黄基调。' },
+          { name: '极稀蓝靛（点青）', origin: '蓼蓝尾缸', desc: '仅轻蘸一丝青气，点化出春风松花般的娇嫩黄绿。' }
+        ],
+        mordants: [
+          { name: '黄檗嫩黄液', ratio: 82, note: '赋予高明度、清透轻盈的暖嫩底色' },
+          { name: '极稀蓝靛液', ratio: 18, note: '注入灵动清新的春绿气息' }
+        ],
+        steps: [
+          { title: '黄檗染嫩', desc: '素绢或宣纸先以黄檗初煎液染成明快嫩鹅黄。' },
+          { title: '调稀青水', desc: '清水中兑入极少量已还原的淡蓝靛液，搅匀成浅碧水。' },
+          { title: '一蘸即起', desc: '将黄绢轻浸青水数息即提起，均匀受氧。' },
+          { title: '阴干显韵', desc: '通风阴干后泛出如春松花粉般的清雅松花绿。' }
+        ],
+        sliderType: 'dye',
+        sliderLabels: ['一染（浅松花）', '二染（正松花绿）', '三染（明柳绿）', '四染（嫩草绿）', '五染（清葱绿）', '六染（浓春绿）'],
+        quote: '轻红擘荔枝，淡绿染松花。松花色以黄檗为主，微蘸靛水成之。',
+        source: '《天工开物 · 彰施》与唐诗注'
+      },
+      {
+        id: 'zhuqing', code: '22', name: '竹青', pinyin: 'zhú qīng', en: 'Bamboo Green', hex: '#718A5E',
+        family: '青绿', craft: '动物与合色',
+        era: '宋明文人雅士袍服 · 如初篁修竹般清逸脱俗',
+        materials: [
+          { name: '荩草（绿竹草）或槐米', origin: '野生荩草', desc: '《诗经》“绿竹猗猗”之“绿”即荩草，染出雅致清凉的淡黄绿。' },
+          { name: '淡蓝靛', origin: '蓼蓝浅缸', desc: '极浅缥蓝套染，营造修竹清冷风骨。' }
+        ],
+        mordants: [
+          { name: '荩草黄汁', ratio: 60, note: '黄中天然微带清凉草绿意' },
+          { name: '稀蓝靛液', ratio: 28, note: '点化出修竹青翠韵味' },
+          { name: '淡白明矾', ratio: 12, note: '提亮固色，保持雅洁' }
+        ],
+        steps: [
+          { title: '荩草煎黄', desc: '夏秋采野生荩草全株洗净切段，清水熬煮滤得明净黄汁。' },
+          { title: '矾媒染黄', desc: '织物经淡明矾媒染后，入荩草液染成清雅浅黄。' },
+          { title: '浅靛轻套', desc: '迅速入稀蓝靛缸轻蘸一遍，氧化化作温润竹青。' },
+          { title: '清水漂净', desc: '漂去浮色，阴干成儒雅修竹青。' }
+        ],
+        sliderType: 'dye',
+        sliderLabels: ['一染（嫩竹青）', '二染（清竹青）', '三染（正竹青）', '四染（老竹青）', '五染（深篁绿）', '六染（苍竹绿）'],
+        quote: '荩草，俗名淡竹叶，可染黄金色，套以浅蓝则成绝佳竹青。',
+        source: '《诗经 · 卫风 · 淇奥》陆玑疏'
+      },
+      {
+        id: 'tianqing', code: '23', name: '天青', pinyin: 'tiān qīng', en: 'Ru Ware Sky Blue', hex: '#7DAEB9',
+        family: '青绿', craft: '传统瓷釉',
+        era: '北宋汝窑御瓷 · “雨过天青云破处，这般颜色做将来”',
+        materials: [
+          { name: '宝丰瓷石与玛瑙微粉', origin: '河南宝丰清凉寺汝窑', desc: '釉中掺入天然玛瑙细末，烧成后产生微妙乳浊散射与寥若晨星的气泡。' },
+          { name: '微量氧化铁与磷酸钙', origin: '化学呈色与分相元素', desc: '二价铁离子呈色叠加液液分相瑞利散射，诞生绝世天青。' }
+        ],
+        mordants: [
+          { name: '长石石英釉基', ratio: 75, note: '构成温润似玉的半失透乳浊釉体' },
+          { name: '玛瑙微粉', ratio: 15, note: '优化玻璃相，呈现温润“梨皮蟹爪”柔光' },
+          { name: '氧化铁与草木灰', ratio: 10, note: '还原焰下呈清冷淡雅的雨过天青' }
+        ],
+        steps: [
+          { title: '香灰制胎', desc: '以宝丰特有含铁高岭土制成细腻致密的“香灰胎”。' },
+          { title: '玛瑙入釉', desc: '玛瑙石煅烧粉碎水飞，与长石、草木灰按秘方配成乳浊青釉。' },
+          { title: '裹足支烧', desc: '通体满施厚釉，底部以极细芝麻钉支烧，不留露胎。' },
+          { title: '还原缓冷', desc: '1220°C 还原气氛烧成并缓慢降温，形成分相微粒散射出天青色。' }
+        ],
+        sliderType: 'glaze',
+        sliderLabels: ['偏浅淡（月白汝釉）', '标准正色（雨过天青）', '偏浓厚（粉青汝釉）', '积釉深处（豆青汝釉）'],
+        quote: '汝窑宫中禁烧，内有玛瑙为釉，唯供御拣退，方许出卖，近尤难得。',
+        source: '周煇《清波杂志》'
+      },
+      {
+        id: 'yingqing', code: '24', name: '影青', pinyin: 'yǐng qīng', en: 'Shadow Blue-White Glaze', hex: '#B9D3D1',
+        family: '青绿', craft: '传统瓷釉',
+        era: '宋元景德镇湖田窑 · “青白釉”，白中泛青、青中显白如冰玉',
+        materials: [
+          { name: '高白瓷石与石灰釉', origin: '江西景德镇湖田窑', desc: '极低含铁量（约 0.8%~1%）的高透明度青白釉，刻花积釉处泛水青。' }
+        ],
+        mordants: [
+          { name: '景德镇高白瓷石', ratio: 82, note: '形成晶莹如冰的玻璃质透明釉' },
+          { name: '釉灰（石灰石与狼箕草）', ratio: 17, note: '高温助熔，呈现莹润玉光' },
+          { name: '极微量氧化铁', ratio: 1, note: '还原烧成后在暗花积釉处显现空灵水青' }
+        ],
+        steps: [
+          { title: '薄胎刻花', desc: '洁白瓷土拉制极薄器胎，半干时以竹刀刻划流畅水波花卉暗纹。' },
+          { title: '施青白釉', desc: '浸施薄而均匀的高透明石灰釉，刻纹凹陷处自然积釉稍厚。' },
+          { title: '覆烧装窑', desc: '装入支圈匣钵入龙窑，严格隔绝烟灰污染。' },
+          { title: '强还原烧成', desc: '1280°C 高温强还原焰烧成，出窑光致茂美，素肌玉骨泛影青。' }
+        ],
+        sliderType: 'glaze',
+        sliderLabels: ['薄釉处（莹润玉白）', '标准釉层（正影青）', '刻纹积釉（清透水青）', '深积釉（湖水碧青）'],
+        quote: '景德镇青白瓷，质薄腻，色滋润，光照之如水影泛青，时人号饶玉。',
+        source: '《景德镇陶录》'
+      },
+      {
+        id: 'mise', code: '25', name: '秘色', pinyin: 'mì sè', en: 'Mysterious Celadon', hex: '#819795',
+        family: '青绿', craft: '传统瓷釉',
+        era: '晚唐五代越窑 · “九秋风露越窑开，夺得千峰翠色来”',
+        materials: [
+          { name: '含铁瓷石与松木灰', origin: '浙江上林湖越窑', desc: '含铁约 1.8% 的天然石灰釉，烧出如冰似玉、无水似有水的青翠。' },
+          { name: '釉封瓷质匣钵', origin: '严密控气工艺', desc: '一器一钵釉封隔绝氧气，达成极致强还原气氛。' }
+        ],
+        mordants: [
+          { name: '越窑瓷石粉', ratio: 78, note: '形成清澈透亮的玻璃质青釉层' },
+          { name: '天然松木灰', ratio: 20, note: '助熔并赋予温润玉感' },
+          { name: '微量氧化铁', ratio: 2, note: '强还原下呈盈盈亚铁青翠' }
+        ],
+        steps: [
+          { title: '淘泥练胎', desc: '上林湖细瓷土多次淘洗陈腐，修得薄而挺拔的细腻胎体。' },
+          { title: '配施灰釉', desc: '瓷石粉配比松木灰调成细腻石灰釉浆，均匀挂釉。' },
+          { title: '瓷匣密封', desc: '装入特制瓷质匣钵，接口以釉浆封死防落渣与漏气。' },
+          { title: '强还原烧成', desc: '1250°C 强还原焰烧制，三价铁充分还原为二价铁，呈绝美秘色。' }
+        ],
+        sliderType: 'glaze',
+        sliderLabels: ['微氧化（青黄秘色）', '标准还原（正越窑秘色）', '厚釉还原（深翠秘色）', '积釉处（冰玉深青）'],
+        quote: '九秋风露越窑开，夺得千峰翠色来。如冰似玉，世谓之秘色瓷。',
+        source: '陆龟蒙《秘色越器》'
+      },
+      {
+        id: 'tonglv', code: '26', name: '铜绿', pinyin: 'tóng lǜ', en: 'Verdigris', hex: '#528F82',
+        family: '青绿', craft: '矿物颜料',
+        era: '汉晋简牍彩绘与明清古建彩画 · 醋熏红铜制得的古雅青绿',
+        materials: [
+          { name: '纯红铜薄片', origin: '金属铜', desc: '纯铜经温和醋酸蒸汽腐蚀生成翠绿碱式醋酸铜结晶。' },
+          { name: '陈年米醋与热酒糟', origin: '发绿熏制介质', desc: '持续释出酸性蒸汽，令铜面生长细腻青翠铜霜。' }
+        ],
+        mordants: [
+          { name: '红铜薄片', ratio: 70, note: '铜离子显色主体' },
+          { name: '陈醋与酒糟', ratio: 30, note: '温和酸熏生成半透明翠绿结晶' }
+        ],
+        steps: [
+          { title: '锤铜净面', desc: '红铜锤打成薄片，彻底刮净表面油污氧化层。' },
+          { title: '醋缸悬熏', desc: '大缸底置陈醋与热酒糟，铜片悬于液面上方，密封暖处静置。' },
+          { title: '刮取铜霜', desc: '十余日后启封，轻刮铜片表面生成的青翠绒毛状结晶。' },
+          { title: '漂酸研粉', desc: '清水漂去残酸，阴干细研即成清雅半透明铜绿颜料。' }
+        ],
+        sliderType: 'mineral',
+        sliderLabels: ['头色（深青铜绿）', '二色（正铜绿）', '三色（清浅青绿）', '四色（淡灰绿）'],
+        quote: '铜青（铜绿），生熟铜皆有青，以醋制铜片悬缸中熏之，刮取研细入画。',
+        source: '《本草纲目 · 金石部》'
+      },
+      {
+        id: 'cuiwei', code: '27', name: '翠微', pinyin: 'cuì wēi', en: 'Mountain Mist Green', hex: '#4C7B48',
+        family: '青绿', craft: '动物与合色',
+        era: '唐宋诗画与江南绸缎 · 远山轻烟般的沉静苍翠',
+        materials: [
+          { name: '发酵蓝靛', origin: '蓝草底色', desc: '奠定远山苍翠的冷青基调。' },
+          { name: '国槐花蕾（槐米）', origin: '套染黄材', desc: '黄蓝套染相生，化作生机沉静的翠微绿。' }
+        ],
+        mordants: [
+          { name: '蓝靛染液', ratio: 52, note: '赋予山岚般的幽静青调' },
+          { name: '槐米黄液', ratio: 38, note: '与蓝相合而生自然苍绿' },
+          { name: '白明矾', ratio: 10, note: '稳固黄酮，使绿意鲜明持久' }
+        ],
+        steps: [
+          { title: '蓝缸打底', desc: '丝绸先入蓝靛缸轻染两遍得清澈中蓝，充分透风氧化。' },
+          { title: '明矾预媒', desc: '蓝布入明矾温水媒染，为套黄做好固色准备。' },
+          { title: '槐米套黄', desc: '浸入槐米煎液中温染，蓝黄瞬间交融呈现苍翠山色。' },
+          { title: '漂净阴干', desc: '清水漂洗至水色清澈，晾干后色如雨后翠微。' }
+        ],
+        sliderType: 'dye',
+        sliderLabels: ['一染（嫩翠）', '二染（清翠微）', '三染（正翠微）', '四染（浓苍翠）', '五染（深松翠）', '六染（黛翠）'],
+        quote: '凡染绿色，皆无单草直染者，必先蓝后黄，或先黄后蓝，随深浅成翠、碧、葱、豆诸绿。',
+        source: '《天工开物 · 彰施》'
+      },
+      {
+        id: 'douqing', code: '28', name: '豆青', pinyin: 'dòu qīng', en: 'Pea Celadon', hex: '#8E9D84',
+        family: '青绿', craft: '传统瓷釉',
+        era: '宋代龙泉窑与明清官窑 · 肥润如青豆的温雅釉色',
+        materials: [
+          { name: '龙泉紫金土与瓷石', origin: '浙江龙泉 / 景德镇', desc: '含铁量略高于天青，釉层肥厚如凝脂，青中微泛柔和暖黄。' }
+        ],
+        mordants: [
+          { name: '高粘度石灰碱釉', ratio: 86, note: '高温不易流釉，成就堆脂玉感' },
+          { name: '天然铁矿釉土', ratio: 14, note: '决定青绿与微黄的雅致平衡' }
+        ],
+        steps: [
+          { title: '素坯修型', desc: '含铁瓷泥拉坯阴干，先经素烧定型以增强坯体吸釉力。' },
+          { title: '多层施釉', desc: '采用浸釉或吹釉法反复施挂三至五层厚釉。' },
+          { title: '入窑控温', desc: '1260°C 高温烧成，精准维持弱还原向微氧化过渡气氛。' },
+          { title: '缓冷成玉', desc: '缓慢降温出窑，釉面肥润青嫩，恰似初夏青豆。' }
+        ],
+        sliderType: 'glaze',
+        sliderLabels: ['浅淡（淡豆青）', '标准（正豆青）', '厚釉（浓豆绿）', '深积釉（梅子青）'],
+        quote: '豆青釉色青中微泛黄，釉质肥润如玉，宋龙泉窑及明清景德镇皆盛烧之。',
+        source: '《陶雅 · 释釉》'
+      },
+      {
+        id: 'piaose', code: '29', name: '缥色', pinyin: 'piǎo sè', en: 'Pale Water Celadon', hex: '#8CC4B2',
+        family: '青绿', craft: '植物草木染',
+        era: '汉魏至唐宋 · “水皆缥碧，千丈见底”的清澈淡青白',
+        materials: [
+          { name: '蓝靛（一染轻缸）', origin: '蓼蓝初染', desc: '极稀薄的还原蓝靛液，赋予丝绸如浅潭碧水般的透亮青白。' },
+          { name: '微量淡黄檗', origin: '调碧助材', desc: '微添一缕极淡嫩黄，由浅蓝转出清冽缥碧。' }
+        ],
+        mordants: [
+          { name: '极稀蓝靛液', ratio: 90, note: '浅染显清透，留白感极强' },
+          { name: '淡黄檗微调', ratio: 10, note: '微添春水碧意' }
+        ],
+        steps: [
+          { title: '调稀浅缸', desc: '取成熟蓝靛缸上层清澈浅黄绿还原液，温清水稀释。' },
+          { title: '一染轻提', desc: '洁白丝绸平展入缸轻浸一两分钟即提起，均匀受氧。' },
+          { title: '微点黄檗', desc: '如求缥碧韵味，再轻过极淡黄檗清汤。' },
+          { title: '流水漂清', desc: '清泉漂净残碱，晾干呈清莹欲滴之缥色。' }
+        ],
+        sliderType: 'dye',
+        sliderLabels: ['半染（月白缥）', '一染（正缥色）', '二染（清缥碧）', '三染（水绿蓝）', '四染（深碧青）', '五染（浓青蓝）'],
+        quote: '缥，帛青白色也。水皆缥碧，千丈见底。',
+        source: '《说文解字》与吴均《与朱元思书》'
+      },
+
+      // -------------------- 4. 蓝靛系 (7) --------------------
+      {
+        id: 'dianlan', code: '30', name: '靛蓝', pinyin: 'diàn lán', en: 'Indigo Blue', hex: '#184E73',
+        family: '蓝靛', craft: '植物草木染',
+        era: '先秦至现代 · “青，取之于蓝，而青于蓝”的东方染蓝之母',
+        materials: [
+          { name: '四大蓝草（蓼蓝、菘蓝、木蓝、马蓝）', origin: '中国南北广植', desc: '叶片富含靛苷，经水沤打靛沉淀得蓝靛泥，百洗不褪。' },
+          { name: '熟石灰、草木灰与米酒', origin: '打靛与发酵还原剂', desc: '石灰沉淀成泥；草木灰与米酒养菌发酵，令蓝靛还原溶于水。' }
+        ],
+        mordants: [
+          { name: '发酵蓝靛泥', ratio: 75, note: '耐光耐洗的天然靛蓝素主体' },
+          { name: '草木灰碱水', ratio: 15, note: '维持染缸强碱性以溶解还原靛白' },
+          { name: '米酒 / 麦麸', ratio: 10, note: '滋养厌氧还原菌群，保持染缸活性' }
+        ],
+        steps: [
+          { title: '采蓝浸沤', desc: '夏秋采鲜蓝草投入大坑清水浸泡三日，令靛苷充分水解溶出。' },
+          { title: '打靛沉淀', desc: '捞去草渣，入熟石灰剧烈击打充氧，静置沉得浓稠“蓝靛泥”。' },
+          { title: '建缸养菌', desc: '靛泥入染缸，配草木灰碱水与米酒养菌，数日后液面起“靛花”。' },
+          { title: '浸染氧化', desc: '织物浸缸呈黄绿，提起遇空气瞬时氧化转蓝，复染渐深至绀青。' }
+        ],
+        sliderType: 'dye',
+        sliderLabels: ['一染（月白浅缥）', '二染（天蓝）', '三染（正靛蓝）', '四染（深靛青）', '五染（浓宝蓝）', '六染（幽深绀青）'],
+        quote: '凡蓝五种，皆可为淀。打淀成泥，入缸以灰水、酒糟养之，数染则青于蓝。',
+        source: '《天工开物 · 彰施》'
+      },
+      {
+        id: 'shiqing', code: '31', name: '石青', pinyin: 'shí qīng', en: 'Azurite Blue', hex: '#236D9E',
+        family: '蓝靛', craft: '矿物颜料',
+        era: '北宋《千里江山图》与敦煌壁画 · 青绿山水双绝之一',
+        materials: [
+          { name: '蓝铜矿（碱式碳酸铜 Cu₃(CO₃)₂(OH)₂）', origin: '广东阳春、湖北大冶', desc: '天然深蓝色铜矿结晶，颗粒越粗色越深邃如夜空，越细则清亮如晴天。' },
+          { name: '广胶 / 牛皮胶', origin: '胶结介质', desc: '精准控制胶水浓淡，方能呈现矿石晶体微光。' }
+        ],
+        mordants: [
+          { name: '水飞蓝铜矿粉', ratio: 86, note: '物理光学显色，颗粒粗细决定明度' },
+          { name: '淡广胶液', ratio: 14, note: '头青颗粒重需胶稍浓，四青粉细需极淡' }
+        ],
+        steps: [
+          { title: '剔绿选蓝', desc: '蓝铜矿常与孔雀石共生，须以钢针精细剔除绿矿与母岩。' },
+          { title: '分段轻研', desc: '瓷钵加水轻捣细研，忌一次磨极细而尽失沉厚头青。' },
+          { title: '水飞四级', desc: '清水搅匀按沉降先后精确分出头青、二青、三青、四青。' },
+          { title: '调胶罩染', desc: '温胶指腹研匀，趁温层层罩染于山峦阳面。' }
+        ],
+        sliderType: 'mineral',
+        sliderLabels: ['头青（粗晶 · 深邃宝蓝）', '二青（中晶 · 正石青）', '三青（细晶 · 清亮天蓝）', '四青（极细 · 淡雅粉青）'],
+        quote: '空青、曾青、扁青皆石青类，研之水飞，重者沉底为头青，轻者浮上为二青、三青。',
+        source: '《绘事微言 · 制色法》'
+      },
+      {
+        id: 'huaqing', code: '32', name: '花青', pinyin: 'huā qīng', en: 'Indigo Pigment', hex: '#1B416E',
+        family: '蓝靛', craft: '植物草木染',
+        era: '唐宋至明清 · 国画最重要的透明植物蓝，山水云水必备',
+        materials: [
+          { name: '蓝靛浮沫（靛花 / 青黛）', origin: '福建建宁、江西乐平', desc: '打靛充氧时漂浮于液面最轻最纯的一层紫蓝泡沫，古称“靛花”。' },
+          { name: '牛皮胶', origin: '制膏胶结剂', desc: '使极细靛花粉凝结成膏，溶于水清澈透亮绝不遮墨。' }
+        ],
+        mordants: [
+          { name: '精漂靛花粉', ratio: 88, note: '极细植物靛蓝微粒，透明度极高' },
+          { name: '清淡皮胶', ratio: 12, note: '助其均匀展色于宣纸纤维间' }
+        ],
+        steps: [
+          { title: '撇取靛花', desc: '蓝草打靛充氧瞬间，细竹箕专门撇取表面最纯净蓝沫。' },
+          { title: '清水漂灰', desc: '投入清水缸反复漂洗，沉去白色石灰重渣，只留浮蓝。' },
+          { title: '乳钵研胶', desc: '晒干成极轻“花青粉”，加温胶水在乳钵细研数百转成膏。' },
+          { title: '入画调色', desc: '单用染远山晴空，合藤黄成汁绿，合赭石成古雅墨灰。' }
+        ],
+        sliderType: 'dye',
+        sliderLabels: ['淡蘸（清透浅蓝）', '轻染（远山淡青）', '正色（雅致花青）', '重染（深邃靛青）', '叠染（浓黛蓝）', '焦厚（沉玄青）'],
+        quote: '花青乃蓝靛上浮之花，去灰漂净，研胶成膏，染山水树木，清润绝伦。',
+        source: '《芥子园画传 · 设色各法》'
+      },
+      {
+        id: 'qunqing', code: '33', name: '群青', pinyin: 'qún qīng', en: 'Ultramarine Lapis', hex: '#325A9D',
+        family: '蓝靛', craft: '矿物颜料',
+        era: '北魏至盛唐敦煌壁画 · 经丝绸之路而来的宝石之蓝',
+        materials: [
+          { name: '青金石（Lapis Lazuli）', origin: '阿富汗巴达赫尚（丝路输入）', desc: '含硫铝硅酸钠的珍贵宝石矿物，色泽深邃蔚蓝且隐现星点金辉。' },
+          { name: '蜂蜡松香团与碱水', origin: '古法提纯介质', desc: '利用亲油性差异从白色方解石中精炼出最纯正的青金蓝。' }
+        ],
+        mordants: [
+          { name: '提纯青金石粉', ratio: 88, note: '无与伦比的深邃宝蓝，耐光耐碱' },
+          { name: '纯净胶液', ratio: 12, note: '固着宝石粉末，展现丝路瑰宝之辉' }
+        ],
+        steps: [
+          { title: '选石煅碎', desc: '择深蓝少白脉的青金石，微烧骤冷使其脆裂，捣碎细研。' },
+          { title: '蜡团揉捏', desc: '青金石粉与融化蜂蜡、松香、油揉合成团静置数日。' },
+          { title: '碱水淘蓝', desc: '蜡团置温草木灰碱水中反复揉洗，纯蓝微粒释出水中，杂石留蜡内。' },
+          { title: '沉淀调胶', desc: '头道淘出者最浓艳珍贵，滤干调轻胶即成千年敦煌群青。' }
+        ],
+        sliderType: 'mineral',
+        sliderLabels: ['头道提纯（深群青）', '二道提纯（正群青）', '三道提纯（明宝蓝）', '余料（淡青金灰）'],
+        quote: '青金石出西域大食诸国，色相如天，磨研入画，施于佛像藻井，千载如新。',
+        source: '《格古要论 · 珍宝论》'
+      },
+      {
+        id: 'dailan', code: '34', name: '黛蓝', pinyin: 'dài lán', en: 'Kohl Indigo', hex: '#435166',
+        family: '蓝靛', craft: '动物与合色',
+        era: '汉唐画眉与江南瓦黛 · 青黑如远山眉黛之沉静蓝',
+        materials: [
+          { name: '重染蓝靛', origin: '蓼蓝 / 菘蓝', desc: '多次深染后再以单宁微铁沉色，呈儒雅青黑蓝。' },
+          { name: '五倍子与绿矾', origin: '单宁铁媒染', desc: '少许单宁与亚铁离子令正蓝沉淀出温润黛灰意。' }
+        ],
+        mordants: [
+          { name: '深蓝靛底', ratio: 65, note: '保留清冷的青蓝灵魂' },
+          { name: '五倍子单宁', ratio: 20, note: '增添厚重沉郁质感' },
+          { name: '稀绿矾铁水', ratio: 15, note: '促生青黑远山黛意' }
+        ],
+        steps: [
+          { title: '蓝缸深染', desc: '织物入蓝靛缸反复浸染四遍，氧化成浓厚深蓝色。' },
+          { title: '五倍子浸汤', desc: '五倍子捣碎煎煮滤汁，深蓝布入汤充分吸收单宁。' },
+          { title: '绿矾发黛', desc: '极稀绿矾水过染，蓝底与铁黑交融，瞬时沉静为温润黛蓝。' },
+          { title: '漂洗阴干', desc: '清泉漂净残铁，阴干得青灰眉黛之色。' }
+        ],
+        sliderType: 'dye',
+        sliderLabels: ['一染（浅烟黛）', '二染（清黛蓝）', '三染（正黛蓝）', '四染（浓眉黛）', '五染（深螺黛）', '六染（墨黛）'],
+        quote: '黛，画眉青黑石也，亦以蓝靛浮花配黑汁制之，远山如黛，即此色也。',
+        source: '《说文解字》与《本草纲目》'
+      },
+      {
+        id: 'ganqing', code: '35', name: '绀青', pinyin: 'gàn qīng', en: 'Deep Purplish Blue', hex: '#222B3F',
+        family: '蓝靛', craft: '动物与合色',
+        era: '先秦礼服与佛教绀青写经纸 · 深青透赤紫的庄严极蓝',
+        materials: [
+          { name: '蓝靛（重染六至八遍）', origin: '蓝草深染', desc: '极高浓度靛蓝打底，深邃近玄。' },
+          { name: '茜草或苏木（微套）', origin: '扬赤套染', desc: '《说文》云“绀，帛深青扬赤色”，深蓝之上套一层红，泛出高贵紫蓝幽光。' }
+        ],
+        mordants: [
+          { name: '重染蓝靛', ratio: 75, note: '深邃沉静的青蓝主体' },
+          { name: '茜草 / 苏木汁', ratio: 18, note: '赋予“扬赤”的微妙红紫光晕' },
+          { name: '白明矾', ratio: 7, note: '稳固红蓝层叠光泽' }
+        ],
+        steps: [
+          { title: '重靛筑底', desc: '素丝或写经麻纸入蓝靛缸反复染六至八遍，每遍透风氧化至极深蓝。' },
+          { title: '明矾媒底', desc: '微温淡明矾水过洗，为套红作媒。' },
+          { title: '茜苏套赤', desc: '入中等浓度茜草或苏木红液套染一遍，红蓝相生。' },
+          { title: '石砑显光', desc: '阴干砑光，深青底色中透出含蓄赤紫光华，最宜泥金写经。' }
+        ],
+        sliderType: 'dye',
+        sliderLabels: ['二染（青莲蓝）', '三染（深藏蓝）', '四染（正绀青）', '五染（浓绀紫蓝）', '六染（极深玄绀）', '八染（漆夜绀）'],
+        quote: '绀，帛深青扬赤色。君子不以绀緅饰，唐宋写金字佛经多用绀青纸。',
+        source: '《说文解字 · 糸部》'
+      },
+      {
+        id: 'jilan', code: '36', name: '霁蓝', pinyin: 'jì lán', en: 'Sacrificial Blue Glaze', hex: '#1B3E70',
+        family: '蓝靛', craft: '传统瓷釉',
+        era: '元明清景德镇官窑 · 祭天礼器专用，如雨后晴空之深蓝',
+        materials: [
+          { name: '高纯度钴土矿（珠明料 / 回青）', origin: '云南珠明料 / 西域回青', desc: '含约 2% 氧化钴，在 1300°C 高温石灰碱釉中熔融呈宝石般深沉静穆蓝。' }
+        ],
+        mordants: [
+          { name: '高温石灰碱釉', ratio: 92, note: '致密玻璃釉层，凝重不流釉' },
+          { name: '精炼钴土料', ratio: 8, note: '高温发色极稳，成祭天霁蓝' }
+        ],
+        steps: [
+          { title: '精拣钴料', desc: '天然钴土矿煅烧敲碎，手选乌亮者水飞细研至极细。' },
+          { title: '配制蓝釉', desc: '钴料按精确比例拌入景德镇透明釉浆，过百目细筛。' },
+          { title: '竹筒吹釉', desc: '竹筒蒙细纱蘸釉反复吹于生坯十余次，达均匀厚层。' },
+          { title: '高温烧成', desc: '1300°C 高温一次烧成，出窑深沉静穆，微泛橘皮宝光。' }
+        ],
+        sliderType: 'glaze',
+        sliderLabels: ['薄吹（亮霁蓝）', '标准（正宣德霁蓝）', '厚吹（深宝石蓝）', '极厚（沉夜蓝）'],
+        quote: '宣德祭蓝（霁蓝）釉，色深如宝石，莹润不流，乃郊坛祭天之重器。',
+        source: '《南窑笔记 · 霁蓝》'
+      },
+
+      // -------------------- 5. 紫绀系 (7) --------------------
+      {
+        id: 'qinglian', code: '37', name: '青莲', pinyin: 'qīng lián', en: 'Blue Lotus Purple', hex: '#6F4987',
+        family: '紫绀', craft: '动物与合色',
+        era: '唐宋佛教绘画与诗意服色 · “青莲居士”般清冷孤高之紫',
+        materials: [
+          { name: '蓝靛（中染底）', origin: '蓼蓝', desc: '清澈冷蓝底调，压去俗艳感。' },
+          { name: '紫草或苏木', origin: '新疆紫草 / 苏木', desc: '冷蓝之上套染红紫，幻化出空灵孤高的青莲紫。' }
+        ],
+        mordants: [
+          { name: '中度蓝靛底', ratio: 50, note: '奠定清冷出尘的蓝紫基调' },
+          { name: '紫草 / 苏木液', ratio: 38, note: '注入高贵优雅的紫韵' },
+          { name: '白明矾 / 椿灰', ratio: 12, note: '提净固色，防偏灰暗' }
+        ],
+        steps: [
+          { title: '蓝缸定清', desc: '素丝入蓝靛缸染两遍，氧化呈清朗中蓝色。' },
+          { title: '明矾预媒', desc: '以淡明矾温水轻媒固底。' },
+          { title: '套染紫红', desc: '浸入紫草或苏木染液中缓染，蓝红交融瞬间绽放青莲色。' },
+          { title: '阴干养色', desc: '清水漂洗阴干，色如佛前青莲清冷脱俗。' }
+        ],
+        sliderType: 'dye',
+        sliderLabels: ['一染（淡青莲）', '二染（清青莲）', '三染（正青莲）', '四染（浓青莲）', '五染（深紫莲）', '六染（沉幽紫）'],
+        quote: '青莲色，青而微红紫，以蓝靛打底，套染苏木或紫草即得，清雅绝尘。',
+        source: '《清宫内务府染作档》与《天工开物》'
+      },
+      {
+        id: 'zitan', code: '38', name: '紫檀', pinyin: 'zǐ tán', en: 'Red Sandalwood', hex: '#4D2429',
+        family: '紫绀', craft: '植物草木染',
+        era: '明清宫廷家具与织锦 · 沉稳醇厚如百年小叶紫檀木心',
+        materials: [
+          { name: '紫檀木屑或苏木重染', origin: '印度及岭南紫檀木', desc: '紫檀心材含紫檀红素，配铁浆与碱水染出凝重华贵的暗紫棕红。' },
+          { name: '草木灰与微量铁浆', origin: '沉色媒染剂', desc: '催化红棕色向沉静深紫檀木色转化。' }
+        ],
+        mordants: [
+          { name: '紫檀 / 苏木浓汁', ratio: 70, note: '醇厚红紫木质色韵' },
+          { name: '儿茶单宁', ratio: 18, note: '增添温润木褐深度' },
+          { name: '稀铁浆与灰水', ratio: 12, note: '沉色定调，如包浆老紫檀' }
+        ],
+        steps: [
+          { title: '木屑浸萃', desc: '紫檀或苏木刨花加少量米酒润湿，清水浸泡两日后慢火煎浓。' },
+          { title: '儿茶增厚', desc: '兑入少量儿茶煎液，使单薄红紫转向温厚沉稳。' },
+          { title: '反复温染', desc: '织物入缸反复温染三遍，吸饱深厚木色。' },
+          { title: '微铁收光', desc: '极稀铁水轻过一遍，瞬时呈现沉郁典雅的紫檀色。' }
+        ],
+        sliderType: 'dye',
+        sliderLabels: ['一染（浅檀红）', '二染（亮紫檀）', '三染（正紫檀）', '四染（浓老檀）', '五染（深古檀）', '六染（沉墨檀）'],
+        quote: '紫檀木屑煎汁可染绛紫褐色，入微铁沉之，古朴厚重，久而弥润。',
+        source: '《本草纲目 · 木部》与《格古要论》'
+      },
+      {
+        id: 'jiangzi', code: '39', name: '绛紫', pinyin: 'jiàng zǐ', en: 'Crimson Purple', hex: '#5D292F',
+        family: '紫绀', craft: '动物与合色',
+        era: '战国至唐宋贵族礼服 · 庄重深沉的紫红正调',
+        materials: [
+          { name: '苏木或茜草（重底）', origin: '岭南苏木 / 华北茜草', desc: '提供浓烈浑厚的绛红根基。' },
+          { name: '椿木灰与微铁', origin: '铝铁复合媒染', desc: '将饱满深红稳稳推向庄严的深绛紫。' }
+        ],
+        mordants: [
+          { name: '苏木 / 茜草浓液', ratio: 62, note: '深厚绛红主体' },
+          { name: '紫草 / 淡靛液', ratio: 23, note: '注入高贵紫韵' },
+          { name: '微铁 / 椿木灰', ratio: 15, note: '压低浮艳，成就深沉绛紫' }
+        ],
+        steps: [
+          { title: '明矾重红', desc: '织物先以明矾媒染，用苏木或茜草重染出饱满深红。' },
+          { title: '淡靛套紫', desc: '轻入淡蓝靛缸或紫草液套染一遍，红中生紫。' },
+          { title: '微铁沉色', desc: '以极稀绿矾水或草木灰水媒染，迅速转为深邃绛紫。' },
+          { title: '漂洗阴干', desc: '清水洗净残液，阴干显出丝绒般沉静光泽。' }
+        ],
+        sliderType: 'dye',
+        sliderLabels: ['一染（浅绛紫）', '二染（明绛紫）', '三染（正绛紫）', '四染（浓紫绛）', '五染（深古绛）', '六染（玄绛紫）'],
+        quote: '大赤谓之绛，绛而兼紫者为绛紫。苏木加皂矾少许，亦可得深沉绛紫。',
+        source: '《天工开物 · 彰施》'
+      },
+      {
+        id: 'zitang', code: '40', name: '紫棠', pinyin: 'zǐ táng', en: 'Dark Plum Purple', hex: '#521A4C',
+        family: '紫绀', craft: '植物草木染',
+        era: '唐代三品以上高官紫袍 · 紫草配椿灰染就的御用厚紫',
+        materials: [
+          { name: '新疆紫草根（硬紫草）', origin: '西域、辽东野生', desc: '根皮富含脂溶性紫草素，为古代最正统名贵的天然紫染。' },
+          { name: '椿木灰 / 柃木灰', origin: '天然植物铝灰', desc: '紫草素遇植物铝灰方能绽放深邃浓郁的紫棠色。' }
+        ],
+        mordants: [
+          { name: '老紫草根皮', ratio: 75, note: '珍贵天然紫素，染力沉厚高雅' },
+          { name: '椿木灰碱铝液', ratio: 20, note: '核心植物媒染剂，令紫草显正紫' },
+          { name: '米酒助溶', ratio: 5, note: '助脂溶性紫草素充分释放' }
+        ],
+        steps: [
+          { title: '灰水预媒', desc: '丝绸先反复浸渍于富含铝离子的椿木灰清液，阴干待染。' },
+          { title: '温水揉萃', desc: '紫草根捣碎加少许米酒润湿，温水（忌沸）揉搓出深紫浓汁。' },
+          { title: '多次复染', desc: '灰媒丝绸入紫草缸反复浸染五至七次，每染必晾干发色。' },
+          { title: '深醇定色', desc: '色泽由淡紫渐转为浓稠华贵的紫棠，幽暗中泛紫玉光彩。' }
+        ],
+        sliderType: 'dye',
+        sliderLabels: ['一染（淡紫）', '二染（雅紫）', '三染（正紫草）', '四染（正紫棠）', '五染（深御紫）', '六染（乌紫棠）'],
+        quote: '唐制三品以上服紫，皆用紫草以椿灰媒染，数入乃成浓重紫棠。',
+        source: '《齐民要术 · 种紫草》'
+      },
+      {
+        id: 'xueqing', code: '41', name: '雪青', pinyin: 'xuě qīng', en: 'Wisteria Lilac', hex: '#A59CD3',
+        family: '紫绀', craft: '动物与合色',
+        era: '明清江南织锦与《红楼梦》服饰 · 浅紫微蓝、冷冽如雪后晴光',
+        materials: [
+          { name: '极稀蓝靛（底色）', origin: '蓼蓝极浅缸', desc: '赋予冷冽清透的淡雪青底光。' },
+          { name: '淡苏木或红花', origin: '微红套染', desc: '浅蓝之上轻罩一抹淡红，幻化出空灵雪青紫。' }
+        ],
+        mordants: [
+          { name: '极稀蓝靛液', ratio: 58, note: '主导冷峻清雅的蓝调底光' },
+          { name: '极淡苏木红液', ratio: 32, note: '点化出紫藤雪雾般的浅紫' },
+          { name: '淡白明矾', ratio: 10, note: '保持高明度不显灰暗' }
+        ],
+        steps: [
+          { title: '浅靛打底', desc: '洁白软缎入极稀蓝靛缸轻染一遍，得淡雅月白偏青底色。' },
+          { title: '淡矾固底', desc: '微温淡明矾水轻柔过洗。' },
+          { title: '轻套淡红', desc: '浸入极稀苏木水或红花淡液一过即起，青红化为雪青。' },
+          { title: '阴干收色', desc: '避强光阴干，呈清冷高雅雪青色。' }
+        ],
+        sliderType: 'dye',
+        sliderLabels: ['一染（淡雪青）', '二染（正雪青）', '三染（明紫藤）', '四染（浓丁香）', '五染（深青莲）', '六染（沉紫蓝）'],
+        quote: '雪青色，以浅蓝为底，轻套淡红或苏木水，清冷高雅，清代仕女极尚之。',
+        source: '《清稗类钞 · 服饰》'
+      },
+      {
+        id: 'dingxiang', code: '42', name: '丁香', pinyin: 'dīng xiāng', en: 'Lilac Purple', hex: '#BCA0D1',
+        family: '紫绀', craft: '植物草木染',
+        era: '唐宋诗词与仕女罗衫 · “丁香空结雨中愁”的温柔浅紫',
+        materials: [
+          { name: '苏木尾液或紫草浅染', origin: '苏木 / 紫草', desc: '取淡苏木遇微碱显温柔粉紫，清雅柔美。' },
+          { name: '澄清草木灰水', origin: '微碱调紫剂', desc: '微弱碱性令苏木淡红柔和转向丁香紫。' }
+        ],
+        mordants: [
+          { name: '淡苏木 / 紫草液', ratio: 85, note: '高明度柔和粉紫基调' },
+          { name: '澄清草木灰水', ratio: 15, note: '精准调碱，使红调温柔转紫' }
+        ],
+        steps: [
+          { title: '制淡染液', desc: '取苏木三煎后的清淡尾液或紫草浅浸液，滤净杂质。' },
+          { title: '轻浸上色', desc: '素丝入微温染液染出极浅淡的柔粉色。' },
+          { title: '微碱转紫', desc: '点入数滴澄清稻草灰水，淡粉瞬时化作清雅丁香紫。' },
+          { title: '漂清阴干', desc: '清水漂净，通风阴干。' }
+        ],
+        sliderType: 'dye',
+        sliderLabels: ['一染（淡粉紫）', '二染（正丁香）', '三染（明丁香）', '四染（浓丁香）', '五染（深紫罗兰）', '六染（暗紫）'],
+        quote: '丁香色浅紫而娇，苏木淡汁加微灰水即得，如春日丁香初绽。',
+        source: '《雪宦绣谱 · 辨色》'
+      },
+      {
+        id: 'ouhe', code: '43', name: '藕荷', pinyin: 'ǒu hé', en: 'Lotus Root Mauve', hex: '#DBC3CA',
+        family: '紫绀', craft: '植物草木染',
+        era: '清代宫廷与江南闺秀 · 似粉似紫、温润如嫩藕切面',
+        materials: [
+          { name: '红花 / 苏木极淡液', origin: '淡红主材', desc: '奠定娇嫩温润的藕粉底调。' },
+          { name: '微缕淡灰碱与明矾', origin: '冷暖平衡', desc: '极微弱的冷灰紫意，使粉色含蓄脱俗不甜腻。' }
+        ],
+        mordants: [
+          { name: '淡苏木 / 红花液', ratio: 80, note: '提供柔和粉红主调' },
+          { name: '微碱 / 稀青液', ratio: 12, note: '注入空灵浅紫灰韵味' },
+          { name: '淡白明矾', ratio: 8, note: '固色提净' }
+        ],
+        steps: [
+          { title: '淡红初染', desc: '极稀苏木水或红花尾水将丝绸染出淡如晨霞的浅粉。' },
+          { title: '微入灰青', desc: '极淡明矾配微量草木灰水轻过一遍，压去甜腻。' },
+          { title: '流水漂净', desc: '清泉轻漂去浮碱。' },
+          { title: '阴干显韵', desc: '干后粉中透灰紫，恰似夏日江南嫩藕切面。' }
+        ],
+        sliderType: 'dye',
+        sliderLabels: ['一染（浅藕白）', '二染（正藕荷）', '三染（明藕紫）', '四染（浓荷粉）', '五染（暗玫瑰灰）', '六染（沉紫灰）'],
+        quote: '藕荷色，浅红微带紫灰，如嫩藕折断之色，最宜夏日薄罗。',
+        source: '《红楼梦》服饰考与《清宫染作档》'
+      },
+
+      // -------------------- 6. 玄白系 (6) --------------------
+      {
+        id: 'xuanqing', code: '44', name: '玄青', pinyin: 'xuán qīng', en: 'Profound Obsidian', hex: '#232429',
+        family: '玄白', craft: '动物与合色',
+        era: '先秦礼制与帝王冕服 · “玄，黑而有赤青色者”，深邃至高之黑',
+        materials: [
+          { name: '重染蓝靛与茜草', origin: '古法“七入为缁”', desc: '先重染靛蓝至极深，再套茜草红与橡碗铁浆，黑中隐现深邃青赤幽光。' },
+          { name: '橡碗子与绿矾', origin: '单宁铁黑媒染', desc: '橡碗单宁遇亚铁离子化作坚牢极黑络合物。' }
+        ],
+        mordants: [
+          { name: '橡碗单宁与蓝靛', ratio: 70, note: '构建厚重极黑而不发死的深邃层次' },
+          { name: '茜草红汁', ratio: 15, note: '成就“黑而有赤”的微妙光彩' },
+          { name: '绿矾铁水', ratio: 15, note: '与单宁络合显出浓郁玄青黑' }
+        ],
+        steps: [
+          { title: '重蓝打底', desc: '丝绸入蓝靛缸深染五遍，打下深邃冷黑蓝根基。' },
+          { title: '茜草套赤', desc: '套染两遍茜草浓红，赋予帝王礼服“黑而有赤”的玄韵。' },
+          { title: '橡碗煮单宁', desc: '橡碗壳或五倍子熬浓棕黑液，浸染使织物饱吸单宁。' },
+          { title: '绿矾媒黑', desc: '入绿矾铁水瞬时发黑，洗净阴干，光下泛沉静丝绒玄光。' }
+        ],
+        sliderType: 'dye',
+        sliderLabels: ['二染（浅皂灰）', '三染（深灰黑）', '四染（乌黑）', '五染（正玄青）', '六染（浓漆玄）', '七染（极深缁玄）'],
+        quote: '黑而有赤色者为玄。凡染玄色，必先深蓝，次套茜、橡碗，以皂矾沉之。',
+        source: '《说文解字》与《天工开物》'
+      },
+      {
+        id: 'songyan', code: '45', name: '松烟', pinyin: 'sōng yān', en: 'Pine Soot Black', hex: '#3B3936',
+        family: '玄白', craft: '植物草木染',
+        era: '汉魏至清徽墨 · 百年老松烧烟制成的乌润暖黑',
+        materials: [
+          { name: '黄山老松炭烟', origin: '徽州（安徽歙县）', desc: '老松不完全燃烧生成的极细碳黑，黑而无刺眼浮光，沉静温润。' },
+          { name: '鹿角胶与冰片麝香', origin: '粘结与防腐香料', desc: '十万杵捣炼，令烟胶合一、历久弥香。' }
+        ],
+        mordants: [
+          { name: '老松顶烟碳黑', ratio: 72, note: '色泽乌黑醇厚、极适山水苍茫渲染' },
+          { name: '精制动物胶', ratio: 25, note: '赋予墨锭坚硬质地与墨分五色层次' },
+          { name: '冰片麝香', ratio: 3, note: '防腐避虫，令书画历经千年' }
+        ],
+        steps: [
+          { title: '伐松去皮', desc: '择百年老松去尽外皮（防生杂灰），劈成细松明木片。' },
+          { title: '长窑烧烟', desc: '置竹棚纸窑内缓烧，窑尾所扫最轻最细者为“顶烟”。' },
+          { title: '和胶杵捣', desc: '细筛顶烟拌温鹿角胶及香料，铁臼重杵数万次至光润如漆。' },
+          { title: '入模阴干', desc: '压入雕花墨模，埋草木灰中缓缓脱潮阴干成传世松烟墨。' }
+        ],
+        sliderType: 'mineral',
+        sliderLabels: ['焦墨（极浓松烟）', '浓墨（正松烟黑）', '重墨（温润灰黑）', '淡清墨（空灵烟灰）'],
+        quote: '凡烧松烟，伐松削去皮，长窑缓烧，扫取远烟，和胶捣数万杵，色乌而沉静。',
+        source: '《天工开物 · 丹青》'
+      },
+      {
+        id: 'yanmo', code: '46', name: '烟墨', pinyin: 'yān mò', en: 'Ink Mist Gray', hex: '#5D635E',
+        family: '玄白', craft: '植物草木染',
+        era: '宋元水墨山水 · 桐油烟淡墨与宣纸水韵交融的空灵灰',
+        materials: [
+          { name: '桐油烟墨', origin: '徽州油烟墨', desc: '桐油点灯收集的极细油烟，微带清亮紫光，兑水晕开呈绝美烟墨灰。' }
+        ],
+        mordants: [
+          { name: '桐油烟微粒', ratio: 68, note: '颗粒比松烟更细，淡化后清透润泽' },
+          { name: '精胶与清泉', ratio: 32, note: '决定宣纸上的墨晕边界与清雅灰调' }
+        ],
+        steps: [
+          { title: '桐油燃灯', desc: '瓷碗盛纯桐油点灯，上覆瓷碗收集细密乌亮油烟。' },
+          { title: '和胶制锭', desc: '优质阿胶加香料和匀，千杵成油烟墨锭。' },
+          { title: '端砚慢研', desc: '端砚蓄清泉，轻按缓研出浓淡相宜的墨汁。' },
+          { title: '兑水晕灰', desc: '清水冲淡落宣纸，即化作氤氲苍茫的江南烟墨灰。' }
+        ],
+        sliderType: 'mineral',
+        sliderLabels: ['浓烟（深灰黑）', '重烟（正烟墨灰）', '淡烟（远山浅灰）', '清烟（水雾淡灰）'],
+        quote: '墨分五色，焦、浓、重、淡、清。油烟墨清润有光，最宜山水烟岚。',
+        source: '《林泉高致》与《芥子园画传》'
+      },
+      {
+        id: 'yuebai', code: '47', name: '月白', pinyin: 'yuè bái', en: 'Moonlight Pale Blue', hex: '#D4E4E8',
+        family: '玄白', craft: '植物草木染',
+        era: '宋明文人长衫与清代官窑 · 并非纯白，而是如清冷月华般的极浅淡蓝',
+        materials: [
+          { name: '极稀蓝靛尾缸清液', origin: '蓼蓝尾缸', desc: '素白丝绸入极淡蓝缸瞬息一蘸，去黄增清，映出皓月清辉。' }
+        ],
+        mordants: [
+          { name: '练白素丝', ratio: 95, note: '洁净柔和的反光基底' },
+          { name: '微量蓝靛', ratio: 5, note: '恰到好处的微蓝，化素白为秋夜月华' }
+        ],
+        steps: [
+          { title: '练白去黄', desc: '生丝先以草木灰与猪胰皂煮练，漂至洁净无杂黄。' },
+          { title: '取尾缸液', desc: '选用染过多次、色素极淡的蓝靛尾缸清液。' },
+          { title: '瞬息轻蘸', desc: '白绸展开入缸轻拂数秒即起，均匀受氧。' },
+          { title: '清风阴干', desc: '风干后呈清朗微青、似白非白之月白色。' }
+        ],
+        sliderType: 'dye',
+        sliderLabels: ['微蘸（莹雪月白）', '一染（正月白）', '二染（浅水蓝）', '三染（清缥蓝）', '四染（明湖蓝）', '五染（正碧蓝）'],
+        quote: '月白色，并非纯白，乃素帛极浅蘸蓝靛而成，望之如秋夜明月之光。',
+        source: '《天工开物 · 彰施》'
+      },
+      {
+        id: 'gaobai', code: '48', name: '缟白', pinyin: 'gǎo bái', en: 'Unbleached Silk White', hex: '#EDEAE1',
+        family: '玄白', craft: '植物草木染',
+        era: '先秦礼制与文人素衣 · 未经染色的精练生丝本白，温润如暖玉',
+        materials: [
+          { name: '上等桑蚕素丝', origin: '太湖流域 / 蜀地', desc: '《考工记》详载“慌氏冻丝”，经灰水煮练露漂而成温润暖白。' },
+          { name: '楝木灰与蜃灰（蛤壳灰）', origin: '古法精练漂白剂', desc: '温和脱去丝胶杂黄，保留桑蚕丝天然珍珠暖光。' }
+        ],
+        mordants: [
+          { name: '精练桑蚕丝', ratio: 90, note: '天然纤维本色，温和护眼不刺白' },
+          { name: '楝灰与蜃灰', ratio: 10, note: '温和脱胶增白，兼有日晒夜露之功' }
+        ],
+        steps: [
+          { title: '灰水煮练', desc: '生丝浸入楝木灰水慢煮，软化并脱去表面淡黄丝胶。' },
+          { title: '涂蜃水洗', desc: '涂抹细腻蛤壳灰（蜃灰）清浆，反复于流水中揉漂净尽。' },
+          { title: '昼暴夜宿', desc: '依《考工记》法“昼暴诸日，夜宿诸井，七日七夜”，借日露自然漂白。' },
+          { title: '阴干成缟', desc: '晾干后丝质柔滑光洁，泛出温润典雅的缟白色。' }
+        ],
+        sliderType: 'dye',
+        sliderLabels: ['初练（生绢米白）', '三日露漂（暖缟白）', '七日露漂（正缟白）', '精练重漂（素练白）', '微浸米汤（象牙白）', '陈年古绢（沧桑素黄）'],
+        quote: '慌氏冻丝，以涚水沤其丝七日，去地尺暴之。昼暴诸日，夜宿诸井，七日七夜，是谓水冻。',
+        source: '《周礼 · 考工记》'
+      },
+      {
+        id: 'gefen', code: '49', name: '蛤粉', pinyin: 'gé fěn', en: 'Shell White', hex: '#F3F0E9',
+        family: '玄白', craft: '动物与合色',
+        era: '宋元明清工笔画与敦煌壁画 · 永不返黑的温润贝壳白',
+        materials: [
+          { name: '陈年海蛤壳（碳酸钙 CaCO₃）', origin: '沿海老海蛤壳', desc: '天然生物碳酸钙，化学性质极稳，绝不像铅白日久氧化返黑。' },
+          { name: '淡鱼鳔胶 / 牛皮胶', origin: '胶结介质', desc: '勾绘仕女肌肤、白梅与白鹭羽毛，温润如脂。' }
+        ],
+        mordants: [
+          { name: '水飞蛤壳粉', ratio: 90, note: '温暖柔和的象牙白，历千年如雪' },
+          { name: '淡透明胶', ratio: 10, note: '附着绢纸，保持白粉润泽通透' }
+        ],
+        steps: [
+          { title: '选壳风化', desc: '择厚实洁白海蛤壳，去外层黑皮，露天经年日晒雨淋使其酥松。' },
+          { title: '石磨细研', desc: '置石磨加水反复细磨成细腻雪白乳浆。' },
+          { title: '多道水飞', desc: '清水漂洗水飞，滤取最轻细如脂的悬浮纯白粉层。' },
+          { title: '阴干调胶', desc: '晾干成粉块，临画加淡胶细研，温润典雅、千年不变色。' }
+        ],
+        sliderType: 'mineral',
+        sliderLabels: ['厚堆（凝脂蛤白）', '中涂（正蛤粉白）', '轻染（清透云白）', '极淡（微润素白）'],
+        quote: '蛤粉，海蛤壳烧研水飞成粉，入画最耐，不像胡粉（铅白）日久返黑。',
+        source: '《芥子园画传 · 设色各法》'
+      }
+    ];
+
+    /* =========================================================================
+       二、合色实验室数据（基础染材、套染材、古法媒染剂与典籍配方）
+       ========================================================================= */
+    const LAB_BASES = [
+      { id: 'indigo', name: '蓝草 (靛蓝)', hex: '#1E5482', note: '冷调蓝基' },
+      { id: 'gardenia', name: '山栀子', hex: '#E0B227', note: '明快正黄' },
+      { id: 'madder', name: '老茜草', hex: '#B13B3C', note: '温润暖红' },
+      { id: 'safflower', name: '红蓝花', hex: '#D44254', note: '娇艳桃红' },
+      { id: 'sappanwood', name: '苏枋木', hex: '#A42E38', note: '多变艳红' },
+      { id: 'pagoda', name: '国槐米', hex: '#D2B034', note: '耐晒正黄' },
+      { id: 'gromwell', name: '新疆紫草', hex: '#6A3361', note: '古雅正紫' }
+    ];
+
+    const LAB_OVERS = [
+      { id: 'none', name: '不叠加 (单染)', hex: '#E5E2D9', note: '保留单材本色' },
+      ...LAB_BASES
+    ];
+
+    const LAB_MORDANTS = [
+      { id: 'none', name: '无媒染（清水）', tag: '中性 pH 7', desc: '呈现草木色素最质朴的原始色相。' },
+      { id: 'alum', name: '白明矾（铝盐）', tag: '提亮固色', desc: '铝离子与黄酮、蒽醌螯合，令色泽清亮牢固。' },
+      { id: 'plum', name: '乌梅酸汁（酸性）', tag: 'pH 3–4', desc: '中和残碱，激发红花纯正真红与暖亮橘调。' },
+      { id: 'ash', name: '草木灰碱水（碱性）', tag: 'pH 9–10', desc: '促使紫草、苏木向古雅紫绀偏移，助蓝靛还原。' },
+      { id: 'iron', name: '铁浆 / 绿矾（铁盐）', tag: '沉色发乌', desc: '亚铁离子与植物单宁络合，大幅沉降明度成古意深色。' }
+    ];
+
+    const LAB_RECIPES = {
+      'indigo|gardenia|none': { name: '碧绿', hex: '#348358', theory: '蓝靛中的靛蓝素与栀子藏红花素通过减色吸收直接交融，无需金属媒染即可呈现清澈生机的碧绿色。' },
+      'indigo|gardenia|alum': { name: '松花 / 竹青', hex: '#4B885A', theory: '白明矾（硫酸铝钾）固着栀子黄酮并提升明净度，叠加于蓝靛底色之上，化作持久清雅的竹青与翠微绿。' },
+      'indigo|gardenia|iron': { name: '黛绿 / 苍松', hex: '#26463B', theory: '绿矾中的亚铁离子与栀子单宁发生络合反应使黄调沉暗，叠加深蓝底色后转为沉静古朴的黛绿。' },
+      'indigo|pagoda|alum': { name: '官绿 / 竹青', hex: '#4F7E56', theory: '槐米富含芦丁黄酮，经明矾媒染后极其耐晒；套染于蓝靛底布，正是宋明文人与官服推崇的正统竹青、官绿色。' },
+      'indigo|pagoda|iron': { name: '苍松暗绿', hex: '#2F4638', theory: '槐米芦丁遇亚铁离子迅速转为暗橄榄褐，与蓝靛交融后呈现苍劲深沉的松林暗绿。' },
+      'indigo|madder|none': { name: '青莲紫', hex: '#4F3F6B', theory: '靛蓝冷青与茜草暖红套染相合，呈现如青莲花瓣般沉静清冷的古紫。' },
+      'indigo|madder|ash': { name: '古籍绀青', hex: '#222B3F', theory: '重靛打底再套茜草，草木灰碱水令茜素微偏紫调，成就《说文》“帛深青扬赤色”的庄严绀青。' },
+      'indigo|madder|iron': { name: '至高玄青', hex: '#212128', theory: '蓝、红双底叠加铁浆与茜草单宁络合，吸收绝大部分可见光，正合古法“黑而有赤”的帝王玄青。' },
+      'indigo|sappanwood|alum': { name: '紫绀', hex: '#40315C', theory: '明矾促使苏木发艳红，覆盖在蓝靛底色上合成浓烈典雅的紫绀色。' },
+      'indigo|sappanwood|iron': { name: '乌紫 / 漆玄', hex: '#221E2D', theory: '苏木多酚遇铁极易变乌紫黑，叠加蓝靛底色后化为深邃沉静的乌黑玄紫。' },
+      'safflower|none|plum': { name: '真红 / 胭脂红', hex: '#C92D3E', theory: '红花素为酸碱敏感色素，乌梅有机酸彻底中和前期萃取残碱，激发红花最纯净清透的“真红”。' },
+      'safflower|gardenia|plum': { name: '唐代石榴红', hex: '#D92B24', theory: '盛唐“石榴裙”正宗古法：先以栀子染亮黄打底，再重套红花并以乌梅酸定色，红黄交辉如烈焰石榴。' },
+      'safflower|none|ash': { name: '暗藕紫', hex: '#8F5A6C', theory: '红花素在碱性草木灰环境中分子结构重排，鲜红顿消，转为低饱和的温柔暗藕紫色。' },
+      'sappanwood|none|alum': { name: '彤红 / 苏芳', hex: '#B42E30', theory: '巴西苏木素与明矾铝离子螯合，呈现端庄明润、极富光泽的传统彤红色。' },
+      'sappanwood|none|plum': { name: '杏橘红', hex: '#CF5B3A', theory: '酸性环境使巴西苏木素吸收光谱向短波偏移，由正红转为温暖明快的杏橘红色。' },
+      'sappanwood|none|ash': { name: '紫苏 / 绛紫', hex: '#6B2C49', theory: '草木灰碱性令巴西苏木素脱质子化，色相立刻由红转向古雅深沉的紫红色。' },
+      'sappanwood|none|iron': { name: '唐宋绛紫', hex: '#4B2130', theory: '苏木富含多酚类苏木素，遇亚铁离子迅速生成深紫褐色铁络合物，乃唐宋染绛紫之秘法。' },
+      'madder|none|alum': { name: '正茜草红', hex: '#B13B3C', theory: '茜草中的茜素（Alizarin）与明矾铝离子形成著名的“茜素铝红”坚牢络合物，温润古朴。' },
+      'madder|none|iron': { name: '紫檀 / 深栗', hex: '#52262B', theory: '茜素遇铁离子由暖红转为深沉凝重的紫檀褐红色，耐晒度极高。' },
+      'madder|gardenia|alum': { name: '绯红 / 纁色', hex: '#CA482D', theory: '茜草红与栀子黄协同，经明矾固色，焕发如朝霞般温暖端庄的纁红与绯红色。' },
+      'pagoda|none|alum': { name: '皇室明黄', hex: '#E8BC34', theory: '国槐花蕾含丰富芦丁（芸香苷），经白明矾媒染后呈灿烂端正、耐光不褪的宫廷明黄。' },
+      'pagoda|none|iron': { name: '文人秋香', hex: '#80773B', theory: '槐米黄酮与亚铁离子络合，明黄瞬间沉降为清雅含蓄的文人秋香橄榄色。' },
+      'gromwell|none|ash': { name: '御用紫棠', hex: '#541E50', theory: '新疆紫草根的紫草素遇椿木灰（天然碱与铝源）方能绽放最纯正高贵的帝王紫棠。' },
+      'gromwell|none|iron': { name: '沉暗紫绀', hex: '#392039', theory: '铁盐令紫草素深沉泛灰黑，化作庄严静穆的深紫绀。' }
+    };
+
+    /* =========================================================================
+       三、应用状态与色彩计算工具
+       ========================================================================= */
+    const FAMILIES = ['全部', '红赤', '黄缃', '青绿', '蓝靛', '紫绀', '玄白'];
+
+    let state = {
+      theme: 'light',
+      view: 'gallery', // 'gallery' | 'matrix' | 'lab'
+      selectedId: 'zhusha',
+      search: '',
+      family: '全部',
+      craft: '全部',
+      sliderStep: 1,
+      lab: {
+        base: 'indigo',
+        over: 'gardenia',
+        mordant: 'alum'
+      }
+    };
+
+    function hexToRgb(hex) {
+      const clean = hex.replace('#', '');
+      const num = parseInt(clean, 16);
+      return { r: (num >> 16) & 255, g: (num >> 8) & 255, b: num & 255 };
+    }
+
+    function rgbToHex(r, g, b) {
+      const clamp = v => Math.max(0, Math.min(255, Math.round(v)));
+      return '#' + [clamp(r), clamp(g), clamp(b)].map(v => v.toString(16).padStart(2, '0')).join('').toUpperCase();
+    }
+
+    function rgbToCmyk(r, g, b) {
+      if (r === 0 && g === 0 && b === 0) return { c: 0, m: 0, y: 0, k: 100 };
+      const rp = r / 255, gp = g / 255, bp = b / 255;
+      const k = 1 - Math.max(rp, gp, bp);
+      return {
+        c: Math.round(((1 - rp - k) / (1 - k)) * 100),
+        m: Math.round(((1 - gp - k) / (1 - k)) * 100),
+        y: Math.round(((1 - bp - k) / (1 - k)) * 100),
+        k: Math.round(k * 100)
+      };
+    }
+
+    function rgbToHsl(r, g, b) {
+      r /= 255; g /= 255; b /= 255;
+      const max = Math.max(r, g, b), min = Math.min(r, g, b);
+      let h = 0, s = 0, l = (max + min) / 2;
+      if (max !== min) {
+        const d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        switch (max) {
+          case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+          case g: h = (b - r) / d + 2; break;
+          case b: h = (r - g) / d + 4; break;
+        }
+        h /= 6;
+      }
+      return { h: h * 360, s: s * 100, l: l * 100 };
+    }
+
+    function hslToHex(h, s, l) {
+      h = ((h % 360) + 360) % 360;
+      s = Math.max(0, Math.min(100, s)) / 100;
+      l = Math.max(0, Math.min(100, l)) / 100;
+      const c = (1 - Math.abs(2 * l - 1)) * s;
+      const x = c * (1 - Math.abs(((h / 60) % 2) - 1));
+      const m = l - c / 2;
+      let r = 0, g = 0, b = 0;
+      if (h < 60) { r = c; g = x; }
+      else if (h < 120) { r = x; g = c; }
+      else if (h < 180) { g = c; b = x; }
+      else if (h < 240) { g = x; b = c; }
+      else if (h < 300) { r = x; b = c; }
+      else { r = c; b = x; }
+      return rgbToHex((r + m) * 255, (g + m) * 255, (b + m) * 255);
+    }
+
+    function isLightHex(hex) {
+      const { r, g, b } = hexToRgb(hex);
+      return (0.299 * r + 0.587 * g + 0.114 * b) / 255 > 0.64;
+    }
+
+    // 工艺色阶模拟算法
+    function getSimulatedHex(color, step) {
+      const { r, g, b } = hexToRgb(color.hex);
+      const hsl = rgbToHsl(r, g, b);
+      if (color.sliderType === 'dye') {
+        const delta = step - 2; // 0..5, 正色在 2
+        const l = Math.max(10, Math.min(92, hsl.l - delta * 10));
+        const s = Math.max(8, Math.min(92, hsl.s + (delta > 0 ? delta * 2.5 : delta * 5.5)));
+        return hslToHex(hsl.h, s, l);
+      } else if (color.sliderType === 'mineral') {
+        const delta = step - 1; // 0..3, 正色在 1
+        const l = Math.max(12, Math.min(94, hsl.l + delta * 10.5));
+        const s = Math.max(5, Math.min(92, hsl.s - delta * 6.5));
+        const h = color.id === 'zhusha' && step === 3 ? hsl.h + 16 : hsl.h;
+        return hslToHex(h, s, l);
+      } else {
+        const delta = step - 1; // glaze 0..3
+        const l = Math.max(16, Math.min(90, hsl.l - delta * 8));
+        const s = Math.max(8, Math.min(88, hsl.s + delta * 5.5));
+        return hslToHex(hsl.h, s, l);
+      }
+    }
+
+    // 计算色库中最接近的传统色（加权人眼感知 RGB 距离）
+    function findNearestTraditionalColor(targetHex) {
+      const t = hexToRgb(targetHex);
+      let best = COLORS_DB[0];
+      let minDist = Infinity;
+      for (const c of COLORS_DB) {
+        const rgb = hexToRgb(c.hex);
+        const rMean = (t.r + rgb.r) / 2;
+        const dr = t.r - rgb.r;
+        const dg = t.g - rgb.g;
+        const db = t.b - rgb.b;
+        const dist = Math.sqrt((2 + rMean / 256) * dr * dr + 4 * dg * dg + (2 + (255 - rMean) / 256) * db * db);
+        if (dist < minDist) {
+          minDist = dist;
+          best = c;
+        }
+      }
+      return best;
+    }
+
+    // 柔和极简氛围光晕更新（3%–6% 极低透明度）
+    function updateAmbientAura(hex) {
+      const { r, g, b } = hexToRgb(hex);
+      const alpha = state.theme === 'dark' ? 0.06 : 0.045;
+      document.documentElement.style.setProperty('--accent-glow', `rgba(${r}, ${g}, ${b}, ${alpha})`);
+      const brandSwatch = document.getElementById('brand-swatch');
+      if (brandSwatch) brandSwatch.style.backgroundColor = hex;
+    }
+
+    // 兼容 iframe 的复制功能
+    function copyValue(text, label, swatchHex) {
+      try {
+        const el = document.createElement('textarea');
+        el.value = text;
+        el.style.position = 'fixed';
+        el.style.opacity = '0';
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand('copy');
+        document.body.removeChild(el);
+        showToast(`已复制 ${label}：${text}`, swatchHex);
+      } catch (e) {
+        showToast(`请手动复制：${text}`, swatchHex);
+      }
+    }
+
+    let toastTimer = null;
+    function showToast(message, dotColor) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-text').textContent = message;
+      document.getElementById('toast-dot').style.backgroundColor = dotColor || '#34D399';
+      toast.classList.remove('opacity-0', 'translate-y-3');
+      toast.classList.add('opacity-100', 'translate-y-0');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.remove('opacity-100', 'translate-y-0');
+        toast.classList.add('opacity-0', 'translate-y-3');
+      }, 2200);
+    }
+
+    /* =========================================================================
+       四、主题切换与导航控制
+       ========================================================================= */
+    function toggleTheme() {
+      state.theme = state.theme === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', state.theme);
+      renderThemeToggle();
+      const current = COLORS_DB.find(c => c.id === state.selectedId) || COLORS_DB[0];
+      updateAmbientAura(current.hex);
+    }
+
+    function renderThemeToggle() {
+      const iconEl = document.getElementById('theme-icon');
+      const labelEl = document.getElementById('theme-label');
+      if (state.theme === 'light') {
+        iconEl.innerHTML = `<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>`;
+        labelEl.textContent = '暗馆';
+      } else {
+        iconEl.innerHTML = `<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>`;
+        labelEl.textContent = '明馆';
+      }
+    }
+
+    function switchView(viewName) {
+      state.view = viewName;
+      ['gallery', 'matrix', 'lab'].forEach(v => {
+        document.getElementById(`view-${v}`).classList.toggle('hidden', v !== viewName);
+        const btn = document.getElementById(`nav-${v}`);
+        if (v === viewName) {
+          btn.style.backgroundColor = 'var(--bg-surface)';
+          btn.style.color = 'var(--text-primary)';
+          btn.style.boxShadow = '0 1px 3px rgba(0,0,0,0.08)';
+        } else {
+          btn.style.backgroundColor = 'transparent';
+          btn.style.color = 'var(--text-secondary)';
+          btn.style.boxShadow = 'none';
+        }
+      });
+
+      if (viewName === 'gallery') {
+        renderFamilyPills();
+        renderGalleryIndex();
+        renderGalleryDetail();
+      } else if (viewName === 'matrix') {
+        renderFamilyPills();
+        renderMatrixGrid();
+      } else if (viewName === 'lab') {
+        renderLab();
+      }
+    }
+
+    function getFilteredColors() {
+      const q = state.search.trim().toLowerCase();
+      return COLORS_DB.filter(c => {
+        if (state.family !== '全部' && c.family !== state.family) return false;
+        if (state.craft !== '全部' && c.craft !== state.craft) return false;
+        if (!q) return true;
+        const mats = c.materials.map(m => m.name + m.origin).join(' ').toLowerCase();
+        return (
+          c.name.toLowerCase().includes(q) ||
+          c.pinyin.toLowerCase().includes(q) ||
+          c.en.toLowerCase().includes(q) ||
+          c.craft.toLowerCase().includes(q) ||
+          c.family.toLowerCase().includes(q) ||
+          mats.includes(q)
+        );
+      });
+    }
+
+    function syncFilters(source) {
+      const searchEl = document.getElementById(`${source}-search`);
+      const craftEl = document.getElementById(`${source}-craft-select`);
+      state.search = searchEl ? searchEl.value : state.search;
+      state.craft = craftEl ? craftEl.value : state.craft;
+
+      // 同步两处输入框与下拉框状态
+      ['gallery', 'matrix'].forEach(s => {
+        const inp = document.getElementById(`${s}-search`);
+        const sel = document.getElementById(`${s}-craft-select`);
+        if (inp && inp.value !== state.search) inp.value = state.search;
+        if (sel && sel.value !== state.craft) sel.value = state.craft;
+      });
+
+      const clearBtn = document.getElementById('gallery-search-clear');
+      if (clearBtn) clearBtn.classList.toggle('hidden', !state.search);
+
+      if (state.view === 'gallery') renderGalleryIndex();
+      if (state.view === 'matrix') renderMatrixGrid();
+    }
+
+    function clearAllSearch() {
+      state.search = '';
+      ['gallery', 'matrix'].forEach(s => {
+        const inp = document.getElementById(`${s}-search`);
+        if (inp) inp.value = '';
+      });
+      syncFilters(state.view === 'matrix' ? 'matrix' : 'gallery');
+    }
+
+    function selectFamily(f) {
+      state.family = f;
+      renderFamilyPills();
+      if (state.view === 'gallery') renderGalleryIndex();
+      if (state.view === 'matrix') renderMatrixGrid();
+    }
+
+    function renderFamilyPills() {
+      const html = FAMILIES.map(f => {
+        const active = state.family === f;
+        return `
+          <button
+            onclick="selectFamily('${f}')"
+            class="px-2.5 py-1 rounded-full text-xs transition ${
+              active ? 'font-medium' : 'text-muted hover:text-main'
+            }"
+            style="${active
+              ? 'background-color: var(--text-primary); color: var(--bg-surface);'
+              : 'background-color: var(--bg-subtle); border: 1px solid var(--border-hairline);'
+            }"
+          >${f}</button>
+        `;
+      }).join('');
+
+      const gEl = document.getElementById('gallery-family-pills');
+      const mEl = document.getElementById('matrix-family-pills');
+      if (gEl) gEl.innerHTML = html;
+      if (mEl) mEl.innerHTML = html;
+    }
+
+    function selectColor(id, jumpToGallery = false) {
+      const target = COLORS_DB.find(c => c.id === id);
+      if (!target) return;
+      state.selectedId = id;
+      state.sliderStep = target.sliderType === 'dye' ? 2 : 1;
+      updateAmbientAura(target.hex);
+
+      if (jumpToGallery && state.view !== 'gallery') {
+        switchView('gallery');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        renderGalleryIndex();
+        renderGalleryDetail();
+      }
+    }
+
+    function pickRandomColor() {
+      const pool = COLORS_DB.filter(c => c.id !== state.selectedId);
+      const picked = pool[Math.floor(Math.random() * pool.length)];
+      selectColor(picked.id, state.view !== 'gallery');
+      showToast(`已为你拾取「${picked.name}」`, picked.hex);
+    }
+
+    /* =========================================================================
+       五、渲染视图 1：色志 · 鉴赏
+       ========================================================================= */
+    function renderGalleryIndex() {
+      const list = getFilteredColors();
+      const countEl = document.getElementById('gallery-count');
+      if (countEl) countEl.textContent = `${list.length} / ${COLORS_DB.length}`;
+
+      const container = document.getElementById('gallery-index-list');
+      if (!list.length) {
+        container.innerHTML = `<div class="py-10 text-center text-xs text-faint">未找到匹配的传统色彩</div>`;
+        return;
+      }
+
+      container.innerHTML = list.map(c => {
+        const active = c.id === state.selectedId;
+        return `
+          <button
+            onclick="selectColor('${c.id}')"
+            class="w-full flex items-center gap-3 px-2.5 py-2 rounded-xl text-left transition-all"
+            style="${active
+              ? 'background-color: var(--bg-subtle); border: 1px solid var(--border-strong);'
+              : 'border: 1px solid transparent;'
+            }"
+          >
+            <span class="w-7 h-7 rounded-lg shrink-0 shadow-inner" style="background-color: ${c.hex}; border: 1px solid rgba(128,128,128,0.18);"></span>
+            <div class="min-w-0 flex-1">
+              <div class="flex items-baseline justify-between gap-2">
+                <span class="font-serif text-sm font-semibold text-main truncate">${c.name}</span>
+                <span class="text-[11px] font-mono tabular-nums text-faint">${c.hex}</span>
+              </div>
+              <div class="flex items-center justify-between text-[11px] text-faint mt-0.5">
+                <span class="truncate">${c.pinyin}</span>
+                <span class="shrink-0 ml-2">${c.craft}</span>
+              </div>
+            </div>
+          </button>
+        `;
+      }).join('');
+    }
+
+    function setCraftStep(stepVal) {
+      state.sliderStep = parseInt(stepVal, 10);
+      const color = COLORS_DB.find(c => c.id === state.selectedId);
+      if (!color) return;
+
+      const simHex = getSimulatedHex(color, state.sliderStep);
+      const rgb = hexToRgb(simHex);
+
+      const slider = document.getElementById('craft-range-input');
+      if (slider) slider.value = state.sliderStep;
+
+      const swatch = document.getElementById('sim-main-swatch');
+      const label = document.getElementById('sim-stage-label');
+      const hexBtn = document.getElementById('sim-stage-hex');
+      const rgbEl = document.getElementById('sim-stage-rgb');
+
+      if (swatch) swatch.style.backgroundColor = simHex;
+      if (label) label.textContent = color.sliderLabels[state.sliderStep];
+      if (hexBtn) {
+        hexBtn.textContent = simHex;
+        hexBtn.onclick = () => copyValue(simHex, '工艺阶段 HEX', simHex);
+      }
+      if (rgbEl) rgbEl.textContent = `RGB ${rgb.r}, ${rgb.g}, ${rgb.b}`;
+
+      // 高亮当前阶段色阶小块
+      color.sliderLabels.forEach((_, idx) => {
+        const chip = document.getElementById(`sim-chip-${idx}`);
+        if (!chip) return;
+        chip.style.outline = idx === state.sliderStep ? '2px solid var(--text-primary)' : 'none';
+        chip.style.outlineOffset = '2px';
+      });
+    }
+
+    function renderGalleryDetail() {
+      const c = COLORS_DB.find(item => item.id === state.selectedId) || COLORS_DB[0];
+      const rgb = hexToRgb(c.hex);
+      const cmyk = rgbToCmyk(rgb.r, rgb.g, rgb.b);
+      const cssVar = `--color-${c.id}: ${c.hex};`;
+      const lightSwatch = isLightHex(c.hex);
+
+      const simHex = getSimulatedHex(c, state.sliderStep);
+      const simRgb = hexToRgb(simHex);
+      const maxStep = c.sliderLabels.length - 1;
+
+      const sliderHeading = c.sliderType === 'dye'
+        ? '植物复染遍数模拟（1染 — 6染）'
+        : c.sliderType === 'mineral'
+          ? '矿物水飞颗粒分级（头色 — 四色）'
+          : '瓷釉厚薄与窑变还原模拟';
+
+      const canvas = document.getElementById('gallery-detail-canvas');
+      canvas.innerHTML = `
+        <!-- 1. 雕塑感主色展台（美术馆式留白与精确参数） -->
+        <article class="surface-card rounded-2xl overflow-hidden fade-in">
+          <div class="grid grid-cols-1 md:grid-cols-12">
+            <!-- 左侧纯净大色标展台 -->
+            <div class="md:col-span-5 min-h-[240px] md:min-h-[340px] p-6 flex flex-col justify-between relative" style="background-color: ${c.hex}; color: ${lightSwatch ? '#1A1918' : '#F8F7F4'};">
+              <div class="flex items-center justify-between text-[11px] font-mono tracking-widest uppercase opacity-75">
+                <span>NO. ${c.code}</span>
+                <span>${c.family}系</span>
+              </div>
+
+              <div class="space-y-1">
+                <div class="text-xs opacity-75 tracking-wider">${c.craft}</div>
+                <div class="font-mono text-lg font-medium tracking-wider tabular-nums">${c.hex}</div>
+              </div>
+            </div>
+
+            <!-- 右侧现代瑞士网格文字与色值面板 -->
+            <div class="md:col-span-7 p-6 sm:p-8 flex flex-col justify-between gap-6">
+              <div class="space-y-4">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <div class="text-xs font-mono uppercase tracking-[0.14em] text-faint mb-1.5">${c.en}</div>
+                    <div class="flex items-baseline gap-3 flex-wrap">
+                      <h1 class="font-serif text-3xl sm:text-4xl font-semibold tracking-wide text-main">${c.name}</h1>
+                      <span class="text-sm font-serif text-muted tracking-widest">${c.pinyin}</span>
+                    </div>
+                  </div>
+                  <span class="px-2.5 py-1 rounded-full text-[11px] text-muted surface-subtle shrink-0">${c.craft}</span>
+                </div>
+
+                <p class="text-sm text-muted leading-relaxed">
+                  ${c.era}
+                </p>
+              </div>
+
+              <!-- 四个极简一键复制参数格 -->
+              <div class="grid grid-cols-2 gap-2.5 pt-4 hairline-t">
+                <button onclick="copyValue('${c.hex}', 'HEX', '${c.hex}')" class="group p-3 rounded-xl text-left surface-subtle hover:border-current/25 transition">
+                  <div class="flex items-center justify-between text-[10px] font-mono uppercase tracking-wider text-faint">
+                    <span>HEX</span>
+                    <span class="opacity-0 group-hover:opacity-100 transition text-main">复制</span>
+                  </div>
+                  <div class="font-mono text-xs sm:text-sm font-medium text-main tabular-nums mt-1">${c.hex}</div>
+                </button>
+
+                <button onclick="copyValue('rgb(${rgb.r}, ${rgb.g}, ${rgb.b})', 'RGB', '${c.hex}')" class="group p-3 rounded-xl text-left surface-subtle hover:border-current/25 transition">
+                  <div class="flex items-center justify-between text-[10px] font-mono uppercase tracking-wider text-faint">
+                    <span>RGB</span>
+                    <span class="opacity-0 group-hover:opacity-100 transition text-main">复制</span>
+                  </div>
+                  <div class="font-mono text-xs sm:text-sm font-medium text-main tabular-nums mt-1">${rgb.r}, ${rgb.g}, ${rgb.b}</div>
+                </button>
+
+                <button onclick="copyValue('cmyk(${cmyk.c}%, ${cmyk.m}%, ${cmyk.y}%, ${cmyk.k}%)', 'CMYK', '${c.hex}')" class="group p-3 rounded-xl text-left surface-subtle hover:border-current/25 transition">
+                  <div class="flex items-center justify-between text-[10px] font-mono uppercase tracking-wider text-faint">
+                    <span>CMYK</span>
+                    <span class="opacity-0 group-hover:opacity-100 transition text-main">复制</span>
+                  </div>
+                  <div class="font-mono text-xs sm:text-sm font-medium text-main tabular-nums mt-1">${cmyk.c}, ${cmyk.m}, ${cmyk.y}, ${cmyk.k}</div>
+                </button>
+
+                <button onclick="copyValue('${cssVar}', 'CSS 变量', '${c.hex}')" class="group p-3 rounded-xl text-left surface-subtle hover:border-current/25 transition">
+                  <div class="flex items-center justify-between text-[10px] font-mono uppercase tracking-wider text-faint">
+                    <span>CSS VAR</span>
+                    <span class="opacity-0 group-hover:opacity-100 transition text-main">复制</span>
+                  </div>
+                  <div class="font-mono text-xs font-medium text-main truncate mt-1">--color-${c.id}</div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. 互动工艺色阶模拟器 -->
+        <section class="surface-card rounded-2xl p-6 sm:p-8 space-y-5 fade-in">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div>
+              <div class="text-[11px] font-mono uppercase tracking-[0.14em] text-faint">PROCESS GRADATION SIMULATOR</div>
+              <h2 class="font-serif text-lg font-semibold text-main mt-0.5">${sliderHeading}</h2>
+            </div>
+            <span id="sim-stage-label" class="text-xs font-medium px-3 py-1 rounded-full surface-subtle text-main self-start sm:self-auto">
+              ${c.sliderLabels[state.sliderStep]}
+            </span>
+          </div>
+
+          <div class="flex flex-col md:flex-row items-stretch md:items-center gap-6">
+            <!-- 当前阶段实时色块与色值 -->
+            <div class="flex items-center gap-3.5 shrink-0">
+              <div id="sim-main-swatch" class="w-16 h-16 rounded-xl shadow-inner transition-colors duration-200 shrink-0" style="background-color: ${simHex}; border: 1px solid rgba(128,128,128,0.18);"></div>
+              <div class="space-y-1">
+                <button id="sim-stage-hex" onclick="copyValue('${simHex}', '工艺阶段 HEX', '${simHex}')" class="font-mono text-sm font-semibold text-main tabular-nums hover:underline underline-offset-4 block">
+                  ${simHex}
+                </button>
+                <div id="sim-stage-rgb" class="font-mono text-[11px] text-faint tabular-nums">RGB ${simRgb.r}, ${simRgb.g}, ${simRgb.b}</div>
+              </div>
+            </div>
+
+            <!-- 滑块与可点击色阶矩阵条 -->
+            <div class="flex-1 space-y-3">
+              <input
+                id="craft-range-input"
+                type="range"
+                min="0"
+                max="${maxStep}"
+                step="1"
+                value="${state.sliderStep}"
+                oninput="setCraftStep(this.value)"
+                class="gallery-slider w-full"
+                style="background: linear-gradient(to right, ${getSimulatedHex(c, 0)}, ${getSimulatedHex(c, maxStep)});"
+              />
+              <div class="grid gap-2" style="grid-template-columns: repeat(${c.sliderLabels.length}, minmax(0, 1fr));">
+                ${c.sliderLabels.map((lbl, idx) => {
+                  const chipHex = getSimulatedHex(c, idx);
+                  const isActive = idx === state.sliderStep;
+                  return `
+                    <button onclick="setCraftStep(${idx})" class="text-left group space-y-1.5">
+                      <div id="sim-chip-${idx}" class="h-6 rounded-md transition-all" style="background-color: ${chipHex}; border: 1px solid rgba(128,128,128,0.16); ${isActive ? 'outline: 2px solid var(--text-primary); outline-offset: 2px;' : ''}"></div>
+                      <div class="text-[10px] font-mono text-faint truncate">${chipHex}</div>
+                      <div class="text-[10px] text-muted truncate">${lbl.split('（')[0]}</div>
+                    </button>
+                  `;
+                }).join('')}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. 制色工艺全解析（核心原料 + 媒染介质 + 古法四步流程 + 典籍考据） -->
+        <section class="surface-card rounded-2xl p-6 sm:p-8 space-y-8 fade-in">
+          <div class="flex items-baseline justify-between pb-4 hairline-b">
+            <div>
+              <div class="text-[11px] font-mono uppercase tracking-[0.14em] text-faint">HISTORICAL FORMULATION &amp; CRAFT</div>
+              <h2 class="font-serif text-xl font-semibold text-main mt-0.5">「${c.name}」制色工艺全解析</h2>
+            </div>
+            <span class="text-xs font-mono text-faint hidden sm:inline">4 STEPS · AUTHENTIC ARCHIVE</span>
+          </div>
+
+          <!-- 分栏：核心原料与产地 + 媒染与胶结介质 -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- 核心原料与产地 -->
+            <div class="space-y-3">
+              <h3 class="text-xs font-medium tracking-widest uppercase text-faint">核心原料与产地</h3>
+              <div class="space-y-3">
+                ${c.materials.map(m => `
+                  <div class="p-4 rounded-xl surface-subtle space-y-1.5">
+                    <div class="flex items-baseline justify-between gap-2 flex-wrap">
+                      <span class="font-serif text-sm font-semibold text-main">${m.name}</span>
+                      <span class="text-[11px] text-faint">${m.origin}</span>
+                    </div>
+                    <p class="text-xs text-muted leading-relaxed">${m.desc}</p>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+
+            <!-- 媒染与胶结介质 -->
+            <div class="space-y-3">
+              <h3 class="text-xs font-medium tracking-widest uppercase text-faint">媒染与胶结介质配比</h3>
+              <div class="space-y-3">
+                ${c.mordants.map(m => `
+                  <div class="p-3.5 rounded-xl surface-subtle space-y-2">
+                    <div class="flex items-center justify-between text-xs">
+                      <span class="font-medium text-main">${m.name}</span>
+                      <span class="font-mono tabular-nums text-muted">约 ${m.ratio}%</span>
+                    </div>
+                    <div class="w-full h-1 rounded-full overflow-hidden" style="background-color: var(--border-hairline);">
+                      <div class="h-full rounded-full" style="width: ${m.ratio}%; background-color: ${c.hex}; opacity: 0.82;"></div>
+                    </div>
+                    <p class="text-[11px] text-muted">${m.note}</p>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          </div>
+
+          <!-- 古法制色四步流程 -->
+          <div class="space-y-4 pt-2 hairline-t">
+            <h3 class="text-xs font-medium tracking-widest uppercase text-faint pt-2">古法制色四步流程</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              ${c.steps.map((s, idx) => `
+                <div class="p-4 rounded-xl hairline-all flex items-start gap-3.5">
+                  <span class="font-mono text-xs font-semibold tabular-nums text-faint pt-0.5 shrink-0">0${idx + 1}</span>
+                  <div class="space-y-1">
+                    <div class="font-serif text-sm font-semibold text-main">${s.title}</div>
+                    <p class="text-xs text-muted leading-relaxed">${s.desc}</p>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- 历史典籍考据 -->
+          <div class="pt-2">
+            <blockquote class="pl-5 py-2 space-y-2" style="border-left: 2px solid ${c.hex};">
+              <p class="font-serif text-sm sm:text-[15px] text-main leading-loose">“${c.quote}”</p>
+              <footer class="text-xs font-serif text-faint tracking-wider">—— ${c.source}</footer>
+            </blockquote>
+          </div>
+        </section>
+      `;
+    }
+
+    /* =========================================================================
+       六、渲染视图 2：色谱 · 矩阵
+       ========================================================================= */
+    function renderMatrixGrid() {
+      const list = getFilteredColors();
+      const countEl = document.getElementById('matrix-count');
+      if (countEl) countEl.textContent = `共展示 ${list.length} 种传统色`;
+
+      const container = document.getElementById('matrix-grid-container');
+      if (!list.length) {
+        container.innerHTML = `<div class="py-20 text-center text-sm text-faint">未找到匹配的传统色彩，请调整筛选条件。</div>`;
+        return;
+      }
+
+      const groups = ['红赤', '黄缃', '青绿', '蓝靛', '紫绀', '玄白']
+        .map(f => ({ family: f, items: list.filter(c => c.family === f) }))
+        .filter(g => g.items.length > 0);
+
+      container.innerHTML = groups.map(g => `
+        <section class="space-y-4 fade-in">
+          <div class="flex items-baseline justify-between pb-2 hairline-b">
+            <div class="flex items-center gap-2.5">
+              <span class="w-2.5 h-2.5 rounded-full" style="background-color: ${g.items[0].hex};"></span>
+              <h2 class="font-serif text-lg font-semibold text-main tracking-wide">${g.family}系</h2>
+            </div>
+            <span class="text-xs font-mono tabular-nums text-faint">${g.items.length} SPECIMENS</span>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-5">
+            ${g.items.map(c => {
+              const light = isLightHex(c.hex);
+              return `
+                <article class="group surface-card rounded-2xl overflow-hidden flex flex-col hover:-translate-y-1">
+                  <!-- 纯净色块区 -->
+                  <div
+                    onclick="selectColor('${c.id}', true)"
+                    class="h-36 sm:h-40 p-3.5 flex flex-col justify-between cursor-pointer relative"
+                    style="background-color: ${c.hex}; color: ${light ? '#1A1918' : '#F8F7F4'};"
+                  >
+                    <div class="flex items-center justify-between text-[10px] font-mono opacity-70">
+                      <span>${c.code}</span>
+                      <span>${c.craft}</span>
+                    </div>
+                    <div class="text-[11px] font-medium opacity-0 group-hover:opacity-95 transition-opacity">
+                      鉴赏制色工艺 →
+                    </div>
+                  </div>
+
+                  <!-- 卡片信息区 -->
+                  <div class="p-3.5 flex-1 flex flex-col justify-between gap-2.5">
+                    <div class="cursor-pointer" onclick="selectColor('${c.id}', true)">
+                      <div class="flex items-baseline justify-between gap-1">
+                        <h3 class="font-serif text-sm font-semibold text-main">${c.name}</h3>
+                        <span class="text-[11px] text-faint truncate">${c.pinyin}</span>
+                      </div>
+                      <p class="text-[11px] text-muted truncate mt-0.5">${c.materials[0].name}</p>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-2 hairline-t">
+                      <button
+                        onclick="copyValue('${c.hex}', '${c.name} HEX', '${c.hex}')"
+                        class="font-mono text-xs tabular-nums text-muted hover:text-main transition inline-flex items-center gap-1"
+                        title="点击复制 HEX"
+                      >
+                        <span>${c.hex}</span>
+                      </button>
+                      <button onclick="selectColor('${c.id}', true)" class="text-[11px] text-faint hover:text-main transition">详情</button>
+                    </div>
+                  </div>
+                </article>
+              `;
+            }).join('')}
+          </div>
+        </section>
+      `).join('');
+    }
+
+    /* =========================================================================
+       七、渲染视图 3：合色 · 实验室
+       ========================================================================= */
+    function computeLabMix(baseId, overId, mordantId) {
+      const k1 = `${baseId}|${overId}|${mordantId}`;
+      const k2 = overId !== 'none' ? `${overId}|${baseId}|${mordantId}` : '';
+      if (LAB_RECIPES[k1]) return LAB_RECIPES[k1];
+      if (k2 && LAB_RECIPES[k2]) return LAB_RECIPES[k2];
+
+      const baseObj = LAB_BASES.find(d => d.id === baseId);
+      const overObj = LAB_OVERS.find(d => d.id === overId);
+
+      const rgb1 = hexToRgb(baseObj.hex);
+      let r = rgb1.r, g = rgb1.g, b = rgb1.b;
+
+      if (overId !== 'none' && overId !== baseId) {
+        const rgb2 = hexToRgb(overObj.hex);
+        const mr = Math.sqrt((rgb1.r * rgb2.r) / 255) * 14.5;
+        const mg = Math.sqrt((rgb1.g * rgb2.g) / 255) * 14.5;
+        const mb = Math.sqrt((rgb1.b * rgb2.b) / 255) * 14.5;
+        r = mr * 0.65 + ((rgb1.r + rgb2.r) / 2) * 0.35;
+        g = mg * 0.65 + ((rgb1.g + rgb2.g) / 2) * 0.35;
+        b = mb * 0.65 + ((rgb1.b + rgb2.b) / 2) * 0.35;
+      } else if (overId === baseId) {
+        r *= 0.8; g *= 0.8; b *= 0.8;
+      }
+
+      let hsl = rgbToHsl(r, g, b);
+      let notes = [];
+
+      if (overId === 'none') {
+        notes.push(`以「${baseObj.name}」单染打底，展现单一天然草木色素的基础色相。`);
+      } else if (overId === baseId) {
+        notes.push(`以「${baseObj.name}」同材重覆套染，纤维表面色素沉积加倍，明度降低而色韵更显浓醇。`);
+      } else {
+        notes.push(`以「${baseObj.name}」为底，再以「${overObj.name}」套染，两种植物色素通过减色吸收交融生成复合间色。`);
+      }
+
+      if (mordantId === 'alum') {
+        hsl.s = Math.min(90, hsl.s + 9);
+        hsl.l = Math.min(76, hsl.l + 4);
+        notes.push('白明矾（铝盐）与黄酮及多酚色素形成稳定铝螯合物，显著提亮色泽并稳固水洗牢度。');
+      } else if (mordantId === 'plum') {
+        hsl.h = (hsl.h - 10 + 360) % 360;
+        hsl.s = Math.min(92, hsl.s + 7);
+        hsl.l = Math.min(74, hsl.l + 3);
+        notes.push('乌梅酸汁营造弱酸性环境，抑制单宁氧化发暗，令暖红与黄调更显清亮透彻。');
+      } else if (mordantId === 'ash') {
+        hsl.h = (hsl.h + 18) % 360;
+        hsl.l = Math.max(18, hsl.l - 5);
+        notes.push('草木灰碱水提高染液 pH 值，促使酚羟基解离，推动色相向古雅紫青或沉静暖调偏移。');
+      } else if (mordantId === 'iron') {
+        hsl.s = Math.max(10, hsl.s - 24);
+        hsl.l = Math.max(15, hsl.l - 21);
+        notes.push('铁浆/绿矾中的亚铁离子与植物单宁发生显色络合，大幅压低明度与艳度，生出沉郁雅致的古意深色。');
+      } else {
+        notes.push('未加金属媒染剂，完整保留草木温和质朴的天然色韵。');
+      }
+
+      const hex = hslToHex(hsl.h, hsl.s, hsl.l);
+      const nearest = findNearestTraditionalColor(hex);
+      return { name: nearest.name, hex, theory: notes.join('') };
+    }
+
+    function setLabParam(key, val) {
+      state.lab[key] = val;
+      renderLab();
+    }
+
+    function applyLabPreset(base, over, mordant) {
+      state.lab = { base, over, mordant };
+      renderLab();
+      showToast('已载入典籍套染配方');
+    }
+
+    function renderLab() {
+      // 渲染基础染材
+      document.getElementById('lab-base-grid').innerHTML = LAB_BASES.map(d => {
+        const active = state.lab.base === d.id;
+        return `
+          <button onclick="setLabParam('base', '${d.id}')" class="p-3 rounded-xl text-left transition-all" style="${active
+            ? 'background-color: var(--bg-subtle); border: 1.5px solid var(--text-primary);'
+            : 'background-color: var(--bg-surface); border: 1px solid var(--border-hairline);'
+          }">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="w-3.5 h-3.5 rounded-full shrink-0" style="background-color: ${d.hex}; border: 1px solid rgba(128,128,128,0.2);"></span>
+              <span class="font-serif text-xs sm:text-[13px] font-semibold text-main truncate">${d.name}</span>
+            </div>
+            <div class="text-[11px] text-faint truncate">${d.note}</div>
+          </button>
+        `;
+      }).join('');
+
+      // 渲染叠加套染材
+      document.getElementById('lab-over-grid').innerHTML = LAB_OVERS.map(d => {
+        const active = state.lab.over === d.id;
+        return `
+          <button onclick="setLabParam('over', '${d.id}')" class="p-3 rounded-xl text-left transition-all" style="${active
+            ? 'background-color: var(--bg-subtle); border: 1.5px solid var(--text-primary);'
+            : 'background-color: var(--bg-surface); border: 1px solid var(--border-hairline);'
+          }">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="w-3.5 h-3.5 rounded-full shrink-0" style="background-color: ${d.hex}; border: 1px solid rgba(128,128,128,0.2);"></span>
+              <span class="font-serif text-xs sm:text-[13px] font-semibold text-main truncate">${d.name}</span>
+            </div>
+            <div class="text-[11px] text-faint truncate">${d.note}</div>
+          </button>
+        `;
+      }).join('');
+
+      // 渲染媒染剂
+      document.getElementById('lab-mordant-grid').innerHTML = LAB_MORDANTS.map(m => {
+        const active = state.lab.mordant === m.id;
+        return `
+          <button onclick="setLabParam('mordant', '${m.id}')" class="p-3.5 rounded-xl text-left transition-all space-y-1" style="${active
+            ? 'background-color: var(--bg-subtle); border: 1.5px solid var(--text-primary);'
+            : 'background-color: var(--bg-surface); border: 1px solid var(--border-hairline);'
+          }">
+            <div class="font-serif text-xs sm:text-[13px] font-semibold text-main">${m.name}</div>
+            <div class="text-[10px] font-mono text-faint">${m.tag}</div>
+            <p class="text-[11px] text-muted leading-snug pt-0.5">${m.desc}</p>
+          </button>
+        `;
+      }).join('');
+
+      // 渲染右侧美术馆色标成品
+      const mix = computeLabMix(state.lab.base, state.lab.over, state.lab.mordant);
+      const nearest = findNearestTraditionalColor(mix.hex);
+      const rgb = hexToRgb(mix.hex);
+      const cmyk = rgbToCmyk(rgb.r, rgb.g, rgb.b);
+      const light = isLightHex(mix.hex);
+      updateAmbientAura(mix.hex);
+
+      const baseObj = LAB_BASES.find(d => d.id === state.lab.base);
+      const overObj = LAB_OVERS.find(d => d.id === state.lab.over);
+      const mordantObj = LAB_MORDANTS.find(m => m.id === state.lab.mordant);
+
+      document.getElementById('lab-result-panel').innerHTML = `
+        <!-- 纯净美术馆色标展示区 -->
+        <div class="h-64 sm:h-72 p-6 sm:p-7 flex flex-col justify-between transition-colors duration-500" style="background-color: ${mix.hex}; color: ${light ? '#1A1918' : '#F8F7F4'};">
+          <div class="flex items-center justify-between text-[11px] font-mono uppercase tracking-widest opacity-75">
+            <span>LAB SPECIMEN</span>
+            <span>${mix.hex}</span>
+          </div>
+
+          <div class="space-y-2">
+            <div class="text-xs opacity-75">合成色相</div>
+            <div class="font-serif text-3xl sm:text-4xl font-semibold tracking-wide">${mix.name}</div>
+            <div class="flex flex-wrap gap-2 pt-1 font-mono text-[11px]">
+              <button onclick="copyValue('${mix.hex}', '合成色 HEX', '${mix.hex}')" class="px-2.5 py-1 rounded-md backdrop-blur-sm transition" style="background-color: ${light ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.14)'};">
+                HEX ${mix.hex}
+              </button>
+              <button onclick="copyValue('rgb(${rgb.r}, ${rgb.g}, ${rgb.b})', '合成色 RGB', '${mix.hex}')" class="px-2.5 py-1 rounded-md backdrop-blur-sm transition" style="background-color: ${light ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.14)'};">
+                RGB ${rgb.r}, ${rgb.g}, ${rgb.b}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 配方、最近似传统色与显色原理解析 -->
+        <div class="p-6 space-y-5">
+          <!-- 配方流程 -->
+          <div class="space-y-2">
+            <div class="text-[11px] font-mono uppercase tracking-wider text-faint">配方组合</div>
+            <div class="flex flex-wrap items-center gap-1.5 text-xs">
+              <span class="px-2.5 py-1 rounded-lg surface-subtle text-main font-medium">${baseObj.name}</span>
+              ${state.lab.over !== 'none' ? `<span class="text-faint">+</span><span class="px-2.5 py-1 rounded-lg surface-subtle text-main font-medium">${overObj.name}</span>` : ''}
+              <span class="text-faint">→</span>
+              <span class="px-2.5 py-1 rounded-lg surface-subtle text-main">${mordantObj.name}</span>
+            </div>
+          </div>
+
+          <!-- 最接近传统色档案对照 -->
+          <div class="p-3.5 rounded-xl surface-subtle flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3 min-w-0">
+              <span class="w-8 h-8 rounded-lg shrink-0" style="background-color: ${nearest.hex}; border: 1px solid rgba(128,128,128,0.2);"></span>
+              <div class="min-w-0">
+                <div class="text-[10px] font-mono uppercase text-faint">最接近传统色谱</div>
+                <div class="font-serif text-sm font-semibold text-main truncate">${nearest.name} <span class="font-mono text-xs font-normal text-faint ml-1">${nearest.hex}</span></div>
+              </div>
+            </div>
+            <button onclick="selectColor('${nearest.id}', true)" class="px-3 py-1.5 rounded-full text-xs text-muted hover:text-main hairline-all shrink-0 transition">
+              查看工艺 →
+            </button>
+          </div>
+
+          <!-- 显色化学/物理原理解析 -->
+          <div class="space-y-1.5 pt-2 hairline-t">
+            <div class="text-[11px] font-mono uppercase tracking-wider text-faint pt-1">显色原理</div>
+            <p class="text-xs sm:text-[13px] text-muted leading-relaxed">${mix.theory}</p>
+          </div>
+
+          <div class="flex items-center justify-between text-[11px] font-mono text-faint pt-3 hairline-t tabular-nums">
+            <span>CMYK ${cmyk.c}, ${cmyk.m}, ${cmyk.y}, ${cmyk.k}</span>
+            <button onclick="copyValue('--color-custom-dye: ${mix.hex};', 'CSS 变量', '${mix.hex}')" class="text-muted hover:text-main font-sans transition">复制 CSS 变量</button>
+          </div>
+        </div>
+      `;
+    }
+
+    /* =========================================================================
+       八、初始化
+       ========================================================================= */
+    window.addEventListener('DOMContentLoaded', () => {
+      renderThemeToggle();
+      const initial = COLORS_DB.find(c => c.id === state.selectedId) || COLORS_DB[0];
+      updateAmbientAura(initial.hex);
+      switchView('gallery');
+    });
+  </script>
+</body>
+</html>
