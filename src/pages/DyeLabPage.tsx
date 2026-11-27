@@ -226,7 +226,7 @@ export function DyeLabPage() {
         </div>
 
         {/* 右侧：美术馆色标结果展台 */}
-        <div className="lg:col-span-5 lg:sticky lg:top-24">
+        <div className="lg:col-span-5 lg:sticky lg:top-24 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto overscroll-contain thin-scroll rounded-2xl">
           <div className="surface-card rounded-2xl overflow-hidden">
             {/* 纯净美术馆色标展示区 */}
             <div

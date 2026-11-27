@@ -417,8 +417,8 @@ export function ColorDetailPage() {
           </section>
         </div>
 
-        {/* 右侧：竖版高清色卡海报实时预览 + 一键导出 PNG */}
-        <aside className="lg:col-span-4 lg:sticky lg:top-24 space-y-4">
+        {/* 右侧：典藏色卡海报实时预览 + 一键导出 PNG */}
+        <aside className="lg:col-span-4 lg:sticky lg:top-24 lg:max-h-[calc(100vh-7.5rem)] lg:overflow-y-auto overscroll-contain thin-scroll space-y-4 pr-0.5">
           <div className="surface-card rounded-2xl p-5 space-y-4">
             <div className="flex items-center justify-between">
               <div>

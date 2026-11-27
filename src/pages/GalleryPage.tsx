@@ -88,10 +88,17 @@ export function GalleryPage() {
   const provenanceMeta = PROVENANCE_META[currentColor.provenance];
   const cssVar = `--color-${currentColor.id}: ${currentColor.hex};`;
 
+  const handleSelectColor = (id: string) => {
+    setSelectedColorId(id);
+    if (window.scrollY > 120) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   return (
     <main className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
-      {/* 左侧：精致色彩索引栏 */}
-      <aside className="lg:col-span-4 xl:col-span-3 lg:sticky lg:top-24 surface-card rounded-2xl p-4 flex flex-col gap-3">
+      {/* 左侧：视口锁定高度的色彩索引栏，内部独立滚动且阻止滚动穿透 */}
+      <aside className="lg:col-span-4 xl:col-span-3 lg:sticky lg:top-24 lg:h-[calc(100vh-7.5rem)] surface-card rounded-2xl p-4 flex flex-col gap-3 min-h-0">
         {/* 搜索框 */}
         <div className="relative">
           <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-faint pointer-events-none" />
@@ -178,7 +185,7 @@ export function GalleryPage() {
         </div>
 
         {/* 色彩索引列表 */}
-        <div className="space-y-1 max-h-[32vh] lg:max-h-[calc(100vh-310px)] overflow-y-auto thin-scroll pr-1">
+        <div className="space-y-1 max-h-[34vh] lg:max-h-none lg:flex-1 min-h-0 overflow-y-auto overscroll-contain thin-scroll pr-1">
           {filteredColors.length === 0 ? (
             <div className="py-10 text-center text-xs text-faint">未找到匹配的传统色彩</div>
           ) : (
@@ -190,7 +197,7 @@ export function GalleryPage() {
                   <button
                     key={c.id}
                     type="button"
-                    onClick={() => setSelectedColorId(c.id)}
+                    onClick={() => handleSelectColor(c.id)}
                     className="w-full flex items-center gap-3 px-2.5 py-2 rounded-xl text-left transition-all cursor-pointer"
                     style={
                       active
